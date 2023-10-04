@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-10-03 08:05:06</td>
+            <td class="headerValue">2023-10-04 08:04:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -116,12 +116,12 @@
 <a name="45"><span class="lineNum">      45 </span>                :            : /*</a>
 <a name="46"><span class="lineNum">      46 </span>                :            :  * AES-NI support detection routine</a>
 <a name="47"><span class="lineNum">      47 </span>                :            :  */</a>
-<a name="48"><span class="lineNum">      48 </span>                :<span class="lineCov">       8562 : int mbedtls_aesni_has_support( unsigned int what )</span></a>
+<a name="48"><span class="lineNum">      48 </span>                :<span class="lineCov">       8550 : int mbedtls_aesni_has_support( unsigned int what )</span></a>
 <a name="49"><span class="lineNum">      49 </span>                :            : {</a>
 <a name="50"><span class="lineNum">      50 </span>                :            :     static int done = 0;</a>
 <a name="51"><span class="lineNum">      51 </span>                :            :     static unsigned int c = 0;</a>
 <a name="52"><span class="lineNum">      52 </span>                :            : </a>
-<a name="53"><span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 8560 times"> + </span>]:<span class="lineCov">       8562 :     if( ! done )</span></a>
+<a name="53"><span class="lineNum">      53 </span>        [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchCov" title="Branch 1 was taken 8548 times"> + </span>]:<span class="lineCov">       8550 :     if( ! done )</span></a>
 <a name="54"><span class="lineNum">      54 </span>                :            :     {</a>
 <a name="55"><span class="lineNum">      55 </span>                :<span class="lineCov">          2 :         asm( &quot;movl  $1, %%eax   \n\t&quot;</span></a>
 <a name="56"><span class="lineNum">      56 </span>                :            :              &quot;cpuid             \n\t&quot;</a>
@@ -131,7 +131,7 @@
 <a name="60"><span class="lineNum">      60 </span>                :<span class="lineCov">          2 :         done = 1;</span></a>
 <a name="61"><span class="lineNum">      61 </span>                :            :     }</a>
 <a name="62"><span class="lineNum">      62 </span>                :            : </a>
-<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">       8562 :     return( ( c &amp; what ) != 0 );</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">       8550 :     return( ( c &amp; what ) != 0 );</span></a>
 <a name="64"><span class="lineNum">      64 </span>                :            : }</a>
 <a name="65"><span class="lineNum">      65 </span>                :            : </a>
 <a name="66"><span class="lineNum">      66 </span>                :            : /*</a>
@@ -449,10 +449,10 @@
 <a name="378"><span class="lineNum">     378 </span>                :            : /*</a>
 <a name="379"><span class="lineNum">     379 </span>                :            :  * Key expansion, 256-bit case</a>
 <a name="380"><span class="lineNum">     380 </span>                :            :  */</a>
-<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">        772 : static void aesni_setkey_enc_256( unsigned char *rk,</span></a>
+<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">        766 : static void aesni_setkey_enc_256( unsigned char *rk,</span></a>
 <a name="382"><span class="lineNum">     382 </span>                :            :                                   const unsigned char *key )</a>
 <a name="383"><span class="lineNum">     383 </span>                :            : {</a>
-<a name="384"><span class="lineNum">     384 </span>                :<span class="lineCov">        772 :     asm( &quot;movdqu (%1), %%xmm0           \n\t&quot;</span></a>
+<a name="384"><span class="lineNum">     384 </span>                :<span class="lineCov">        766 :     asm( &quot;movdqu (%1), %%xmm0           \n\t&quot;</span></a>
 <a name="385"><span class="lineNum">     385 </span>                :            :          &quot;movdqu %%xmm0, (%0)           \n\t&quot;</a>
 <a name="386"><span class="lineNum">     386 </span>                :            :          &quot;add $16, %0                   \n\t&quot;</a>
 <a name="387"><span class="lineNum">     387 </span>                :            :          &quot;movdqu 16(%1), %%xmm1         \n\t&quot;</a>
@@ -510,24 +510,24 @@
 <a name="439"><span class="lineNum">     439 </span>                :            :          :</a>
 <a name="440"><span class="lineNum">     440 </span>                :            :          : &quot;r&quot; (rk), &quot;r&quot; (key)</a>
 <a name="441"><span class="lineNum">     441 </span>                :            :          : &quot;memory&quot;, &quot;cc&quot;, &quot;0&quot; );</a>
-<a name="442"><span class="lineNum">     442 </span>                :<span class="lineCov">        772 : }</span></a>
+<a name="442"><span class="lineNum">     442 </span>                :<span class="lineCov">        766 : }</span></a>
 <a name="443"><span class="lineNum">     443 </span>                :            : </a>
 <a name="444"><span class="lineNum">     444 </span>                :            : /*</a>
 <a name="445"><span class="lineNum">     445 </span>                :            :  * Key expansion, wrapper</a>
 <a name="446"><span class="lineNum">     446 </span>                :            :  */</a>
-<a name="447"><span class="lineNum">     447 </span>                :<span class="lineCov">        774 : int mbedtls_aesni_setkey_enc( unsigned char *rk,</span></a>
+<a name="447"><span class="lineNum">     447 </span>                :<span class="lineCov">        768 : int mbedtls_aesni_setkey_enc( unsigned char *rk,</span></a>
 <a name="448"><span class="lineNum">     448 </span>                :            :                       const unsigned char *key,</a>
 <a name="449"><span class="lineNum">     449 </span>                :            :                       size_t bits )</a>
 <a name="450"><span class="lineNum">     450 </span>                :            : {</a>
-<a name="451"><span class="lineNum">     451 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 772 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        774 :     switch( bits )</span></a>
+<a name="451"><span class="lineNum">     451 </span>  [<span class="branchCov" title="Branch 0 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 766 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        768 :     switch( bits )</span></a>
 <a name="452"><span class="lineNum">     452 </span>                :            :     {</a>
 <a name="453"><span class="lineNum">     453 </span>                :<span class="lineCov">          2 :         case 128: aesni_setkey_enc_128( rk, key ); break;</span></a>
 <a name="454"><span class="lineNum">     454 </span>                :<span class="lineNoCov">          0 :         case 192: aesni_setkey_enc_192( rk, key ); break;</span></a>
-<a name="455"><span class="lineNum">     455 </span>                :<span class="lineCov">        772 :         case 256: aesni_setkey_enc_256( rk, key ); break;</span></a>
+<a name="455"><span class="lineNum">     455 </span>                :<span class="lineCov">        766 :         case 256: aesni_setkey_enc_256( rk, key ); break;</span></a>
 <a name="456"><span class="lineNum">     456 </span>                :<span class="lineNoCov">          0 :         default : return( MBEDTLS_ERR_AES_INVALID_KEY_LENGTH );</span></a>
 <a name="457"><span class="lineNum">     457 </span>                :            :     }</a>
 <a name="458"><span class="lineNum">     458 </span>                :            : </a>
-<a name="459"><span class="lineNum">     459 </span>                :<span class="lineCov">        774 :     return( 0 );</span></a>
+<a name="459"><span class="lineNum">     459 </span>                :<span class="lineCov">        768 :     return( 0 );</span></a>
 <a name="460"><span class="lineNum">     460 </span>                :            : }</a>
 <a name="461"><span class="lineNum">     461 </span>                :            : </a>
 <a name="462"><span class="lineNum">     462 </span>                :            : #endif /* MBEDTLS_HAVE_X86_64 */</a>
