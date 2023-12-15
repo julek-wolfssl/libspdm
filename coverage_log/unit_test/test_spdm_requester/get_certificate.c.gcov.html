@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-12-14 08:04:03</td>
+            <td class="headerValue">2023-12-15 08:03:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">33</td>
@@ -2127,7 +2127,7 @@
 <a name="2044"><span class="lineNum">    2044 </span>                :            :         static size_t calling_index = 0;</a>
 <a name="2045"><span class="lineNum">    2045 </span>                :            : </a>
 <a name="2046"><span class="lineNum">    2046 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          2 :         if (m_libspdm_local_certificate_chain == NULL) {</span></a>
-<a name="2047"><span class="lineNum">    2047 </span>                :<span class="lineCov">          1 :             libspdm_read_responder_public_certificate_chain_alias_cert_entire(</span></a>
+<a name="2047"><span class="lineNum">    2047 </span>                :<span class="lineCov">          1 :             libspdm_read_responder_public_certificate_chain_alias_cert(</span></a>
 <a name="2048"><span class="lineNum">    2048 </span>                :            :                 m_libspdm_use_hash_algo, m_libspdm_use_asym_algo,</a>
 <a name="2049"><span class="lineNum">    2049 </span>                :            :                 &amp;m_libspdm_local_certificate_chain,</a>
 <a name="2050"><span class="lineNum">    2050 </span>                :            :                 &amp;m_libspdm_local_certificate_chain_size, NULL, NULL);</a>
@@ -4068,7 +4068,7 @@
 <a name="3985"><span class="lineNum">    3985 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_CAP;</a>
 <a name="3986"><span class="lineNum">    3986 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags |=</span></a>
 <a name="3987"><span class="lineNum">    3987 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_ALIAS_CERT_CAP;</a>
-<a name="3988"><span class="lineNum">    3988 </span>                :<span class="lineCov">          1 :     libspdm_read_responder_public_certificate_chain_alias_cert_entire(</span></a>
+<a name="3988"><span class="lineNum">    3988 </span>                :<span class="lineCov">          1 :     libspdm_read_responder_public_certificate_chain_alias_cert(</span></a>
 <a name="3989"><span class="lineNum">    3989 </span>                :            :         m_libspdm_use_hash_algo,</a>
 <a name="3990"><span class="lineNum">    3990 </span>                :            :         m_libspdm_use_asym_algo, &amp;data,</a>
 <a name="3991"><span class="lineNum">    3991 </span>                :            :         &amp;data_size, &amp;hash, &amp;hash_size);</a>
@@ -4132,7 +4132,7 @@
 <a name="4049"><span class="lineNum">    4049 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_CAP;</a>
 <a name="4050"><span class="lineNum">    4050 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags |=</span></a>
 <a name="4051"><span class="lineNum">    4051 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_ALIAS_CERT_CAP;</a>
-<a name="4052"><span class="lineNum">    4052 </span>                :<span class="lineCov">          1 :     libspdm_read_responder_public_certificate_chain_alias_cert_entire(</span></a>
+<a name="4052"><span class="lineNum">    4052 </span>                :<span class="lineCov">          1 :     libspdm_read_responder_public_certificate_chain_alias_cert(</span></a>
 <a name="4053"><span class="lineNum">    4053 </span>                :            :         m_libspdm_use_hash_algo,</a>
 <a name="4054"><span class="lineNum">    4054 </span>                :            :         m_libspdm_use_asym_algo, &amp;data,</a>
 <a name="4055"><span class="lineNum">    4055 </span>                :            :         &amp;data_size, &amp;hash, &amp;hash_size);</a>
