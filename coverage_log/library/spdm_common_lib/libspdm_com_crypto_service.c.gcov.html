@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-12-18 08:04:08</td>
+            <td class="headerValue">2023-12-19 08:04:13</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -573,11 +573,11 @@
 <a name="502"><span class="lineNum">     502 </span>                :            :  * @retval true  certificate chain hash is generated.</a>
 <a name="503"><span class="lineNum">     503 </span>                :            :  * @retval false certificate chain hash is not generated.</a>
 <a name="504"><span class="lineNum">     504 </span>                :            :  **/</a>
-<a name="505"><span class="lineNum">     505 </span>                :<span class="lineCov">         15 : bool libspdm_generate_cert_chain_hash(libspdm_context_t *spdm_context,</span></a>
+<a name="505"><span class="lineNum">     505 </span>                :<span class="lineCov">         19 : bool libspdm_generate_cert_chain_hash(libspdm_context_t *spdm_context,</span></a>
 <a name="506"><span class="lineNum">     506 </span>                :            :                                       size_t slot_id, uint8_t *hash)</a>
 <a name="507"><span class="lineNum">     507 </span>                :            : {</a>
-<a name="508"><span class="lineNum">     508 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         15 :     LIBSPDM_ASSERT(slot_id &lt; SPDM_MAX_SLOT_COUNT);</span></a>
-<a name="509"><span class="lineNum">     509 </span>                :<span class="lineCov">         15 :     return libspdm_hash_all(</span></a>
+<a name="508"><span class="lineNum">     508 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 19 times"> + </span>]:<span class="lineCov">         19 :     LIBSPDM_ASSERT(slot_id &lt; SPDM_MAX_SLOT_COUNT);</span></a>
+<a name="509"><span class="lineNum">     509 </span>                :<span class="lineCov">         19 :     return libspdm_hash_all(</span></a>
 <a name="510"><span class="lineNum">     510 </span>                :            :         spdm_context-&gt;connection_info.algorithm.base_hash_algo,</a>
 <a name="511"><span class="lineNum">     511 </span>                :            :         spdm_context-&gt;local_context.local_cert_chain_provision[slot_id],</a>
 <a name="512"><span class="lineNum">     512 </span>                :            :         spdm_context-&gt;local_context.local_cert_chain_provision_size[slot_id], hash);</a>
@@ -630,19 +630,19 @@
 <a name="559"><span class="lineNum">     559 </span>                :            :  *</a>
 <a name="560"><span class="lineNum">     560 </span>                :            :  * @retval slot_count                get slot count</a>
 <a name="561"><span class="lineNum">     561 </span>                :            :  **/</a>
-<a name="562"><span class="lineNum">     562 </span>                :<span class="lineCov">         10 : uint8_t libspdm_get_cert_slot_count(libspdm_context_t *spdm_context)</span></a>
+<a name="562"><span class="lineNum">     562 </span>                :<span class="lineCov">         14 : uint8_t libspdm_get_cert_slot_count(libspdm_context_t *spdm_context)</span></a>
 <a name="563"><span class="lineNum">     563 </span>                :            : {</a>
 <a name="564"><span class="lineNum">     564 </span>                :            :     size_t index;</a>
 <a name="565"><span class="lineNum">     565 </span>                :            :     uint8_t slot_count;</a>
 <a name="566"><span class="lineNum">     566 </span>                :            : </a>
-<a name="567"><span class="lineNum">     567 </span>                :<span class="lineCov">         10 :     slot_count = 0;</span></a>
-<a name="568"><span class="lineNum">     568 </span>        [<span class="branchCov" title="Branch 0 was taken 80 times"> + </span><span class="branchCov" title="Branch 1 was taken 10 times"> + </span>]:<span class="lineCov">         90 :     for (index = 0; index &lt; SPDM_MAX_SLOT_COUNT; index++) {</span></a>
-<a name="569"><span class="lineNum">     569 </span>        [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 75 times"> + </span>]:<span class="lineCov">         80 :         if (spdm_context-&gt;local_context.local_cert_chain_provision[index] != NULL) {</span></a>
-<a name="570"><span class="lineNum">     570 </span>                :<span class="lineCov">          5 :             slot_count++;</span></a>
+<a name="567"><span class="lineNum">     567 </span>                :<span class="lineCov">         14 :     slot_count = 0;</span></a>
+<a name="568"><span class="lineNum">     568 </span>        [<span class="branchCov" title="Branch 0 was taken 112 times"> + </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">        126 :     for (index = 0; index &lt; SPDM_MAX_SLOT_COUNT; index++) {</span></a>
+<a name="569"><span class="lineNum">     569 </span>        [<span class="branchCov" title="Branch 0 was taken 9 times"> + </span><span class="branchCov" title="Branch 1 was taken 103 times"> + </span>]:<span class="lineCov">        112 :         if (spdm_context-&gt;local_context.local_cert_chain_provision[index] != NULL) {</span></a>
+<a name="570"><span class="lineNum">     570 </span>                :<span class="lineCov">          9 :             slot_count++;</span></a>
 <a name="571"><span class="lineNum">     571 </span>                :            :         }</a>
 <a name="572"><span class="lineNum">     572 </span>                :            :     }</a>
 <a name="573"><span class="lineNum">     573 </span>                :            : </a>
-<a name="574"><span class="lineNum">     574 </span>                :<span class="lineCov">         10 :     return slot_count;</span></a>
+<a name="574"><span class="lineNum">     574 </span>                :<span class="lineCov">         14 :     return slot_count;</span></a>
 <a name="575"><span class="lineNum">     575 </span>                :            : }</a>
 <a name="576"><span class="lineNum">     576 </span>                :            : </a>
 <a name="577"><span class="lineNum">     577 </span>                :            : #if LIBSPDM_CERT_PARSE_SUPPORT</a>
