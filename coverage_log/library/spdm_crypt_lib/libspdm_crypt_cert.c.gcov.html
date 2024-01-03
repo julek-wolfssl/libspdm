@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-01-02 08:03:50</td>
+            <td class="headerValue">2024-01-03 08:03:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -1039,8 +1039,8 @@
 <a name="962"><span class="lineNum">     962 </span>                :            : </a>
 <a name="963"><span class="lineNum">     963 </span>                :            :     /*find the spdm hardware identity OID*/</a>
 <a name="964"><span class="lineNum">     964 </span>                :<span class="lineCov">        660 :     find_sucessful = false;</span></a>
-<a name="965"><span class="lineNum">     965 </span>        [<span class="branchCov" title="Branch 0 was taken 4612 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       4612 :     for(index = 0; index &lt;= len - sizeof(hardware_identity_oid); index++) {</span></a>
-<a name="966"><span class="lineNum">     966 </span>        [<span class="branchCov" title="Branch 0 was taken 660 times"> + </span><span class="branchCov" title="Branch 1 was taken 3952 times"> + </span>]:<span class="lineCov">       4612 :         if (libspdm_consttime_is_mem_equal(spdm_extension + index, hardware_identity_oid,</span></a>
+<a name="965"><span class="lineNum">     965 </span>        [<span class="branchCov" title="Branch 0 was taken 4620 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       4620 :     for(index = 0; index &lt;= len - sizeof(hardware_identity_oid); index++) {</span></a>
+<a name="966"><span class="lineNum">     966 </span>        [<span class="branchCov" title="Branch 0 was taken 660 times"> + </span><span class="branchCov" title="Branch 1 was taken 3960 times"> + </span>]:<span class="lineCov">       4620 :         if (libspdm_consttime_is_mem_equal(spdm_extension + index, hardware_identity_oid,</span></a>
 <a name="967"><span class="lineNum">     967 </span>                :            :                                            sizeof(hardware_identity_oid))) {</a>
 <a name="968"><span class="lineNum">     968 </span>                :<span class="lineCov">        660 :             find_sucessful = true;</span></a>
 <a name="969"><span class="lineNum">     969 </span>                :<span class="lineCov">        660 :             break;</span></a>

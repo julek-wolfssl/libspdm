@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-01-02 08:03:50</td>
+            <td class="headerValue">2024-01-03 08:03:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">15</td>
@@ -576,14 +576,14 @@
 <a name="504"><span class="lineNum">     504 </span>  [<span class="branchCov" title="Branch 0 was taken 22732 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 22732 times"> + </span>]:<span class="lineCov">      22732 :     CHECK_RANGE( 0, 59,   t-&gt;min  );</span></a>
 <a name="505"><span class="lineNum">     505 </span>  [<span class="branchCov" title="Branch 0 was taken 22732 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 22732 times"> + </span>]:<span class="lineCov">      22732 :     CHECK_RANGE( 0, 59,   t-&gt;sec  );</span></a>
 <a name="506"><span class="lineNum">     506 </span>                :            : </a>
-<a name="507"><span class="lineNum">     507 </span>  [<span class="branchCov" title="Branch 0 was taken 3559 times"> + </span><span class="branchCov" title="Branch 1 was taken 19173 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      22732 :     switch( t-&gt;mon )</span></a>
+<a name="507"><span class="lineNum">     507 </span>  [<span class="branchCov" title="Branch 0 was taken 3759 times"> + </span><span class="branchCov" title="Branch 1 was taken 18973 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">      22732 :     switch( t-&gt;mon )</span></a>
 <a name="508"><span class="lineNum">     508 </span>                :            :     {</a>
-<a name="509"><span class="lineNum">     509 </span>                :<span class="lineCov">       3559 :         case 1: case 3: case 5: case 7: case 8: case 10: case 12:</span></a>
-<a name="510"><span class="lineNum">     510 </span>                :<span class="lineCov">       3559 :             month_len = 31;</span></a>
-<a name="511"><span class="lineNum">     511 </span>                :<span class="lineCov">       3559 :             break;</span></a>
-<a name="512"><span class="lineNum">     512 </span>                :<span class="lineCov">      19173 :         case 4: case 6: case 9: case 11:</span></a>
-<a name="513"><span class="lineNum">     513 </span>                :<span class="lineCov">      19173 :             month_len = 30;</span></a>
-<a name="514"><span class="lineNum">     514 </span>                :<span class="lineCov">      19173 :             break;</span></a>
+<a name="509"><span class="lineNum">     509 </span>                :<span class="lineCov">       3759 :         case 1: case 3: case 5: case 7: case 8: case 10: case 12:</span></a>
+<a name="510"><span class="lineNum">     510 </span>                :<span class="lineCov">       3759 :             month_len = 31;</span></a>
+<a name="511"><span class="lineNum">     511 </span>                :<span class="lineCov">       3759 :             break;</span></a>
+<a name="512"><span class="lineNum">     512 </span>                :<span class="lineCov">      18973 :         case 4: case 6: case 9: case 11:</span></a>
+<a name="513"><span class="lineNum">     513 </span>                :<span class="lineCov">      18973 :             month_len = 30;</span></a>
+<a name="514"><span class="lineNum">     514 </span>                :<span class="lineCov">      18973 :             break;</span></a>
 <a name="515"><span class="lineNum">     515 </span>                :<span class="lineNoCov">          0 :         case 2:</span></a>
 <a name="516"><span class="lineNum">     516 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if( ( !( t-&gt;year % 4 ) &amp;&amp; t-&gt;year % 100 ) ||</span></a>
 <a name="517"><span class="lineNum">     517 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :                 !( t-&gt;year % 400 ) )</span></a>
