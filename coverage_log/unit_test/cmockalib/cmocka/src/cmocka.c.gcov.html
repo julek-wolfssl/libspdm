@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-01-09 08:04:02</td>
+            <td class="headerValue">2024-01-10 08:03:49</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">44</td>
@@ -1347,14 +1347,14 @@
 <a name="1276"><span class="lineNum">    1276 </span>                :            : </a>
 <a name="1277"><span class="lineNum">    1277 </span>                :            : /* Returns 1 if the specified values are equal.  If the values are not equal</a>
 <a name="1278"><span class="lineNum">    1278 </span>                :            :  * an error is displayed and 0 is returned. */</a>
-<a name="1279"><span class="lineNum">    1279 </span>                :<span class="lineCov">      24478 : static int values_equal_display_error(const uintmax_t left,</span></a>
+<a name="1279"><span class="lineNum">    1279 </span>                :<span class="lineCov">      24494 : static int values_equal_display_error(const uintmax_t left,</span></a>
 <a name="1280"><span class="lineNum">    1280 </span>                :            :                                       const uintmax_t right) {</a>
-<a name="1281"><span class="lineNum">    1281 </span>                :<span class="lineCov">      24478 :     const int equal = left == right;</span></a>
-<a name="1282"><span class="lineNum">    1282 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 24478 times"> + </span>]:<span class="lineCov">      24478 :     if (!equal) {</span></a>
+<a name="1281"><span class="lineNum">    1281 </span>                :<span class="lineCov">      24494 :     const int equal = left == right;</span></a>
+<a name="1282"><span class="lineNum">    1282 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 24494 times"> + </span>]:<span class="lineCov">      24494 :     if (!equal) {</span></a>
 <a name="1283"><span class="lineNum">    1283 </span>                :<span class="lineNoCov">          0 :         cm_print_error(UintMaxTypePrintfFormat &quot; != &quot;</span></a>
 <a name="1284"><span class="lineNum">    1284 </span>                :            :                        UintMaxTypePrintfFormat &quot;\n&quot;, left, right);</a>
 <a name="1285"><span class="lineNum">    1285 </span>                :            :     }</a>
-<a name="1286"><span class="lineNum">    1286 </span>                :<span class="lineCov">      24478 :     return equal;</span></a>
+<a name="1286"><span class="lineNum">    1286 </span>                :<span class="lineCov">      24494 :     return equal;</span></a>
 <a name="1287"><span class="lineNum">    1287 </span>                :            : }</a>
 <a name="1288"><span class="lineNum">    1288 </span>                :            : </a>
 <a name="1289"><span class="lineNum">    1289 </span>                :            : /*</a>
@@ -1484,14 +1484,14 @@
 <a name="1413"><span class="lineNum">    1413 </span>                :            :  * Determine whether the specified areas of memory are equal.  If they're equal</a>
 <a name="1414"><span class="lineNum">    1414 </span>                :            :  * 1 is returned otherwise an error is displayed and 0 is returned.</a>
 <a name="1415"><span class="lineNum">    1415 </span>                :            :  */</a>
-<a name="1416"><span class="lineNum">    1416 </span>                :<span class="lineCov">        367 : static int memory_equal_display_error(const char* const a, const char* const b,</span></a>
+<a name="1416"><span class="lineNum">    1416 </span>                :<span class="lineCov">        375 : static int memory_equal_display_error(const char* const a, const char* const b,</span></a>
 <a name="1417"><span class="lineNum">    1417 </span>                :            :                                       const size_t size) {</a>
-<a name="1418"><span class="lineNum">    1418 </span>                :<span class="lineCov">        367 :     size_t differences = 0;</span></a>
+<a name="1418"><span class="lineNum">    1418 </span>                :<span class="lineCov">        375 :     size_t differences = 0;</span></a>
 <a name="1419"><span class="lineNum">    1419 </span>                :            :     size_t i;</a>
-<a name="1420"><span class="lineNum">    1420 </span>        [<span class="branchCov" title="Branch 0 was taken 17224 times"> + </span><span class="branchCov" title="Branch 1 was taken 367 times"> + </span>]:<span class="lineCov">      17591 :     for (i = 0; i &lt; size; i++) {</span></a>
-<a name="1421"><span class="lineNum">    1421 </span>                :<span class="lineCov">      17224 :         const char l = a[i];</span></a>
-<a name="1422"><span class="lineNum">    1422 </span>                :<span class="lineCov">      17224 :         const char r = b[i];</span></a>
-<a name="1423"><span class="lineNum">    1423 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 17224 times"> + </span>]:<span class="lineCov">      17224 :         if (l != r) {</span></a>
+<a name="1420"><span class="lineNum">    1420 </span>        [<span class="branchCov" title="Branch 0 was taken 26880 times"> + </span><span class="branchCov" title="Branch 1 was taken 375 times"> + </span>]:<span class="lineCov">      27255 :     for (i = 0; i &lt; size; i++) {</span></a>
+<a name="1421"><span class="lineNum">    1421 </span>                :<span class="lineCov">      26880 :         const char l = a[i];</span></a>
+<a name="1422"><span class="lineNum">    1422 </span>                :<span class="lineCov">      26880 :         const char r = b[i];</span></a>
+<a name="1423"><span class="lineNum">    1423 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 26880 times"> + </span>]:<span class="lineCov">      26880 :         if (l != r) {</span></a>
 <a name="1424"><span class="lineNum">    1424 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if (differences &lt; 16) {</span></a>
 <a name="1425"><span class="lineNum">    1425 </span>                :<span class="lineNoCov">          0 :                 cm_print_error(&quot;difference at offset %&quot; PRIdS &quot; 0x%02x 0x%02x\n&quot;,</span></a>
 <a name="1426"><span class="lineNum">    1426 </span>                :            :                                i, l, r);</a>
@@ -1499,7 +1499,7 @@
 <a name="1428"><span class="lineNum">    1428 </span>                :<span class="lineNoCov">          0 :             differences ++;</span></a>
 <a name="1429"><span class="lineNum">    1429 </span>                :            :         }</a>
 <a name="1430"><span class="lineNum">    1430 </span>                :            :     }</a>
-<a name="1431"><span class="lineNum">    1431 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 367 times"> + </span>]:<span class="lineCov">        367 :     if (differences &gt; 0) {</span></a>
+<a name="1431"><span class="lineNum">    1431 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 375 times"> + </span>]:<span class="lineCov">        375 :     if (differences &gt; 0) {</span></a>
 <a name="1432"><span class="lineNum">    1432 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (differences &gt;= 16) {</span></a>
 <a name="1433"><span class="lineNum">    1433 </span>                :<span class="lineNoCov">          0 :             cm_print_error(&quot;...\n&quot;);</span></a>
 <a name="1434"><span class="lineNum">    1434 </span>                :            :         }</a>
@@ -1507,7 +1507,7 @@
 <a name="1436"><span class="lineNum">    1436 </span>                :            :                        differences, (void *)a, (void *)b);</a>
 <a name="1437"><span class="lineNum">    1437 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
 <a name="1438"><span class="lineNum">    1438 </span>                :            :     }</a>
-<a name="1439"><span class="lineNum">    1439 </span>                :<span class="lineCov">        367 :     return 1;</span></a>
+<a name="1439"><span class="lineNum">    1439 </span>                :<span class="lineCov">        375 :     return 1;</span></a>
 <a name="1440"><span class="lineNum">    1440 </span>                :            : }</a>
 <a name="1441"><span class="lineNum">    1441 </span>                :            : </a>
 <a name="1442"><span class="lineNum">    1442 </span>                :            : </a>
@@ -1520,11 +1520,11 @@
 <a name="1449"><span class="lineNum">    1449 </span>                :            :         const char* const a, const char* const b, const size_t size) {</a>
 <a name="1450"><span class="lineNum">    1450 </span>                :<span class="lineCov">          6 :     size_t same = 0;</span></a>
 <a name="1451"><span class="lineNum">    1451 </span>                :            :     size_t i;</a>
-<a name="1452"><span class="lineNum">    1452 </span>        [<span class="branchCov" title="Branch 0 was taken 2924 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       2930 :     for (i = 0; i &lt; size; i++) {</span></a>
-<a name="1453"><span class="lineNum">    1453 </span>                :<span class="lineCov">       2924 :         const char l = a[i];</span></a>
-<a name="1454"><span class="lineNum">    1454 </span>                :<span class="lineCov">       2924 :         const char r = b[i];</span></a>
-<a name="1455"><span class="lineNum">    1455 </span>        [<span class="branchCov" title="Branch 0 was taken 32 times"> + </span><span class="branchCov" title="Branch 1 was taken 2892 times"> + </span>]:<span class="lineCov">       2924 :         if (l == r) {</span></a>
-<a name="1456"><span class="lineNum">    1456 </span>                :<span class="lineCov">         32 :             same ++;</span></a>
+<a name="1452"><span class="lineNum">    1452 </span>        [<span class="branchCov" title="Branch 0 was taken 2925 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">       2931 :     for (i = 0; i &lt; size; i++) {</span></a>
+<a name="1453"><span class="lineNum">    1453 </span>                :<span class="lineCov">       2925 :         const char l = a[i];</span></a>
+<a name="1454"><span class="lineNum">    1454 </span>                :<span class="lineCov">       2925 :         const char r = b[i];</span></a>
+<a name="1455"><span class="lineNum">    1455 </span>        [<span class="branchCov" title="Branch 0 was taken 34 times"> + </span><span class="branchCov" title="Branch 1 was taken 2891 times"> + </span>]:<span class="lineCov">       2925 :         if (l == r) {</span></a>
+<a name="1456"><span class="lineNum">    1456 </span>                :<span class="lineCov">         34 :             same ++;</span></a>
 <a name="1457"><span class="lineNum">    1457 </span>                :            :         }</a>
 <a name="1458"><span class="lineNum">    1458 </span>                :            :     }</a>
 <a name="1459"><span class="lineNum">    1459 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :     if (same == size) {</span></a>
@@ -1954,13 +1954,13 @@
 <a name="1883"><span class="lineNum">    1883 </span>                :            :     }</a>
 <a name="1884"><span class="lineNum">    1884 </span>                :<span class="lineNoCov">          0 : }</span></a>
 <a name="1885"><span class="lineNum">    1885 </span>                :            : </a>
-<a name="1886"><span class="lineNum">    1886 </span>                :<span class="lineCov">      24478 : void _assert_int_equal(</span></a>
+<a name="1886"><span class="lineNum">    1886 </span>                :<span class="lineCov">      24494 : void _assert_int_equal(</span></a>
 <a name="1887"><span class="lineNum">    1887 </span>                :            :         const uintmax_t a, const uintmax_t b,</a>
 <a name="1888"><span class="lineNum">    1888 </span>                :            :         const char * const file, const int line) {</a>
-<a name="1889"><span class="lineNum">    1889 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 24478 times"> + </span>]:<span class="lineCov">      24478 :     if (!values_equal_display_error(a, b)) {</span></a>
+<a name="1889"><span class="lineNum">    1889 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 24494 times"> + </span>]:<span class="lineCov">      24494 :     if (!values_equal_display_error(a, b)) {</span></a>
 <a name="1890"><span class="lineNum">    1890 </span>                :<span class="lineNoCov">          0 :         _fail(file, line);</span></a>
 <a name="1891"><span class="lineNum">    1891 </span>                :            :     }</a>
-<a name="1892"><span class="lineNum">    1892 </span>                :<span class="lineCov">      24478 : }</span></a>
+<a name="1892"><span class="lineNum">    1892 </span>                :<span class="lineCov">      24494 : }</span></a>
 <a name="1893"><span class="lineNum">    1893 </span>                :            : </a>
 <a name="1894"><span class="lineNum">    1894 </span>                :            : </a>
 <a name="1895"><span class="lineNum">    1895 </span>                :<span class="lineCov">         67 : void _assert_int_not_equal(</span></a>
@@ -1988,13 +1988,13 @@
 <a name="1917"><span class="lineNum">    1917 </span>                :<span class="lineNoCov">          0 : }</span></a>
 <a name="1918"><span class="lineNum">    1918 </span>                :            : </a>
 <a name="1919"><span class="lineNum">    1919 </span>                :            : </a>
-<a name="1920"><span class="lineNum">    1920 </span>                :<span class="lineCov">        367 : void _assert_memory_equal(const void * const a, const void * const b,</span></a>
+<a name="1920"><span class="lineNum">    1920 </span>                :<span class="lineCov">        375 : void _assert_memory_equal(const void * const a, const void * const b,</span></a>
 <a name="1921"><span class="lineNum">    1921 </span>                :            :                           const size_t size, const char* const file,</a>
 <a name="1922"><span class="lineNum">    1922 </span>                :            :                           const int line) {</a>
-<a name="1923"><span class="lineNum">    1923 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 367 times"> + </span>]:<span class="lineCov">        367 :     if (!memory_equal_display_error((const char*)a, (const char*)b, size)) {</span></a>
+<a name="1923"><span class="lineNum">    1923 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 375 times"> + </span>]:<span class="lineCov">        375 :     if (!memory_equal_display_error((const char*)a, (const char*)b, size)) {</span></a>
 <a name="1924"><span class="lineNum">    1924 </span>                :<span class="lineNoCov">          0 :         _fail(file, line);</span></a>
 <a name="1925"><span class="lineNum">    1925 </span>                :            :     }</a>
-<a name="1926"><span class="lineNum">    1926 </span>                :<span class="lineCov">        367 : }</span></a>
+<a name="1926"><span class="lineNum">    1926 </span>                :<span class="lineCov">        375 : }</span></a>
 <a name="1927"><span class="lineNum">    1927 </span>                :            : </a>
 <a name="1928"><span class="lineNum">    1928 </span>                :            : </a>
 <a name="1929"><span class="lineNum">    1929 </span>                :<span class="lineCov">          6 : void _assert_memory_not_equal(const void * const a, const void * const b,</span></a>
