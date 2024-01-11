@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-01-10 08:03:49</td>
+            <td class="headerValue">2024-01-11 08:04:38</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">24</td>
@@ -310,13 +310,13 @@
 <a name="238"><span class="lineNum">     238 </span>                :            :  * @retval      true   Get tag successful</a>
 <a name="239"><span class="lineNum">     239 </span>                :            :  * @retval      FALSe  Failed to get tag or tag not match</a>
 <a name="240"><span class="lineNum">     240 </span>                :            :  **/</a>
-<a name="241"><span class="lineNum">     241 </span>                :<span class="lineCov">      13297 : bool libspdm_asn1_get_tag(uint8_t **ptr, const uint8_t *end, size_t *length,</span></a>
+<a name="241"><span class="lineNum">     241 </span>                :<span class="lineCov">      13409 : bool libspdm_asn1_get_tag(uint8_t **ptr, const uint8_t *end, size_t *length,</span></a>
 <a name="242"><span class="lineNum">     242 </span>                :            :                           uint32_t tag)</a>
 <a name="243"><span class="lineNum">     243 </span>                :            : {</a>
-<a name="244"><span class="lineNum">     244 </span>        [<span class="branchCov" title="Branch 0 was taken 13285 times"> + </span><span class="branchCov" title="Branch 1 was taken 12 times"> + </span>]:<span class="lineCov">      13297 :     if (mbedtls_asn1_get_tag(ptr, end, length, (int32_t)tag) == 0) {</span></a>
-<a name="245"><span class="lineNum">     245 </span>                :<span class="lineCov">      13285 :         return true;</span></a>
+<a name="244"><span class="lineNum">     244 </span>        [<span class="branchCov" title="Branch 0 was taken 13381 times"> + </span><span class="branchCov" title="Branch 1 was taken 28 times"> + </span>]:<span class="lineCov">      13409 :     if (mbedtls_asn1_get_tag(ptr, end, length, (int32_t)tag) == 0) {</span></a>
+<a name="245"><span class="lineNum">     245 </span>                :<span class="lineCov">      13381 :         return true;</span></a>
 <a name="246"><span class="lineNum">     246 </span>                :            :     } else {</a>
-<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">         12 :         return false;</span></a>
+<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">         28 :         return false;</span></a>
 <a name="248"><span class="lineNum">     248 </span>                :            :     }</a>
 <a name="249"><span class="lineNum">     249 </span>                :            : }</a>
 <a name="250"><span class="lineNum">     250 </span>                :            : </a>
