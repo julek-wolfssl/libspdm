@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-06-02 08:03:53</td>
+            <td class="headerValue">2024-06-03 08:04:13</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">53</td>
@@ -1084,13 +1084,13 @@
 <a name="1013"><span class="lineNum">    1013 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5926748 times"> + </span>]:<span class="lineCov">    5926748 :     MBEDTLS_MPI_CHK(grp-&gt;modp(N));</span></a>
 <a name="1014"><span class="lineNum">    1014 </span>                :            : </a>
 <a name="1015"><span class="lineNum">    1015 </span>                :            :     /* N-&gt;s &lt; 0 is a much faster test, which fails only if N is 0 */</a>
-<a name="1016"><span class="lineNum">    1016 </span>  [<span class="branchCov" title="Branch 0 was taken 4792866 times"> + </span><span class="branchCov" title="Branch 1 was taken 5926748 times"> + </span><span class="branchCov" title="Branch 2 was taken 4792866 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">   10719614 :     while (N-&gt;s &lt; 0 &amp;&amp; mbedtls_mpi_cmp_int(N, 0) != 0) {</span></a>
-<a name="1017"><span class="lineNum">    1017 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 4792866 times"> + </span>]:<span class="lineCov">    4792866 :         MBEDTLS_MPI_CHK(mbedtls_mpi_add_mpi(N, N, &amp;grp-&gt;P));</span></a>
+<a name="1016"><span class="lineNum">    1016 </span>  [<span class="branchCov" title="Branch 0 was taken 4793205 times"> + </span><span class="branchCov" title="Branch 1 was taken 5926748 times"> + </span><span class="branchCov" title="Branch 2 was taken 4793205 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">   10719953 :     while (N-&gt;s &lt; 0 &amp;&amp; mbedtls_mpi_cmp_int(N, 0) != 0) {</span></a>
+<a name="1017"><span class="lineNum">    1017 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 4793205 times"> + </span>]:<span class="lineCov">    4793205 :         MBEDTLS_MPI_CHK(mbedtls_mpi_add_mpi(N, N, &amp;grp-&gt;P));</span></a>
 <a name="1018"><span class="lineNum">    1018 </span>                :            :     }</a>
 <a name="1019"><span class="lineNum">    1019 </span>                :            : </a>
-<a name="1020"><span class="lineNum">    1020 </span>        [<span class="branchCov" title="Branch 0 was taken 1075050 times"> + </span><span class="branchCov" title="Branch 1 was taken 5926748 times"> + </span>]:<span class="lineCov">    7001798 :     while (mbedtls_mpi_cmp_mpi(N, &amp;grp-&gt;P) &gt;= 0) {</span></a>
+<a name="1020"><span class="lineNum">    1020 </span>        [<span class="branchCov" title="Branch 0 was taken 1075115 times"> + </span><span class="branchCov" title="Branch 1 was taken 5926748 times"> + </span>]:<span class="lineCov">    7001863 :     while (mbedtls_mpi_cmp_mpi(N, &amp;grp-&gt;P) &gt;= 0) {</span></a>
 <a name="1021"><span class="lineNum">    1021 </span>                :            :         /* we known P, N and the result are positive */</a>
-<a name="1022"><span class="lineNum">    1022 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1075050 times"> + </span>]:<span class="lineCov">    1075050 :         MBEDTLS_MPI_CHK(mbedtls_mpi_sub_abs(N, N, &amp;grp-&gt;P));</span></a>
+<a name="1022"><span class="lineNum">    1022 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1075115 times"> + </span>]:<span class="lineCov">    1075115 :         MBEDTLS_MPI_CHK(mbedtls_mpi_sub_abs(N, N, &amp;grp-&gt;P));</span></a>
 <a name="1023"><span class="lineNum">    1023 </span>                :            :     }</a>
 <a name="1024"><span class="lineNum">    1024 </span>                :            : </a>
 <a name="1025"><span class="lineNum">    1025 </span>                :<span class="lineCov">    5926748 : cleanup:</span></a>
@@ -1153,8 +1153,8 @@
 <a name="1082"><span class="lineNum">    1082 </span>                :            : {</a>
 <a name="1083"><span class="lineNum">    1083 </span>                :<span class="lineCov">    3438928 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
 <a name="1084"><span class="lineNum">    1084 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3438928 times"> + </span>]:<span class="lineCov">    3438928 :     MBEDTLS_MPI_CHK(mbedtls_mpi_sub_mpi(X, A, B));</span></a>
-<a name="1085"><span class="lineNum">    1085 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1728724 times"> + </span><span class="branchCov" title="Branch 2 was taken 3438928 times"> + </span><span class="branchCov" title="Branch 3 was taken 1728724 times"> + </span> :<span class="lineCov">    5167652 :     MOD_SUB(X);</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 1728724 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
+<a name="1085"><span class="lineNum">    1085 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1728914 times"> + </span><span class="branchCov" title="Branch 2 was taken 3438928 times"> + </span><span class="branchCov" title="Branch 3 was taken 1728914 times"> + </span> :<span class="lineCov">    5167842 :     MOD_SUB(X);</span></a>
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 1728914 times"> + </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span>]
 <a name="1086"><span class="lineNum">    1086 </span>                :<span class="lineCov">    3438928 : cleanup:</span></a>
 <a name="1087"><span class="lineNum">    1087 </span>                :<span class="lineCov">    3438928 :     return ret;</span></a>
 <a name="1088"><span class="lineNum">    1088 </span>                :            : }</a>
@@ -1175,7 +1175,7 @@
 <a name="1103"><span class="lineNum">    1103 </span>                :            : {</a>
 <a name="1104"><span class="lineNum">    1104 </span>                :<span class="lineCov">     472516 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
 <a name="1105"><span class="lineNum">    1105 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 472516 times"> + </span>]:<span class="lineCov">     472516 :     MBEDTLS_MPI_CHK(mbedtls_mpi_add_mpi(X, A, B));</span></a>
-<a name="1106"><span class="lineNum">    1106 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 227643 times"> + </span><span class="branchCov" title="Branch 2 was taken 227643 times"> + </span><span class="branchCov" title="Branch 3 was taken 472516 times"> + </span>]:<span class="lineCov">     700159 :     MOD_ADD(X);</span></a>
+<a name="1106"><span class="lineNum">    1106 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 227556 times"> + </span><span class="branchCov" title="Branch 2 was taken 227556 times"> + </span><span class="branchCov" title="Branch 3 was taken 472516 times"> + </span>]:<span class="lineCov">     700072 :     MOD_ADD(X);</span></a>
 <a name="1107"><span class="lineNum">    1107 </span>                :<span class="lineCov">     472516 : cleanup:</span></a>
 <a name="1108"><span class="lineNum">    1108 </span>                :<span class="lineCov">     472516 :     return ret;</span></a>
 <a name="1109"><span class="lineNum">    1109 </span>                :            : }</a>
@@ -1189,7 +1189,7 @@
 <a name="1117"><span class="lineNum">    1117 </span>                :<span class="lineCov">     458396 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
 <a name="1118"><span class="lineNum">    1118 </span>                :            : </a>
 <a name="1119"><span class="lineNum">    1119 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 458396 times"> + </span>]:<span class="lineCov">     458396 :     MBEDTLS_MPI_CHK(mbedtls_mpi_mul_int(X, A, c));</span></a>
-<a name="1120"><span class="lineNum">    1120 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 449710 times"> + </span><span class="branchCov" title="Branch 2 was taken 449710 times"> + </span><span class="branchCov" title="Branch 3 was taken 458396 times"> + </span>]:<span class="lineCov">     908106 :     MOD_ADD(X);</span></a>
+<a name="1120"><span class="lineNum">    1120 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 449776 times"> + </span><span class="branchCov" title="Branch 2 was taken 449776 times"> + </span><span class="branchCov" title="Branch 3 was taken 458396 times"> + </span>]:<span class="lineCov">     908172 :     MOD_ADD(X);</span></a>
 <a name="1121"><span class="lineNum">    1121 </span>                :<span class="lineCov">     458396 : cleanup:</span></a>
 <a name="1122"><span class="lineNum">    1122 </span>                :<span class="lineCov">     458396 :     return ret;</span></a>
 <a name="1123"><span class="lineNum">    1123 </span>                :            : }</a>
@@ -1219,7 +1219,7 @@
 <a name="1146"><span class="lineNum">    1146 </span>                :            : {</a>
 <a name="1147"><span class="lineNum">    1147 </span>                :<span class="lineCov">    2024742 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
 <a name="1148"><span class="lineNum">    1148 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2024742 times"> + </span>]:<span class="lineCov">    2024742 :     MBEDTLS_MPI_CHK(mbedtls_mpi_shift_l(X, count));</span></a>
-<a name="1149"><span class="lineNum">    1149 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 992424 times"> + </span><span class="branchCov" title="Branch 2 was taken 992424 times"> + </span><span class="branchCov" title="Branch 3 was taken 2024742 times"> + </span>]:<span class="lineCov">    3017166 :     MOD_ADD(X);</span></a>
+<a name="1149"><span class="lineNum">    1149 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 992630 times"> + </span><span class="branchCov" title="Branch 2 was taken 992630 times"> + </span><span class="branchCov" title="Branch 3 was taken 2024742 times"> + </span>]:<span class="lineCov">    3017372 :     MOD_ADD(X);</span></a>
 <a name="1150"><span class="lineNum">    1150 </span>                :<span class="lineCov">    2024742 : cleanup:</span></a>
 <a name="1151"><span class="lineNum">    1151 </span>                :<span class="lineCov">    2024742 :     return ret;</span></a>
 <a name="1152"><span class="lineNum">    1152 </span>                :            : }</a>
