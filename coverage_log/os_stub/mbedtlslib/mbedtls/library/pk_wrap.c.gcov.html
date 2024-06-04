@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-06-03 08:04:13</td>
+            <td class="headerValue">2024-06-04 08:04:22</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -1149,22 +1149,22 @@
 <a name="1078"><span class="lineNum">    1078 </span>                :            : #endif /* MBEDTLS_USE_PSA_CRYPTO */</a>
 <a name="1079"><span class="lineNum">    1079 </span>                :            : </a>
 <a name="1080"><span class="lineNum">    1080 </span>                :            : #if !defined(MBEDTLS_PK_USE_PSA_EC_DATA)</a>
-<a name="1081"><span class="lineNum">    1081 </span>                :<span class="lineCov">      11007 : static void *eckey_alloc_wrap(void)</span></a>
+<a name="1081"><span class="lineNum">    1081 </span>                :<span class="lineCov">      11017 : static void *eckey_alloc_wrap(void)</span></a>
 <a name="1082"><span class="lineNum">    1082 </span>                :            : {</a>
-<a name="1083"><span class="lineNum">    1083 </span>                :<span class="lineCov">      11007 :     void *ctx = mbedtls_calloc(1, sizeof(mbedtls_ecp_keypair));</span></a>
+<a name="1083"><span class="lineNum">    1083 </span>                :<span class="lineCov">      11017 :     void *ctx = mbedtls_calloc(1, sizeof(mbedtls_ecp_keypair));</span></a>
 <a name="1084"><span class="lineNum">    1084 </span>                :            : </a>
-<a name="1085"><span class="lineNum">    1085 </span>        [<span class="branchCov" title="Branch 0 was taken 11007 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      11007 :     if (ctx != NULL) {</span></a>
-<a name="1086"><span class="lineNum">    1086 </span>                :<span class="lineCov">      11007 :         mbedtls_ecp_keypair_init(ctx);</span></a>
+<a name="1085"><span class="lineNum">    1085 </span>        [<span class="branchCov" title="Branch 0 was taken 11017 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">      11017 :     if (ctx != NULL) {</span></a>
+<a name="1086"><span class="lineNum">    1086 </span>                :<span class="lineCov">      11017 :         mbedtls_ecp_keypair_init(ctx);</span></a>
 <a name="1087"><span class="lineNum">    1087 </span>                :            :     }</a>
 <a name="1088"><span class="lineNum">    1088 </span>                :            : </a>
-<a name="1089"><span class="lineNum">    1089 </span>                :<span class="lineCov">      11007 :     return ctx;</span></a>
+<a name="1089"><span class="lineNum">    1089 </span>                :<span class="lineCov">      11017 :     return ctx;</span></a>
 <a name="1090"><span class="lineNum">    1090 </span>                :            : }</a>
 <a name="1091"><span class="lineNum">    1091 </span>                :            : </a>
-<a name="1092"><span class="lineNum">    1092 </span>                :<span class="lineCov">      11001 : static void eckey_free_wrap(void *ctx)</span></a>
+<a name="1092"><span class="lineNum">    1092 </span>                :<span class="lineCov">      11011 : static void eckey_free_wrap(void *ctx)</span></a>
 <a name="1093"><span class="lineNum">    1093 </span>                :            : {</a>
-<a name="1094"><span class="lineNum">    1094 </span>                :<span class="lineCov">      11001 :     mbedtls_ecp_keypair_free((mbedtls_ecp_keypair *) ctx);</span></a>
-<a name="1095"><span class="lineNum">    1095 </span>                :<span class="lineCov">      11001 :     mbedtls_free(ctx);</span></a>
-<a name="1096"><span class="lineNum">    1096 </span>                :<span class="lineCov">      11001 : }</span></a>
+<a name="1094"><span class="lineNum">    1094 </span>                :<span class="lineCov">      11011 :     mbedtls_ecp_keypair_free((mbedtls_ecp_keypair *) ctx);</span></a>
+<a name="1095"><span class="lineNum">    1095 </span>                :<span class="lineCov">      11011 :     mbedtls_free(ctx);</span></a>
+<a name="1096"><span class="lineNum">    1096 </span>                :<span class="lineCov">      11011 : }</span></a>
 <a name="1097"><span class="lineNum">    1097 </span>                :            : #endif /* MBEDTLS_PK_USE_PSA_EC_DATA */</a>
 <a name="1098"><span class="lineNum">    1098 </span>                :            : </a>
 <a name="1099"><span class="lineNum">    1099 </span>                :<span class="lineNoCov">          0 : static void eckey_debug(mbedtls_pk_context *pk, mbedtls_pk_debug_item *items)</span></a>
