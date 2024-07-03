@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-02 08:04:25</td>
+            <td class="headerValue">2024-07-03 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">14</td>
@@ -97,11 +97,11 @@
 <a name="26"><span class="lineNum">      26 </span>                :            : typedef mbedtls_ecdh_context mbedtls_ecdh_context_mbed;</a>
 <a name="27"><span class="lineNum">      27 </span>                :            : #endif</a>
 <a name="28"><span class="lineNum">      28 </span>                :            : </a>
-<a name="29"><span class="lineNum">      29 </span>                :<span class="lineCov">        987 : static mbedtls_ecp_group_id mbedtls_ecdh_grp_id(</span></a>
+<a name="29"><span class="lineNum">      29 </span>                :<span class="lineCov">        989 : static mbedtls_ecp_group_id mbedtls_ecdh_grp_id(</span></a>
 <a name="30"><span class="lineNum">      30 </span>                :            :     const mbedtls_ecdh_context *ctx)</a>
 <a name="31"><span class="lineNum">      31 </span>                :            : {</a>
 <a name="32"><span class="lineNum">      32 </span>                :            : #if defined(MBEDTLS_ECDH_LEGACY_CONTEXT)</a>
-<a name="33"><span class="lineNum">      33 </span>                :<span class="lineCov">        987 :     return ctx-&gt;grp.id;</span></a>
+<a name="33"><span class="lineNum">      33 </span>                :<span class="lineCov">        989 :     return ctx-&gt;grp.id;</span></a>
 <a name="34"><span class="lineNum">      34 </span>                :            : #else</a>
 <a name="35"><span class="lineNum">      35 </span>                :            :     return ctx-&gt;grp_id;</a>
 <a name="36"><span class="lineNum">      36 </span>                :            : #endif</a>
@@ -202,18 +202,18 @@
 <a name="131"><span class="lineNum">     131 </span>                :            : }</a>
 <a name="132"><span class="lineNum">     132 </span>                :            : #endif /* !MBEDTLS_ECDH_COMPUTE_SHARED_ALT */</a>
 <a name="133"><span class="lineNum">     133 </span>                :            : </a>
-<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">       1147 : static void ecdh_init_internal(mbedtls_ecdh_context_mbed *ctx)</span></a>
+<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">       1149 : static void ecdh_init_internal(mbedtls_ecdh_context_mbed *ctx)</span></a>
 <a name="135"><span class="lineNum">     135 </span>                :            : {</a>
-<a name="136"><span class="lineNum">     136 </span>                :<span class="lineCov">       1147 :     mbedtls_ecp_group_init(&amp;ctx-&gt;grp);</span></a>
-<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">       1147 :     mbedtls_mpi_init(&amp;ctx-&gt;d);</span></a>
-<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">       1147 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Q);</span></a>
-<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">       1147 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Qp);</span></a>
-<a name="140"><span class="lineNum">     140 </span>                :<span class="lineCov">       1147 :     mbedtls_mpi_init(&amp;ctx-&gt;z);</span></a>
+<a name="136"><span class="lineNum">     136 </span>                :<span class="lineCov">       1149 :     mbedtls_ecp_group_init(&amp;ctx-&gt;grp);</span></a>
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">       1149 :     mbedtls_mpi_init(&amp;ctx-&gt;d);</span></a>
+<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">       1149 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Q);</span></a>
+<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">       1149 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Qp);</span></a>
+<a name="140"><span class="lineNum">     140 </span>                :<span class="lineCov">       1149 :     mbedtls_mpi_init(&amp;ctx-&gt;z);</span></a>
 <a name="141"><span class="lineNum">     141 </span>                :            : </a>
 <a name="142"><span class="lineNum">     142 </span>                :            : #if defined(MBEDTLS_ECP_RESTARTABLE)</a>
-<a name="143"><span class="lineNum">     143 </span>                :<span class="lineCov">       1147 :     mbedtls_ecp_restart_init(&amp;ctx-&gt;rs);</span></a>
+<a name="143"><span class="lineNum">     143 </span>                :<span class="lineCov">       1149 :     mbedtls_ecp_restart_init(&amp;ctx-&gt;rs);</span></a>
 <a name="144"><span class="lineNum">     144 </span>                :            : #endif</a>
-<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">       1147 : }</span></a>
+<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">       1149 : }</span></a>
 <a name="146"><span class="lineNum">     146 </span>                :            : </a>
 <a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">        421 : mbedtls_ecp_group_id mbedtls_ecdh_get_grp_id(mbedtls_ecdh_context *ctx)</span></a>
 <a name="148"><span class="lineNum">     148 </span>                :            : {</a>
@@ -227,44 +227,44 @@
 <a name="156"><span class="lineNum">     156 </span>                :            : /*</a>
 <a name="157"><span class="lineNum">     157 </span>                :            :  * Initialize context</a>
 <a name="158"><span class="lineNum">     158 </span>                :            :  */</a>
-<a name="159"><span class="lineNum">     159 </span>                :<span class="lineCov">       1147 : void mbedtls_ecdh_init(mbedtls_ecdh_context *ctx)</span></a>
+<a name="159"><span class="lineNum">     159 </span>                :<span class="lineCov">       1149 : void mbedtls_ecdh_init(mbedtls_ecdh_context *ctx)</span></a>
 <a name="160"><span class="lineNum">     160 </span>                :            : {</a>
 <a name="161"><span class="lineNum">     161 </span>                :            : #if defined(MBEDTLS_ECDH_LEGACY_CONTEXT)</a>
-<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">       1147 :     ecdh_init_internal(ctx);</span></a>
-<a name="163"><span class="lineNum">     163 </span>                :<span class="lineCov">       1147 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Vi);</span></a>
-<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">       1147 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Vf);</span></a>
-<a name="165"><span class="lineNum">     165 </span>                :<span class="lineCov">       1147 :     mbedtls_mpi_init(&amp;ctx-&gt;_d);</span></a>
+<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">       1149 :     ecdh_init_internal(ctx);</span></a>
+<a name="163"><span class="lineNum">     163 </span>                :<span class="lineCov">       1149 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Vi);</span></a>
+<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">       1149 :     mbedtls_ecp_point_init(&amp;ctx-&gt;Vf);</span></a>
+<a name="165"><span class="lineNum">     165 </span>                :<span class="lineCov">       1149 :     mbedtls_mpi_init(&amp;ctx-&gt;_d);</span></a>
 <a name="166"><span class="lineNum">     166 </span>                :            : #else</a>
 <a name="167"><span class="lineNum">     167 </span>                :            :     memset(ctx, 0, sizeof(mbedtls_ecdh_context));</a>
 <a name="168"><span class="lineNum">     168 </span>                :            : </a>
 <a name="169"><span class="lineNum">     169 </span>                :            :     ctx-&gt;var = MBEDTLS_ECDH_VARIANT_NONE;</a>
 <a name="170"><span class="lineNum">     170 </span>                :            : #endif</a>
-<a name="171"><span class="lineNum">     171 </span>                :<span class="lineCov">       1147 :     ctx-&gt;point_format = MBEDTLS_ECP_PF_UNCOMPRESSED;</span></a>
+<a name="171"><span class="lineNum">     171 </span>                :<span class="lineCov">       1149 :     ctx-&gt;point_format = MBEDTLS_ECP_PF_UNCOMPRESSED;</span></a>
 <a name="172"><span class="lineNum">     172 </span>                :            : #if defined(MBEDTLS_ECP_RESTARTABLE)</a>
-<a name="173"><span class="lineNum">     173 </span>                :<span class="lineCov">       1147 :     ctx-&gt;restart_enabled = 0;</span></a>
+<a name="173"><span class="lineNum">     173 </span>                :<span class="lineCov">       1149 :     ctx-&gt;restart_enabled = 0;</span></a>
 <a name="174"><span class="lineNum">     174 </span>                :            : #endif</a>
-<a name="175"><span class="lineNum">     175 </span>                :<span class="lineCov">       1147 : }</span></a>
+<a name="175"><span class="lineNum">     175 </span>                :<span class="lineCov">       1149 : }</span></a>
 <a name="176"><span class="lineNum">     176 </span>                :            : </a>
-<a name="177"><span class="lineNum">     177 </span>                :<span class="lineCov">       1147 : static int ecdh_setup_internal(mbedtls_ecdh_context_mbed *ctx,</span></a>
+<a name="177"><span class="lineNum">     177 </span>                :<span class="lineCov">       1149 : static int ecdh_setup_internal(mbedtls_ecdh_context_mbed *ctx,</span></a>
 <a name="178"><span class="lineNum">     178 </span>                :            :                                mbedtls_ecp_group_id grp_id)</a>
 <a name="179"><span class="lineNum">     179 </span>                :            : {</a>
-<a name="180"><span class="lineNum">     180 </span>                :<span class="lineCov">       1147 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
+<a name="180"><span class="lineNum">     180 </span>                :<span class="lineCov">       1149 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
 <a name="181"><span class="lineNum">     181 </span>                :            : </a>
-<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">       1147 :     ret = mbedtls_ecp_group_load(&amp;ctx-&gt;grp, grp_id);</span></a>
-<a name="183"><span class="lineNum">     183 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1147 times"> + </span>]:<span class="lineCov">       1147 :     if (ret != 0) {</span></a>
+<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">       1149 :     ret = mbedtls_ecp_group_load(&amp;ctx-&gt;grp, grp_id);</span></a>
+<a name="183"><span class="lineNum">     183 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1149 times"> + </span>]:<span class="lineCov">       1149 :     if (ret != 0) {</span></a>
 <a name="184"><span class="lineNum">     184 </span>                :<span class="lineNoCov">          0 :         return MBEDTLS_ERR_ECP_FEATURE_UNAVAILABLE;</span></a>
 <a name="185"><span class="lineNum">     185 </span>                :            :     }</a>
 <a name="186"><span class="lineNum">     186 </span>                :            : </a>
-<a name="187"><span class="lineNum">     187 </span>                :<span class="lineCov">       1147 :     return 0;</span></a>
+<a name="187"><span class="lineNum">     187 </span>                :<span class="lineCov">       1149 :     return 0;</span></a>
 <a name="188"><span class="lineNum">     188 </span>                :            : }</a>
 <a name="189"><span class="lineNum">     189 </span>                :            : </a>
 <a name="190"><span class="lineNum">     190 </span>                :            : /*</a>
 <a name="191"><span class="lineNum">     191 </span>                :            :  * Setup context</a>
 <a name="192"><span class="lineNum">     192 </span>                :            :  */</a>
-<a name="193"><span class="lineNum">     193 </span>                :<span class="lineCov">       1147 : int mbedtls_ecdh_setup(mbedtls_ecdh_context *ctx, mbedtls_ecp_group_id grp_id)</span></a>
+<a name="193"><span class="lineNum">     193 </span>                :<span class="lineCov">       1149 : int mbedtls_ecdh_setup(mbedtls_ecdh_context *ctx, mbedtls_ecp_group_id grp_id)</span></a>
 <a name="194"><span class="lineNum">     194 </span>                :            : {</a>
 <a name="195"><span class="lineNum">     195 </span>                :            : #if defined(MBEDTLS_ECDH_LEGACY_CONTEXT)</a>
-<a name="196"><span class="lineNum">     196 </span>                :<span class="lineCov">       1147 :     return ecdh_setup_internal(ctx, grp_id);</span></a>
+<a name="196"><span class="lineNum">     196 </span>                :<span class="lineCov">       1149 :     return ecdh_setup_internal(ctx, grp_id);</span></a>
 <a name="197"><span class="lineNum">     197 </span>                :            : #else</a>
 <a name="198"><span class="lineNum">     198 </span>                :            :     switch (grp_id) {</a>
 <a name="199"><span class="lineNum">     199 </span>                :            : #if defined(MBEDTLS_ECDH_VARIANT_EVEREST_ENABLED)</a>
@@ -284,18 +284,18 @@
 <a name="213"><span class="lineNum">     213 </span>                :            : #endif</a>
 <a name="214"><span class="lineNum">     214 </span>                :            : }</a>
 <a name="215"><span class="lineNum">     215 </span>                :            : </a>
-<a name="216"><span class="lineNum">     216 </span>                :<span class="lineCov">        957 : static void ecdh_free_internal(mbedtls_ecdh_context_mbed *ctx)</span></a>
+<a name="216"><span class="lineNum">     216 </span>                :<span class="lineCov">        959 : static void ecdh_free_internal(mbedtls_ecdh_context_mbed *ctx)</span></a>
 <a name="217"><span class="lineNum">     217 </span>                :            : {</a>
-<a name="218"><span class="lineNum">     218 </span>                :<span class="lineCov">        957 :     mbedtls_ecp_group_free(&amp;ctx-&gt;grp);</span></a>
-<a name="219"><span class="lineNum">     219 </span>                :<span class="lineCov">        957 :     mbedtls_mpi_free(&amp;ctx-&gt;d);</span></a>
-<a name="220"><span class="lineNum">     220 </span>                :<span class="lineCov">        957 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Q);</span></a>
-<a name="221"><span class="lineNum">     221 </span>                :<span class="lineCov">        957 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Qp);</span></a>
-<a name="222"><span class="lineNum">     222 </span>                :<span class="lineCov">        957 :     mbedtls_mpi_free(&amp;ctx-&gt;z);</span></a>
+<a name="218"><span class="lineNum">     218 </span>                :<span class="lineCov">        959 :     mbedtls_ecp_group_free(&amp;ctx-&gt;grp);</span></a>
+<a name="219"><span class="lineNum">     219 </span>                :<span class="lineCov">        959 :     mbedtls_mpi_free(&amp;ctx-&gt;d);</span></a>
+<a name="220"><span class="lineNum">     220 </span>                :<span class="lineCov">        959 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Q);</span></a>
+<a name="221"><span class="lineNum">     221 </span>                :<span class="lineCov">        959 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Qp);</span></a>
+<a name="222"><span class="lineNum">     222 </span>                :<span class="lineCov">        959 :     mbedtls_mpi_free(&amp;ctx-&gt;z);</span></a>
 <a name="223"><span class="lineNum">     223 </span>                :            : </a>
 <a name="224"><span class="lineNum">     224 </span>                :            : #if defined(MBEDTLS_ECP_RESTARTABLE)</a>
-<a name="225"><span class="lineNum">     225 </span>                :<span class="lineCov">        957 :     mbedtls_ecp_restart_free(&amp;ctx-&gt;rs);</span></a>
+<a name="225"><span class="lineNum">     225 </span>                :<span class="lineCov">        959 :     mbedtls_ecp_restart_free(&amp;ctx-&gt;rs);</span></a>
 <a name="226"><span class="lineNum">     226 </span>                :            : #endif</a>
-<a name="227"><span class="lineNum">     227 </span>                :<span class="lineCov">        957 : }</span></a>
+<a name="227"><span class="lineNum">     227 </span>                :<span class="lineCov">        959 : }</span></a>
 <a name="228"><span class="lineNum">     228 </span>                :            : </a>
 <a name="229"><span class="lineNum">     229 </span>                :            : #if defined(MBEDTLS_ECP_RESTARTABLE)</a>
 <a name="230"><span class="lineNum">     230 </span>                :            : /*</a>
@@ -310,17 +310,17 @@
 <a name="239"><span class="lineNum">     239 </span>                :            : /*</a>
 <a name="240"><span class="lineNum">     240 </span>                :            :  * Free context</a>
 <a name="241"><span class="lineNum">     241 </span>                :            :  */</a>
-<a name="242"><span class="lineNum">     242 </span>                :<span class="lineCov">        957 : void mbedtls_ecdh_free(mbedtls_ecdh_context *ctx)</span></a>
+<a name="242"><span class="lineNum">     242 </span>                :<span class="lineCov">        959 : void mbedtls_ecdh_free(mbedtls_ecdh_context *ctx)</span></a>
 <a name="243"><span class="lineNum">     243 </span>                :            : {</a>
-<a name="244"><span class="lineNum">     244 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 957 times"> + </span>]:<span class="lineCov">        957 :     if (ctx == NULL) {</span></a>
+<a name="244"><span class="lineNum">     244 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 959 times"> + </span>]:<span class="lineCov">        959 :     if (ctx == NULL) {</span></a>
 <a name="245"><span class="lineNum">     245 </span>                :<span class="lineNoCov">          0 :         return;</span></a>
 <a name="246"><span class="lineNum">     246 </span>                :            :     }</a>
 <a name="247"><span class="lineNum">     247 </span>                :            : </a>
 <a name="248"><span class="lineNum">     248 </span>                :            : #if defined(MBEDTLS_ECDH_LEGACY_CONTEXT)</a>
-<a name="249"><span class="lineNum">     249 </span>                :<span class="lineCov">        957 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Vi);</span></a>
-<a name="250"><span class="lineNum">     250 </span>                :<span class="lineCov">        957 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Vf);</span></a>
-<a name="251"><span class="lineNum">     251 </span>                :<span class="lineCov">        957 :     mbedtls_mpi_free(&amp;ctx-&gt;_d);</span></a>
-<a name="252"><span class="lineNum">     252 </span>                :<span class="lineCov">        957 :     ecdh_free_internal(ctx);</span></a>
+<a name="249"><span class="lineNum">     249 </span>                :<span class="lineCov">        959 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Vi);</span></a>
+<a name="250"><span class="lineNum">     250 </span>                :<span class="lineCov">        959 :     mbedtls_ecp_point_free(&amp;ctx-&gt;Vf);</span></a>
+<a name="251"><span class="lineNum">     251 </span>                :<span class="lineCov">        959 :     mbedtls_mpi_free(&amp;ctx-&gt;_d);</span></a>
+<a name="252"><span class="lineNum">     252 </span>                :<span class="lineCov">        959 :     ecdh_free_internal(ctx);</span></a>
 <a name="253"><span class="lineNum">     253 </span>                :            : #else</a>
 <a name="254"><span class="lineNum">     254 </span>                :            :     switch (ctx-&gt;var) {</a>
 <a name="255"><span class="lineNum">     255 </span>                :            : #if defined(MBEDTLS_ECDH_VARIANT_EVEREST_ENABLED)</a>
@@ -486,46 +486,46 @@
 <a name="415"><span class="lineNum">     415 </span>                :            : #endif</a>
 <a name="416"><span class="lineNum">     416 </span>                :            : }</a>
 <a name="417"><span class="lineNum">     417 </span>                :            : </a>
-<a name="418"><span class="lineNum">     418 </span>                :<span class="lineCov">        987 : static int ecdh_get_params_internal(mbedtls_ecdh_context_mbed *ctx,</span></a>
+<a name="418"><span class="lineNum">     418 </span>                :<span class="lineCov">        989 : static int ecdh_get_params_internal(mbedtls_ecdh_context_mbed *ctx,</span></a>
 <a name="419"><span class="lineNum">     419 </span>                :            :                                     const mbedtls_ecp_keypair *key,</a>
 <a name="420"><span class="lineNum">     420 </span>                :            :                                     mbedtls_ecdh_side side)</a>
 <a name="421"><span class="lineNum">     421 </span>                :            : {</a>
-<a name="422"><span class="lineNum">     422 </span>                :<span class="lineCov">        987 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
+<a name="422"><span class="lineNum">     422 </span>                :<span class="lineCov">        989 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
 <a name="423"><span class="lineNum">     423 </span>                :            : </a>
 <a name="424"><span class="lineNum">     424 </span>                :            :     /* If it's not our key, just import the public part as Qp */</a>
-<a name="425"><span class="lineNum">     425 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 987 times"> + </span>]:<span class="lineCov">        987 :     if (side == MBEDTLS_ECDH_THEIRS) {</span></a>
+<a name="425"><span class="lineNum">     425 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 989 times"> + </span>]:<span class="lineCov">        989 :     if (side == MBEDTLS_ECDH_THEIRS) {</span></a>
 <a name="426"><span class="lineNum">     426 </span>                :<span class="lineNoCov">          0 :         return mbedtls_ecp_copy(&amp;ctx-&gt;Qp, &amp;key-&gt;Q);</span></a>
 <a name="427"><span class="lineNum">     427 </span>                :            :     }</a>
 <a name="428"><span class="lineNum">     428 </span>                :            : </a>
 <a name="429"><span class="lineNum">     429 </span>                :            :     /* Our key: import public (as Q) and private parts */</a>
-<a name="430"><span class="lineNum">     430 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 987 times"> + </span>]:<span class="lineCov">        987 :     if (side != MBEDTLS_ECDH_OURS) {</span></a>
+<a name="430"><span class="lineNum">     430 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 989 times"> + </span>]:<span class="lineCov">        989 :     if (side != MBEDTLS_ECDH_OURS) {</span></a>
 <a name="431"><span class="lineNum">     431 </span>                :<span class="lineNoCov">          0 :         return MBEDTLS_ERR_ECP_BAD_INPUT_DATA;</span></a>
 <a name="432"><span class="lineNum">     432 </span>                :            :     }</a>
 <a name="433"><span class="lineNum">     433 </span>                :            : </a>
-<a name="434"><span class="lineNum">     434 </span>  [<span class="branchCov" title="Branch 0 was taken 987 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 987 times"> + </span>]:<span class="lineCov">       1974 :     if ((ret = mbedtls_ecp_copy(&amp;ctx-&gt;Q, &amp;key-&gt;Q)) != 0 ||</span></a>
-<a name="435"><span class="lineNum">     435 </span>                :<span class="lineCov">        987 :         (ret = mbedtls_mpi_copy(&amp;ctx-&gt;d, &amp;key-&gt;d)) != 0) {</span></a>
+<a name="434"><span class="lineNum">     434 </span>  [<span class="branchCov" title="Branch 0 was taken 989 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 989 times"> + </span>]:<span class="lineCov">       1978 :     if ((ret = mbedtls_ecp_copy(&amp;ctx-&gt;Q, &amp;key-&gt;Q)) != 0 ||</span></a>
+<a name="435"><span class="lineNum">     435 </span>                :<span class="lineCov">        989 :         (ret = mbedtls_mpi_copy(&amp;ctx-&gt;d, &amp;key-&gt;d)) != 0) {</span></a>
 <a name="436"><span class="lineNum">     436 </span>                :<span class="lineNoCov">          0 :         return ret;</span></a>
 <a name="437"><span class="lineNum">     437 </span>                :            :     }</a>
 <a name="438"><span class="lineNum">     438 </span>                :            : </a>
-<a name="439"><span class="lineNum">     439 </span>                :<span class="lineCov">        987 :     return 0;</span></a>
+<a name="439"><span class="lineNum">     439 </span>                :<span class="lineCov">        989 :     return 0;</span></a>
 <a name="440"><span class="lineNum">     440 </span>                :            : }</a>
 <a name="441"><span class="lineNum">     441 </span>                :            : </a>
 <a name="442"><span class="lineNum">     442 </span>                :            : /*</a>
 <a name="443"><span class="lineNum">     443 </span>                :            :  * Get parameters from a keypair</a>
 <a name="444"><span class="lineNum">     444 </span>                :            :  */</a>
-<a name="445"><span class="lineNum">     445 </span>                :<span class="lineCov">        987 : int mbedtls_ecdh_get_params(mbedtls_ecdh_context *ctx,</span></a>
+<a name="445"><span class="lineNum">     445 </span>                :<span class="lineCov">        989 : int mbedtls_ecdh_get_params(mbedtls_ecdh_context *ctx,</span></a>
 <a name="446"><span class="lineNum">     446 </span>                :            :                             const mbedtls_ecp_keypair *key,</a>
 <a name="447"><span class="lineNum">     447 </span>                :            :                             mbedtls_ecdh_side side)</a>
 <a name="448"><span class="lineNum">     448 </span>                :            : {</a>
-<a name="449"><span class="lineNum">     449 </span>                :<span class="lineCov">        987 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
-<a name="450"><span class="lineNum">     450 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 987 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        987 :     if (side != MBEDTLS_ECDH_OURS &amp;&amp; side != MBEDTLS_ECDH_THEIRS) {</span></a>
+<a name="449"><span class="lineNum">     449 </span>                :<span class="lineCov">        989 :     int ret = MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED;</span></a>
+<a name="450"><span class="lineNum">     450 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 989 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        989 :     if (side != MBEDTLS_ECDH_OURS &amp;&amp; side != MBEDTLS_ECDH_THEIRS) {</span></a>
 <a name="451"><span class="lineNum">     451 </span>                :<span class="lineNoCov">          0 :         return MBEDTLS_ERR_ECP_BAD_INPUT_DATA;</span></a>
 <a name="452"><span class="lineNum">     452 </span>                :            :     }</a>
 <a name="453"><span class="lineNum">     453 </span>                :            : </a>
-<a name="454"><span class="lineNum">     454 </span>        [<span class="branchCov" title="Branch 0 was taken 987 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        987 :     if (mbedtls_ecdh_grp_id(ctx) == MBEDTLS_ECP_DP_NONE) {</span></a>
+<a name="454"><span class="lineNum">     454 </span>        [<span class="branchCov" title="Branch 0 was taken 989 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        989 :     if (mbedtls_ecdh_grp_id(ctx) == MBEDTLS_ECP_DP_NONE) {</span></a>
 <a name="455"><span class="lineNum">     455 </span>                :            :         /* This is the first call to get_params(). Set up the context</a>
 <a name="456"><span class="lineNum">     456 </span>                :            :          * for use with the group. */</a>
-<a name="457"><span class="lineNum">     457 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 987 times"> + </span>]:<span class="lineCov">        987 :         if ((ret = mbedtls_ecdh_setup(ctx, key-&gt;grp.id)) != 0) {</span></a>
+<a name="457"><span class="lineNum">     457 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 989 times"> + </span>]:<span class="lineCov">        989 :         if ((ret = mbedtls_ecdh_setup(ctx, key-&gt;grp.id)) != 0) {</span></a>
 <a name="458"><span class="lineNum">     458 </span>                :<span class="lineNoCov">          0 :             return ret;</span></a>
 <a name="459"><span class="lineNum">     459 </span>                :            :         }</a>
 <a name="460"><span class="lineNum">     460 </span>                :            :     } else {</a>
@@ -538,7 +538,7 @@
 <a name="467"><span class="lineNum">     467 </span>                :            :     }</a>
 <a name="468"><span class="lineNum">     468 </span>                :            : </a>
 <a name="469"><span class="lineNum">     469 </span>                :            : #if defined(MBEDTLS_ECDH_LEGACY_CONTEXT)</a>
-<a name="470"><span class="lineNum">     470 </span>                :<span class="lineCov">        987 :     return ecdh_get_params_internal(ctx, key, side);</span></a>
+<a name="470"><span class="lineNum">     470 </span>                :<span class="lineCov">        989 :     return ecdh_get_params_internal(ctx, key, side);</span></a>
 <a name="471"><span class="lineNum">     471 </span>                :            : #else</a>
 <a name="472"><span class="lineNum">     472 </span>                :            :     switch (ctx-&gt;var) {</a>
 <a name="473"><span class="lineNum">     473 </span>                :            : #if defined(MBEDTLS_ECDH_VARIANT_EVEREST_ENABLED)</a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-02 08:04:25</td>
+            <td class="headerValue">2024-07-03 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">31</td>
@@ -2211,13 +2211,13 @@
 <a name="2128"><span class="lineNum">    2128 </span>                :            : #endif /* LIBSPDM_ENABLE_CAPABILITY_PSK_CAP */</a>
 <a name="2129"><span class="lineNum">    2129 </span>                :            : </a>
 <a name="2130"><span class="lineNum">    2130 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_SET_CERT_CAP</a>
-<a name="2131"><span class="lineNum">    2131 </span>                :<span class="lineCov">         10 : bool libspdm_is_in_trusted_environment(</span></a>
+<a name="2131"><span class="lineNum">    2131 </span>                :<span class="lineCov">         11 : bool libspdm_is_in_trusted_environment(</span></a>
 <a name="2132"><span class="lineNum">    2132 </span>                :            : #if LIBSPDM_HAL_PASS_SPDM_CONTEXT</a>
 <a name="2133"><span class="lineNum">    2133 </span>                :            :     void *spdm_context</a>
 <a name="2134"><span class="lineNum">    2134 </span>                :            : #endif</a>
 <a name="2135"><span class="lineNum">    2135 </span>                :            :     )</a>
 <a name="2136"><span class="lineNum">    2136 </span>                :            : {</a>
-<a name="2137"><span class="lineNum">    2137 </span>                :<span class="lineCov">         10 :     return g_in_trusted_environment;</span></a>
+<a name="2137"><span class="lineNum">    2137 </span>                :<span class="lineCov">         11 :     return g_in_trusted_environment;</span></a>
 <a name="2138"><span class="lineNum">    2138 </span>                :            : }</a>
 <a name="2139"><span class="lineNum">    2139 </span>                :            : </a>
 <a name="2140"><span class="lineNum">    2140 </span>                :<span class="lineCov">          8 : bool libspdm_write_certificate_to_nvm(</span></a>

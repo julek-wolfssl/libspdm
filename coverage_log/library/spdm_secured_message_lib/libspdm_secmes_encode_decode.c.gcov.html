@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-02 08:04:25</td>
+            <td class="headerValue">2024-07-03 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -191,7 +191,7 @@
 <a name="120"><span class="lineNum">     120 </span>                :<span class="lineCov">        456 :     secured_spdm_version = spdm_secured_message_callbacks-&gt;get_secured_spdm_version(</span></a>
 <a name="121"><span class="lineNum">     121 </span>                :<span class="lineCov">        456 :         secured_message_context-&gt;secured_message_version);</span></a>
 <a name="122"><span class="lineNum">     122 </span>                :<span class="lineCov">        456 :     version = (uint8_t)(secured_spdm_version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
-<a name="123"><span class="lineNum">     123 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 456 times"> + </span>]:<span class="lineCov">        456 :     if (version &gt; SECURED_SPDM_VERSION_11) {</span></a>
+<a name="123"><span class="lineNum">     123 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 456 times"> + </span>]:<span class="lineCov">        456 :     if (version &gt; SECURED_SPDM_VERSION_12) {</span></a>
 <a name="124"><span class="lineNum">     124 </span>                :<span class="lineNoCov">          0 :         return LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="125"><span class="lineNum">     125 </span>                :            :     }</a>
 <a name="126"><span class="lineNum">     126 </span>                :            : </a>
@@ -452,7 +452,7 @@
 <a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">        318 :     secured_spdm_version = spdm_secured_message_callbacks-&gt;get_secured_spdm_version(</span></a>
 <a name="382"><span class="lineNum">     382 </span>                :<span class="lineCov">        318 :         secured_message_context-&gt;secured_message_version);</span></a>
 <a name="383"><span class="lineNum">     383 </span>                :<span class="lineCov">        318 :     version = (uint8_t)(secured_spdm_version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
-<a name="384"><span class="lineNum">     384 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :     if (version &gt; SECURED_SPDM_VERSION_11) {</span></a>
+<a name="384"><span class="lineNum">     384 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :     if (version &gt; SECURED_SPDM_VERSION_12) {</span></a>
 <a name="385"><span class="lineNum">     385 </span>                :<span class="lineNoCov">          0 :         return LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="386"><span class="lineNum">     386 </span>                :            :     }</a>
 <a name="387"><span class="lineNum">     387 </span>                :            : </a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-02 08:04:25</td>
+            <td class="headerValue">2024-07-03 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -1120,13 +1120,13 @@
 <a name="1049"><span class="lineNum">    1049 </span>                :            :  *</a>
 <a name="1050"><span class="lineNum">    1050 </span>                :            :  * \return The internal EC context held by the PK context, or NULL.</a>
 <a name="1051"><span class="lineNum">    1051 </span>                :            :  */</a>
-<a name="1052"><span class="lineNum">    1052 </span>                :<span class="lineCov">       1005 : static inline mbedtls_ecp_keypair *mbedtls_pk_ec(const mbedtls_pk_context pk)</span></a>
+<a name="1052"><span class="lineNum">    1052 </span>                :<span class="lineCov">       1007 : static inline mbedtls_ecp_keypair *mbedtls_pk_ec(const mbedtls_pk_context pk)</span></a>
 <a name="1053"><span class="lineNum">    1053 </span>                :            : {</a>
-<a name="1054"><span class="lineNum">    1054 </span>        [<span class="branchCov" title="Branch 0 was taken 1005 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1005 :     switch (mbedtls_pk_get_type(&amp;pk)) {</span></a>
-<a name="1055"><span class="lineNum">    1055 </span>                :<span class="lineCov">       1005 :         case MBEDTLS_PK_ECKEY:</span></a>
+<a name="1054"><span class="lineNum">    1054 </span>        [<span class="branchCov" title="Branch 0 was taken 1007 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1007 :     switch (mbedtls_pk_get_type(&amp;pk)) {</span></a>
+<a name="1055"><span class="lineNum">    1055 </span>                :<span class="lineCov">       1007 :         case MBEDTLS_PK_ECKEY:</span></a>
 <a name="1056"><span class="lineNum">    1056 </span>                :            :         case MBEDTLS_PK_ECKEY_DH:</a>
 <a name="1057"><span class="lineNum">    1057 </span>                :            :         case MBEDTLS_PK_ECDSA:</a>
-<a name="1058"><span class="lineNum">    1058 </span>                :<span class="lineCov">       1005 :             return (mbedtls_ecp_keypair *) (pk).MBEDTLS_PRIVATE(pk_ctx);</span></a>
+<a name="1058"><span class="lineNum">    1058 </span>                :<span class="lineCov">       1007 :             return (mbedtls_ecp_keypair *) (pk).MBEDTLS_PRIVATE(pk_ctx);</span></a>
 <a name="1059"><span class="lineNum">    1059 </span>                :<span class="lineNoCov">          0 :         default:</span></a>
 <a name="1060"><span class="lineNum">    1060 </span>                :<span class="lineNoCov">          0 :             return NULL;</span></a>
 <a name="1061"><span class="lineNum">    1061 </span>                :            :     }</a>

@@ -31,17 +31,17 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">807</td>
-            <td class="headerCovTableEntry">830</td>
-            <td class="headerCovTableEntryHi">97.2 %</td>
+            <td class="headerCovTableEntry">852</td>
+            <td class="headerCovTableEntry">876</td>
+            <td class="headerCovTableEntryHi">97.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-02 08:04:25</td>
+            <td class="headerValue">2024-07-03 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">24</td>
-            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">25</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">38</td>
-            <td class="headerCovTableEntry">62</td>
-            <td class="headerCovTableEntryLo">61.3 %</td>
+            <td class="headerCovTableEntry">39</td>
+            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntryLo">60.9 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -197,15 +197,15 @@
 <a name="126"><span class="lineNum">     126 </span>                :            : }</a>
 <a name="127"><span class="lineNum">     127 </span>                :            : </a>
 <a name="128"><span class="lineNum">     128 </span>                :            : /*get the cached csr*/</a>
-<a name="129"><span class="lineNum">     129 </span>                :<span class="lineCov">          5 : bool libspdm_test_read_cached_csr(uint8_t **csr_pointer, size_t *csr_len)</span></a>
+<a name="129"><span class="lineNum">     129 </span>                :<span class="lineCov">          6 : bool libspdm_test_read_cached_csr(uint8_t **csr_pointer, size_t *csr_len)</span></a>
 <a name="130"><span class="lineNum">     130 </span>                :            : {</a>
 <a name="131"><span class="lineNum">     131 </span>                :            :     bool res;</a>
 <a name="132"><span class="lineNum">     132 </span>                :            :     char *file;</a>
 <a name="133"><span class="lineNum">     133 </span>                :            : </a>
-<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">          5 :     file = &quot;test_csr/cached.csr&quot;;</span></a>
+<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">          6 :     file = &quot;test_csr/cached.csr&quot;;</span></a>
 <a name="135"><span class="lineNum">     135 </span>                :            : </a>
-<a name="136"><span class="lineNum">     136 </span>                :<span class="lineCov">          5 :     res = libspdm_read_input_file(file, (void **)csr_pointer, csr_len);</span></a>
-<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">          5 :     return res;</span></a>
+<a name="136"><span class="lineNum">     136 </span>                :<span class="lineCov">          6 :     res = libspdm_read_input_file(file, (void **)csr_pointer, csr_len);</span></a>
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">          6 :     return res;</span></a>
 <a name="138"><span class="lineNum">     138 </span>                :            : }</a>
 <a name="139"><span class="lineNum">     139 </span>                :            : </a>
 <a name="140"><span class="lineNum">     140 </span>                :            : /*</a>
@@ -250,17 +250,17 @@
 <a name="179"><span class="lineNum">     179 </span>                :<span class="lineCov">          1 : }</span></a>
 <a name="180"><span class="lineNum">     180 </span>                :            : </a>
 <a name="181"><span class="lineNum">     181 </span>                :            : /*clean the cached last SPDM csr request*/</a>
-<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">          5 : void libspdm_test_clear_cached_last_request()</span></a>
+<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">          6 : void libspdm_test_clear_cached_last_request()</span></a>
 <a name="183"><span class="lineNum">     183 </span>                :            : {</a>
 <a name="184"><span class="lineNum">     184 </span>                :            :     uint8_t index;</a>
 <a name="185"><span class="lineNum">     185 </span>                :            : </a>
-<a name="186"><span class="lineNum">     186 </span>                :<span class="lineCov">          5 :     char file[] = &quot;cached_last_csr_x_request&quot;;</span></a>
+<a name="186"><span class="lineNum">     186 </span>                :<span class="lineCov">          6 :     char file[] = &quot;cached_last_csr_x_request&quot;;</span></a>
 <a name="187"><span class="lineNum">     187 </span>                :            : </a>
-<a name="188"><span class="lineNum">     188 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         40 :     for (index = 1; index &lt;= SPDM_MAX_CSR_TRACKING_TAG; index++) {</span></a>
-<a name="189"><span class="lineNum">     189 </span>                :<span class="lineCov">         35 :         file[16] = (char)(index + '0');</span></a>
-<a name="190"><span class="lineNum">     190 </span>                :<span class="lineCov">         35 :         libspdm_write_output_file(file, NULL, 0);</span></a>
+<a name="188"><span class="lineNum">     188 </span>        [<span class="branchCov" title="Branch 0 was taken 42 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         48 :     for (index = 1; index &lt;= SPDM_MAX_CSR_TRACKING_TAG; index++) {</span></a>
+<a name="189"><span class="lineNum">     189 </span>                :<span class="lineCov">         42 :         file[16] = (char)(index + '0');</span></a>
+<a name="190"><span class="lineNum">     190 </span>                :<span class="lineCov">         42 :         libspdm_write_output_file(file, NULL, 0);</span></a>
 <a name="191"><span class="lineNum">     191 </span>                :            :     }</a>
-<a name="192"><span class="lineNum">     192 </span>                :<span class="lineCov">          5 : }</span></a>
+<a name="192"><span class="lineNum">     192 </span>                :<span class="lineCov">          6 : }</span></a>
 <a name="193"><span class="lineNum">     193 </span>                :            : </a>
 <a name="194"><span class="lineNum">     194 </span>                :            : /*check the csr is consistent with the is_device_cert_model*/</a>
 <a name="195"><span class="lineNum">     195 </span>                :<span class="lineCov">          2 : bool libspdm_check_csr_basic_constraints(uint8_t *csr, uint16_t csr_len, bool is_device_cert_model)</span></a>
@@ -1477,547 +1477,636 @@
 <a name="1406"><span class="lineNum">    1406 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
 <a name="1407"><span class="lineNum">    1407 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
 <a name="1408"><span class="lineNum">    1408 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1409"><span class="lineNum">    1409 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1410"><span class="lineNum">    1410 </span>                :            : </a>
-<a name="1411"><span class="lineNum">    1411 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1412"><span class="lineNum">    1412 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1413"><span class="lineNum">    1413 </span>                :            : </a>
-<a name="1414"><span class="lineNum">    1414 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1415"><span class="lineNum">    1415 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1416"><span class="lineNum">    1416 </span>                :            : </a>
-<a name="1417"><span class="lineNum">    1417 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) +</span></a>
-<a name="1418"><span class="lineNum">    1418 </span>                :            :                                             req_info_len;</a>
-<a name="1419"><span class="lineNum">    1419 </span>                :            : </a>
-<a name="1420"><span class="lineNum">    1420 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1421"><span class="lineNum">    1421 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1422"><span class="lineNum">    1422 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1423"><span class="lineNum">    1423 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1424"><span class="lineNum">    1424 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1425"><span class="lineNum">    1425 </span>                :            : </a>
-<a name="1426"><span class="lineNum">    1426 </span>                :            :     /*set csr after reset*/</a>
-<a name="1427"><span class="lineNum">    1427 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_after_reset());</span></a>
-<a name="1428"><span class="lineNum">    1428 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
-<a name="1429"><span class="lineNum">    1429 </span>                :            :     /*first get_csr: the responder need reset*/</a>
-<a name="1430"><span class="lineNum">    1430 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1431"><span class="lineNum">    1431 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1432"><span class="lineNum">    1432 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1433"><span class="lineNum">    1433 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1434"><span class="lineNum">    1434 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1435"><span class="lineNum">    1435 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1436"><span class="lineNum">    1436 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
-<a name="1437"><span class="lineNum">    1437 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
-<a name="1438"><span class="lineNum">    1438 </span>                :            : </a>
-<a name="1439"><span class="lineNum">    1439 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = spdm_response-&gt;header.param2;</span></a>
-<a name="1440"><span class="lineNum">    1440 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1441"><span class="lineNum">    1441 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1442"><span class="lineNum">    1442 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1443"><span class="lineNum">    1443 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1444"><span class="lineNum">    1444 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1445"><span class="lineNum">    1445 </span>                :            : </a>
-<a name="1446"><span class="lineNum">    1446 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1447"><span class="lineNum">    1447 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1448"><span class="lineNum">    1448 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1449"><span class="lineNum">    1449 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1450"><span class="lineNum">    1450 </span>                :            : </a>
-<a name="1451"><span class="lineNum">    1451 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1452"><span class="lineNum">    1452 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1453"><span class="lineNum">    1453 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1454"><span class="lineNum">    1454 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1455"><span class="lineNum">    1455 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1456"><span class="lineNum">    1456 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
-<a name="1457"><span class="lineNum">    1457 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1458"><span class="lineNum">    1458 </span>                :            : </a>
-<a name="1459"><span class="lineNum">    1459 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1460"><span class="lineNum">    1460 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_csr_response_t) + spdm_response-&gt;csr_length);</span></a>
-<a name="1461"><span class="lineNum">    1461 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1462"><span class="lineNum">    1462 </span>                :            :                      SPDM_CSR);</a>
-<a name="1463"><span class="lineNum">    1463 </span>                :            : </a>
-<a name="1464"><span class="lineNum">    1464 </span>                :            :     /*check returned CSR is equal the cached CSR */</a>
-<a name="1465"><span class="lineNum">    1465 </span>                :<span class="lineCov">          1 :     assert_memory_equal(spdm_response + 1, cached_csr, spdm_response-&gt;csr_length);</span></a>
-<a name="1466"><span class="lineNum">    1466 </span>                :            : #else</a>
-<a name="1467"><span class="lineNum">    1467 </span>                :            :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</a>
-<a name="1468"><span class="lineNum">    1468 </span>                :            :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</a>
-<a name="1469"><span class="lineNum">    1469 </span>                :            :     spdm_response = (void *)response;</a>
-<a name="1470"><span class="lineNum">    1470 </span>                :            :     assert_int_equal(spdm_response-&gt;header.request_response_code,</a>
-<a name="1471"><span class="lineNum">    1471 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1472"><span class="lineNum">    1472 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param1,</a>
-<a name="1473"><span class="lineNum">    1473 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
-<a name="1474"><span class="lineNum">    1474 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param2, 0);</a>
-<a name="1475"><span class="lineNum">    1475 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
-<a name="1476"><span class="lineNum">    1476 </span>                :            :     /*clear cached req_info*/</a>
-<a name="1477"><span class="lineNum">    1477 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
-<a name="1478"><span class="lineNum">    1478 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
-<a name="1479"><span class="lineNum">    1479 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="1480"><span class="lineNum">    1480 </span>                :            : </a>
-<a name="1481"><span class="lineNum">    1481 </span>                :            : /**</a>
-<a name="1482"><span class="lineNum">    1482 </span>                :            :  * Test 14: receives a valid GET_CSR request message from Requester with need_reset for SPDM 1.3</a>
-<a name="1483"><span class="lineNum">    1483 </span>                :            :  * Expected Behavior: the first get_csr with csr_tracking_tag 0: responder return need reset and available csr_tracking_tag;</a>
-<a name="1484"><span class="lineNum">    1484 </span>                :            :  *                    Afer reset, then send get_csr with csr_tracking_tag 0 six times: responder return need reset and available csr_tracking_tag;</a>
-<a name="1485"><span class="lineNum">    1485 </span>                :            :  *                    Then send get_csr with csr_tracking_tag 0: responder return busy error;</a>
-<a name="1486"><span class="lineNum">    1486 </span>                :            :  **/</a>
-<a name="1487"><span class="lineNum">    1487 </span>                :<span class="lineCov">          1 : void libspdm_test_responder_csr_case14(void **state)</span></a>
-<a name="1488"><span class="lineNum">    1488 </span>                :            : {</a>
-<a name="1489"><span class="lineNum">    1489 </span>                :            :     libspdm_return_t status;</a>
-<a name="1490"><span class="lineNum">    1490 </span>                :            :     libspdm_test_context_t *spdm_test_context;</a>
-<a name="1491"><span class="lineNum">    1491 </span>                :            :     libspdm_context_t *spdm_context;</a>
-<a name="1492"><span class="lineNum">    1492 </span>                :            :     size_t response_size;</a>
-<a name="1493"><span class="lineNum">    1493 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
-<a name="1494"><span class="lineNum">    1494 </span>                :            :     spdm_csr_response_t *spdm_response;</a>
-<a name="1495"><span class="lineNum">    1495 </span>                :            :     spdm_get_csr_request_t *m_libspdm_get_csr_request;</a>
-<a name="1496"><span class="lineNum">    1496 </span>                :            :     uint8_t cached_csr[LIBSPDM_MAX_CSR_SIZE];</a>
-<a name="1497"><span class="lineNum">    1497 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
-<a name="1498"><span class="lineNum">    1498 </span>                :            :     uint8_t index;</a>
-<a name="1499"><span class="lineNum">    1499 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
-<a name="1500"><span class="lineNum">    1500 </span>                :<span class="lineCov">          1 :     libspdm_zero_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE);</span></a>
-<a name="1501"><span class="lineNum">    1501 </span>                :            : </a>
-<a name="1502"><span class="lineNum">    1502 </span>                :            :     uint8_t *csr_pointer;</a>
-<a name="1503"><span class="lineNum">    1503 </span>                :            :     size_t csr_len;</a>
-<a name="1504"><span class="lineNum">    1504 </span>                :            :     uint8_t csr_tracking_tag;</a>
-<a name="1505"><span class="lineNum">    1505 </span>                :            : </a>
-<a name="1506"><span class="lineNum">    1506 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
+<a name="1409"><span class="lineNum">    1409 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1410"><span class="lineNum">    1410 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
+<a name="1411"><span class="lineNum">    1411 </span>                :            : </a>
+<a name="1412"><span class="lineNum">    1412 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1413"><span class="lineNum">    1413 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1414"><span class="lineNum">    1414 </span>                :            : </a>
+<a name="1415"><span class="lineNum">    1415 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1416"><span class="lineNum">    1416 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1417"><span class="lineNum">    1417 </span>                :            : </a>
+<a name="1418"><span class="lineNum">    1418 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) +</span></a>
+<a name="1419"><span class="lineNum">    1419 </span>                :            :                                             req_info_len;</a>
+<a name="1420"><span class="lineNum">    1420 </span>                :            : </a>
+<a name="1421"><span class="lineNum">    1421 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1422"><span class="lineNum">    1422 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1423"><span class="lineNum">    1423 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1424"><span class="lineNum">    1424 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1425"><span class="lineNum">    1425 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1426"><span class="lineNum">    1426 </span>                :            : </a>
+<a name="1427"><span class="lineNum">    1427 </span>                :            :     /*set csr after reset*/</a>
+<a name="1428"><span class="lineNum">    1428 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_after_reset());</span></a>
+<a name="1429"><span class="lineNum">    1429 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
+<a name="1430"><span class="lineNum">    1430 </span>                :            :     /*first get_csr: the responder need reset*/</a>
+<a name="1431"><span class="lineNum">    1431 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1432"><span class="lineNum">    1432 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1433"><span class="lineNum">    1433 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1434"><span class="lineNum">    1434 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1435"><span class="lineNum">    1435 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1436"><span class="lineNum">    1436 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1437"><span class="lineNum">    1437 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
+<a name="1438"><span class="lineNum">    1438 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
+<a name="1439"><span class="lineNum">    1439 </span>                :            : </a>
+<a name="1440"><span class="lineNum">    1440 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = spdm_response-&gt;header.param2;</span></a>
+<a name="1441"><span class="lineNum">    1441 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1442"><span class="lineNum">    1442 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1443"><span class="lineNum">    1443 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1444"><span class="lineNum">    1444 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1445"><span class="lineNum">    1445 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1446"><span class="lineNum">    1446 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
+<a name="1447"><span class="lineNum">    1447 </span>                :            : </a>
+<a name="1448"><span class="lineNum">    1448 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1449"><span class="lineNum">    1449 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1450"><span class="lineNum">    1450 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1451"><span class="lineNum">    1451 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1452"><span class="lineNum">    1452 </span>                :            : </a>
+<a name="1453"><span class="lineNum">    1453 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1454"><span class="lineNum">    1454 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1455"><span class="lineNum">    1455 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1456"><span class="lineNum">    1456 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1457"><span class="lineNum">    1457 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1458"><span class="lineNum">    1458 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
+<a name="1459"><span class="lineNum">    1459 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1460"><span class="lineNum">    1460 </span>                :            : </a>
+<a name="1461"><span class="lineNum">    1461 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1462"><span class="lineNum">    1462 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_csr_response_t) + spdm_response-&gt;csr_length);</span></a>
+<a name="1463"><span class="lineNum">    1463 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1464"><span class="lineNum">    1464 </span>                :            :                      SPDM_CSR);</a>
+<a name="1465"><span class="lineNum">    1465 </span>                :            : </a>
+<a name="1466"><span class="lineNum">    1466 </span>                :            :     /*check returned CSR is equal the cached CSR */</a>
+<a name="1467"><span class="lineNum">    1467 </span>                :<span class="lineCov">          1 :     assert_memory_equal(spdm_response + 1, cached_csr, spdm_response-&gt;csr_length);</span></a>
+<a name="1468"><span class="lineNum">    1468 </span>                :            : #else</a>
+<a name="1469"><span class="lineNum">    1469 </span>                :            :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</a>
+<a name="1470"><span class="lineNum">    1470 </span>                :            :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</a>
+<a name="1471"><span class="lineNum">    1471 </span>                :            :     spdm_response = (void *)response;</a>
+<a name="1472"><span class="lineNum">    1472 </span>                :            :     assert_int_equal(spdm_response-&gt;header.request_response_code,</a>
+<a name="1473"><span class="lineNum">    1473 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1474"><span class="lineNum">    1474 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param1,</a>
+<a name="1475"><span class="lineNum">    1475 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
+<a name="1476"><span class="lineNum">    1476 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param2, 0);</a>
+<a name="1477"><span class="lineNum">    1477 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
+<a name="1478"><span class="lineNum">    1478 </span>                :            :     /*clear cached req_info*/</a>
+<a name="1479"><span class="lineNum">    1479 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
+<a name="1480"><span class="lineNum">    1480 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
+<a name="1481"><span class="lineNum">    1481 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="1482"><span class="lineNum">    1482 </span>                :            : </a>
+<a name="1483"><span class="lineNum">    1483 </span>                :            : /**</a>
+<a name="1484"><span class="lineNum">    1484 </span>                :            :  * Test 14: receives a valid GET_CSR request message from Requester with need_reset for SPDM 1.3</a>
+<a name="1485"><span class="lineNum">    1485 </span>                :            :  * Expected Behavior: the first get_csr with csr_tracking_tag 0: responder return need reset and available csr_tracking_tag;</a>
+<a name="1486"><span class="lineNum">    1486 </span>                :            :  *                    Afer reset, then send get_csr with csr_tracking_tag 0 six times: responder return need reset and available csr_tracking_tag;</a>
+<a name="1487"><span class="lineNum">    1487 </span>                :            :  *                    Then send get_csr with csr_tracking_tag 0: responder return busy error;</a>
+<a name="1488"><span class="lineNum">    1488 </span>                :            :  **/</a>
+<a name="1489"><span class="lineNum">    1489 </span>                :<span class="lineCov">          1 : void libspdm_test_responder_csr_case14(void **state)</span></a>
+<a name="1490"><span class="lineNum">    1490 </span>                :            : {</a>
+<a name="1491"><span class="lineNum">    1491 </span>                :            :     libspdm_return_t status;</a>
+<a name="1492"><span class="lineNum">    1492 </span>                :            :     libspdm_test_context_t *spdm_test_context;</a>
+<a name="1493"><span class="lineNum">    1493 </span>                :            :     libspdm_context_t *spdm_context;</a>
+<a name="1494"><span class="lineNum">    1494 </span>                :            :     size_t response_size;</a>
+<a name="1495"><span class="lineNum">    1495 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
+<a name="1496"><span class="lineNum">    1496 </span>                :            :     spdm_csr_response_t *spdm_response;</a>
+<a name="1497"><span class="lineNum">    1497 </span>                :            :     spdm_get_csr_request_t *m_libspdm_get_csr_request;</a>
+<a name="1498"><span class="lineNum">    1498 </span>                :            :     uint8_t cached_csr[LIBSPDM_MAX_CSR_SIZE];</a>
+<a name="1499"><span class="lineNum">    1499 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
+<a name="1500"><span class="lineNum">    1500 </span>                :            :     uint8_t index;</a>
+<a name="1501"><span class="lineNum">    1501 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
+<a name="1502"><span class="lineNum">    1502 </span>                :<span class="lineCov">          1 :     libspdm_zero_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE);</span></a>
+<a name="1503"><span class="lineNum">    1503 </span>                :            : </a>
+<a name="1504"><span class="lineNum">    1504 </span>                :            :     uint8_t *csr_pointer;</a>
+<a name="1505"><span class="lineNum">    1505 </span>                :            :     size_t csr_len;</a>
+<a name="1506"><span class="lineNum">    1506 </span>                :            :     uint8_t csr_tracking_tag;</a>
 <a name="1507"><span class="lineNum">    1507 </span>                :            : </a>
-<a name="1508"><span class="lineNum">    1508 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!libspdm_test_read_cached_csr(&amp;csr_pointer, &amp;csr_len)) {</span></a>
-<a name="1509"><span class="lineNum">    1509 </span>                :<span class="lineNoCov">          0 :         assert_false(true);</span></a>
-<a name="1510"><span class="lineNum">    1510 </span>                :            :     }</a>
-<a name="1511"><span class="lineNum">    1511 </span>                :            : </a>
-<a name="1512"><span class="lineNum">    1512 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE, csr_pointer, csr_len);</span></a>
-<a name="1513"><span class="lineNum">    1513 </span>                :<span class="lineCov">          1 :     free(csr_pointer);</span></a>
-<a name="1514"><span class="lineNum">    1514 </span>                :            : </a>
-<a name="1515"><span class="lineNum">    1515 </span>                :<span class="lineCov">          1 :     spdm_test_context = *state;</span></a>
-<a name="1516"><span class="lineNum">    1516 </span>                :<span class="lineCov">          1 :     spdm_context = spdm_test_context-&gt;spdm_context;</span></a>
-<a name="1517"><span class="lineNum">    1517 </span>                :<span class="lineCov">          1 :     spdm_test_context-&gt;case_id = 0xE;</span></a>
-<a name="1518"><span class="lineNum">    1518 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.version = SPDM_MESSAGE_VERSION_13 &lt;&lt;</span></a>
-<a name="1519"><span class="lineNum">    1519 </span>                :            :                                             SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
-<a name="1520"><span class="lineNum">    1520 </span>                :            : </a>
-<a name="1521"><span class="lineNum">    1521 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.connection_state =</span></a>
-<a name="1522"><span class="lineNum">    1522 </span>                :            :         LIBSPDM_CONNECTION_STATE_NEGOTIATED;</a>
-<a name="1523"><span class="lineNum">    1523 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
-<a name="1524"><span class="lineNum">    1524 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CSR_CAP;</a>
-<a name="1525"><span class="lineNum">    1525 </span>                :            : </a>
-<a name="1526"><span class="lineNum">    1526 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.multi_key_conn_rsp = true;</span></a>
-<a name="1527"><span class="lineNum">    1527 </span>                :            :     /*set responder need reset*/</a>
-<a name="1528"><span class="lineNum">    1528 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
-<a name="1529"><span class="lineNum">    1529 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_INSTALL_RESET_CAP;</a>
-<a name="1530"><span class="lineNum">    1530 </span>                :            : </a>
-<a name="1531"><span class="lineNum">    1531 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_hash_algo =</span></a>
-<a name="1532"><span class="lineNum">    1532 </span>                :            :         m_libspdm_use_hash_algo;</a>
-<a name="1533"><span class="lineNum">    1533 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_asym_algo =</span></a>
-<a name="1534"><span class="lineNum">    1534 </span>                :            :         m_libspdm_use_asym_algo;</a>
-<a name="1535"><span class="lineNum">    1535 </span>                :            : </a>
-<a name="1536"><span class="lineNum">    1536 </span>                :            :     /*set csr before reset*/</a>
-<a name="1537"><span class="lineNum">    1537 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_before_reset());</span></a>
-<a name="1538"><span class="lineNum">    1538 </span>                :            : </a>
-<a name="1539"><span class="lineNum">    1539 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request = malloc(sizeof(spdm_get_csr_request_t) +</span></a>
-<a name="1540"><span class="lineNum">    1540 </span>                :            :                                        req_info_len);</a>
-<a name="1541"><span class="lineNum">    1541 </span>                :            : </a>
-<a name="1542"><span class="lineNum">    1542 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1543"><span class="lineNum">    1543 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1544"><span class="lineNum">    1544 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1545"><span class="lineNum">    1545 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1546"><span class="lineNum">    1546 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1547"><span class="lineNum">    1547 </span>                :            : </a>
-<a name="1548"><span class="lineNum">    1548 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1549"><span class="lineNum">    1549 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1508"><span class="lineNum">    1508 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
+<a name="1509"><span class="lineNum">    1509 </span>                :            : </a>
+<a name="1510"><span class="lineNum">    1510 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!libspdm_test_read_cached_csr(&amp;csr_pointer, &amp;csr_len)) {</span></a>
+<a name="1511"><span class="lineNum">    1511 </span>                :<span class="lineNoCov">          0 :         assert_false(true);</span></a>
+<a name="1512"><span class="lineNum">    1512 </span>                :            :     }</a>
+<a name="1513"><span class="lineNum">    1513 </span>                :            : </a>
+<a name="1514"><span class="lineNum">    1514 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE, csr_pointer, csr_len);</span></a>
+<a name="1515"><span class="lineNum">    1515 </span>                :<span class="lineCov">          1 :     free(csr_pointer);</span></a>
+<a name="1516"><span class="lineNum">    1516 </span>                :            : </a>
+<a name="1517"><span class="lineNum">    1517 </span>                :<span class="lineCov">          1 :     spdm_test_context = *state;</span></a>
+<a name="1518"><span class="lineNum">    1518 </span>                :<span class="lineCov">          1 :     spdm_context = spdm_test_context-&gt;spdm_context;</span></a>
+<a name="1519"><span class="lineNum">    1519 </span>                :<span class="lineCov">          1 :     spdm_test_context-&gt;case_id = 0xE;</span></a>
+<a name="1520"><span class="lineNum">    1520 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.version = SPDM_MESSAGE_VERSION_13 &lt;&lt;</span></a>
+<a name="1521"><span class="lineNum">    1521 </span>                :            :                                             SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
+<a name="1522"><span class="lineNum">    1522 </span>                :            : </a>
+<a name="1523"><span class="lineNum">    1523 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.connection_state =</span></a>
+<a name="1524"><span class="lineNum">    1524 </span>                :            :         LIBSPDM_CONNECTION_STATE_NEGOTIATED;</a>
+<a name="1525"><span class="lineNum">    1525 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
+<a name="1526"><span class="lineNum">    1526 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CSR_CAP;</a>
+<a name="1527"><span class="lineNum">    1527 </span>                :            : </a>
+<a name="1528"><span class="lineNum">    1528 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.multi_key_conn_rsp = true;</span></a>
+<a name="1529"><span class="lineNum">    1529 </span>                :            :     /*set responder need reset*/</a>
+<a name="1530"><span class="lineNum">    1530 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
+<a name="1531"><span class="lineNum">    1531 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_INSTALL_RESET_CAP;</a>
+<a name="1532"><span class="lineNum">    1532 </span>                :            : </a>
+<a name="1533"><span class="lineNum">    1533 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_hash_algo =</span></a>
+<a name="1534"><span class="lineNum">    1534 </span>                :            :         m_libspdm_use_hash_algo;</a>
+<a name="1535"><span class="lineNum">    1535 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_asym_algo =</span></a>
+<a name="1536"><span class="lineNum">    1536 </span>                :            :         m_libspdm_use_asym_algo;</a>
+<a name="1537"><span class="lineNum">    1537 </span>                :            : </a>
+<a name="1538"><span class="lineNum">    1538 </span>                :            :     /*set csr before reset*/</a>
+<a name="1539"><span class="lineNum">    1539 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_before_reset());</span></a>
+<a name="1540"><span class="lineNum">    1540 </span>                :            : </a>
+<a name="1541"><span class="lineNum">    1541 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request = malloc(sizeof(spdm_get_csr_request_t) +</span></a>
+<a name="1542"><span class="lineNum">    1542 </span>                :            :                                        req_info_len);</a>
+<a name="1543"><span class="lineNum">    1543 </span>                :            : </a>
+<a name="1544"><span class="lineNum">    1544 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1545"><span class="lineNum">    1545 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1546"><span class="lineNum">    1546 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1547"><span class="lineNum">    1547 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1548"><span class="lineNum">    1548 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1549"><span class="lineNum">    1549 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
 <a name="1550"><span class="lineNum">    1550 </span>                :            : </a>
-<a name="1551"><span class="lineNum">    1551 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1552"><span class="lineNum">    1552 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1551"><span class="lineNum">    1551 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1552"><span class="lineNum">    1552 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
 <a name="1553"><span class="lineNum">    1553 </span>                :            : </a>
-<a name="1554"><span class="lineNum">    1554 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) +</span></a>
-<a name="1555"><span class="lineNum">    1555 </span>                :            :                                             req_info_len;</a>
+<a name="1554"><span class="lineNum">    1554 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1555"><span class="lineNum">    1555 </span>                :            :                      right_req_info, req_info_len);</a>
 <a name="1556"><span class="lineNum">    1556 </span>                :            : </a>
-<a name="1557"><span class="lineNum">    1557 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1558"><span class="lineNum">    1558 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1559"><span class="lineNum">    1559 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1560"><span class="lineNum">    1560 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1561"><span class="lineNum">    1561 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1562"><span class="lineNum">    1562 </span>                :            : </a>
-<a name="1563"><span class="lineNum">    1563 </span>                :            :     /*set csr after reset*/</a>
-<a name="1564"><span class="lineNum">    1564 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_after_reset());</span></a>
-<a name="1565"><span class="lineNum">    1565 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
-<a name="1566"><span class="lineNum">    1566 </span>                :            :     /*first get_csr: the responder need reset*/</a>
-<a name="1567"><span class="lineNum">    1567 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1568"><span class="lineNum">    1568 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1569"><span class="lineNum">    1569 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1570"><span class="lineNum">    1570 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1571"><span class="lineNum">    1571 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1572"><span class="lineNum">    1572 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1573"><span class="lineNum">    1573 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
-<a name="1574"><span class="lineNum">    1574 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
-<a name="1575"><span class="lineNum">    1575 </span>                :            : </a>
-<a name="1576"><span class="lineNum">    1576 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          7 :     for (index = 1; index &lt; SPDM_MAX_CSR_TRACKING_TAG; index++) {</span></a>
-<a name="1577"><span class="lineNum">    1577 </span>                :<span class="lineCov">          6 :         csr_tracking_tag = 0;</span></a>
-<a name="1578"><span class="lineNum">    1578 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1579"><span class="lineNum">    1579 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1580"><span class="lineNum">    1580 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1581"><span class="lineNum">    1581 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1582"><span class="lineNum">    1582 </span>                :<span class="lineCov">          6 :             csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1583"><span class="lineNum">    1583 </span>                :            : </a>
-<a name="1584"><span class="lineNum">    1584 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1585"><span class="lineNum">    1585 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1586"><span class="lineNum">    1586 </span>                :<span class="lineCov">          6 :         libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1587"><span class="lineNum">    1587 </span>                :            :                          right_req_info, req_info_len);</a>
-<a name="1588"><span class="lineNum">    1588 </span>                :            : </a>
-<a name="1589"><span class="lineNum">    1589 </span>                :<span class="lineCov">          6 :         response_size = sizeof(response);</span></a>
-<a name="1590"><span class="lineNum">    1590 </span>                :<span class="lineCov">          6 :         status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1591"><span class="lineNum">    1591 </span>                :            :                                           m_libspdm_get_csr_request_size,</a>
-<a name="1592"><span class="lineNum">    1592 </span>                :            :                                           m_libspdm_get_csr_request,</a>
-<a name="1593"><span class="lineNum">    1593 </span>                :            :                                           &amp;response_size, response);</a>
-<a name="1594"><span class="lineNum">    1594 </span>                :            :         /*second get_csr after device reset: get the responder cached csr*/</a>
-<a name="1595"><span class="lineNum">    1595 </span>                :<span class="lineCov">          6 :         assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1596"><span class="lineNum">    1596 </span>                :<span class="lineCov">          6 :         assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1597"><span class="lineNum">    1597 </span>                :<span class="lineCov">          6 :         spdm_response = (void *)response;</span></a>
-<a name="1598"><span class="lineNum">    1598 </span>                :<span class="lineCov">          6 :         assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1599"><span class="lineNum">    1599 </span>                :            :                          SPDM_ERROR);</a>
-<a name="1600"><span class="lineNum">    1600 </span>                :<span class="lineCov">          6 :         assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1601"><span class="lineNum">    1601 </span>                :            :                          SPDM_ERROR_CODE_RESET_REQUIRED);</a>
-<a name="1602"><span class="lineNum">    1602 </span>                :<span class="lineCov">          6 :         assert_int_equal(spdm_response-&gt;header.param2, index + 1);</span></a>
-<a name="1603"><span class="lineNum">    1603 </span>                :            :     }</a>
-<a name="1604"><span class="lineNum">    1604 </span>                :            : </a>
-<a name="1605"><span class="lineNum">    1605 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
-<a name="1606"><span class="lineNum">    1606 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1607"><span class="lineNum">    1607 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1608"><span class="lineNum">    1608 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1609"><span class="lineNum">    1609 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1610"><span class="lineNum">    1610 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1611"><span class="lineNum">    1611 </span>                :            : </a>
-<a name="1612"><span class="lineNum">    1612 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1613"><span class="lineNum">    1613 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1614"><span class="lineNum">    1614 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1615"><span class="lineNum">    1615 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1557"><span class="lineNum">    1557 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) +</span></a>
+<a name="1558"><span class="lineNum">    1558 </span>                :            :                                             req_info_len;</a>
+<a name="1559"><span class="lineNum">    1559 </span>                :            : </a>
+<a name="1560"><span class="lineNum">    1560 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1561"><span class="lineNum">    1561 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1562"><span class="lineNum">    1562 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1563"><span class="lineNum">    1563 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1564"><span class="lineNum">    1564 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1565"><span class="lineNum">    1565 </span>                :            : </a>
+<a name="1566"><span class="lineNum">    1566 </span>                :            :     /*set csr after reset*/</a>
+<a name="1567"><span class="lineNum">    1567 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_after_reset());</span></a>
+<a name="1568"><span class="lineNum">    1568 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
+<a name="1569"><span class="lineNum">    1569 </span>                :            :     /*first get_csr: the responder need reset*/</a>
+<a name="1570"><span class="lineNum">    1570 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1571"><span class="lineNum">    1571 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1572"><span class="lineNum">    1572 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1573"><span class="lineNum">    1573 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1574"><span class="lineNum">    1574 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1575"><span class="lineNum">    1575 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1576"><span class="lineNum">    1576 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
+<a name="1577"><span class="lineNum">    1577 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
+<a name="1578"><span class="lineNum">    1578 </span>                :            : </a>
+<a name="1579"><span class="lineNum">    1579 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          7 :     for (index = 1; index &lt; SPDM_MAX_CSR_TRACKING_TAG; index++) {</span></a>
+<a name="1580"><span class="lineNum">    1580 </span>                :<span class="lineCov">          6 :         csr_tracking_tag = 0;</span></a>
+<a name="1581"><span class="lineNum">    1581 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1582"><span class="lineNum">    1582 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1583"><span class="lineNum">    1583 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1584"><span class="lineNum">    1584 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1585"><span class="lineNum">    1585 </span>                :<span class="lineCov">          6 :             SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1586"><span class="lineNum">    1586 </span>                :<span class="lineCov">          6 :             (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
+<a name="1587"><span class="lineNum">    1587 </span>                :            : </a>
+<a name="1588"><span class="lineNum">    1588 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1589"><span class="lineNum">    1589 </span>                :<span class="lineCov">          6 :         m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1590"><span class="lineNum">    1590 </span>                :<span class="lineCov">          6 :         libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1591"><span class="lineNum">    1591 </span>                :            :                          right_req_info, req_info_len);</a>
+<a name="1592"><span class="lineNum">    1592 </span>                :            : </a>
+<a name="1593"><span class="lineNum">    1593 </span>                :<span class="lineCov">          6 :         response_size = sizeof(response);</span></a>
+<a name="1594"><span class="lineNum">    1594 </span>                :<span class="lineCov">          6 :         status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1595"><span class="lineNum">    1595 </span>                :            :                                           m_libspdm_get_csr_request_size,</a>
+<a name="1596"><span class="lineNum">    1596 </span>                :            :                                           m_libspdm_get_csr_request,</a>
+<a name="1597"><span class="lineNum">    1597 </span>                :            :                                           &amp;response_size, response);</a>
+<a name="1598"><span class="lineNum">    1598 </span>                :            :         /*second get_csr after device reset: get the responder cached csr*/</a>
+<a name="1599"><span class="lineNum">    1599 </span>                :<span class="lineCov">          6 :         assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1600"><span class="lineNum">    1600 </span>                :<span class="lineCov">          6 :         assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1601"><span class="lineNum">    1601 </span>                :<span class="lineCov">          6 :         spdm_response = (void *)response;</span></a>
+<a name="1602"><span class="lineNum">    1602 </span>                :<span class="lineCov">          6 :         assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1603"><span class="lineNum">    1603 </span>                :            :                          SPDM_ERROR);</a>
+<a name="1604"><span class="lineNum">    1604 </span>                :<span class="lineCov">          6 :         assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1605"><span class="lineNum">    1605 </span>                :            :                          SPDM_ERROR_CODE_RESET_REQUIRED);</a>
+<a name="1606"><span class="lineNum">    1606 </span>                :<span class="lineCov">          6 :         assert_int_equal(spdm_response-&gt;header.param2, index + 1);</span></a>
+<a name="1607"><span class="lineNum">    1607 </span>                :            :     }</a>
+<a name="1608"><span class="lineNum">    1608 </span>                :            : </a>
+<a name="1609"><span class="lineNum">    1609 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
+<a name="1610"><span class="lineNum">    1610 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1611"><span class="lineNum">    1611 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1612"><span class="lineNum">    1612 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1613"><span class="lineNum">    1613 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1614"><span class="lineNum">    1614 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1615"><span class="lineNum">    1615 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
 <a name="1616"><span class="lineNum">    1616 </span>                :            : </a>
-<a name="1617"><span class="lineNum">    1617 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1618"><span class="lineNum">    1618 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1619"><span class="lineNum">    1619 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1620"><span class="lineNum">    1620 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1621"><span class="lineNum">    1621 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1622"><span class="lineNum">    1622 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
-<a name="1623"><span class="lineNum">    1623 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1624"><span class="lineNum">    1624 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1625"><span class="lineNum">    1625 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1626"><span class="lineNum">    1626 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1627"><span class="lineNum">    1627 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1628"><span class="lineNum">    1628 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1629"><span class="lineNum">    1629 </span>                :            :                      SPDM_ERROR_CODE_BUSY);</a>
-<a name="1630"><span class="lineNum">    1630 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
-<a name="1631"><span class="lineNum">    1631 </span>                :            : #else</a>
-<a name="1632"><span class="lineNum">    1632 </span>                :            :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</a>
-<a name="1633"><span class="lineNum">    1633 </span>                :            :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</a>
-<a name="1634"><span class="lineNum">    1634 </span>                :            :     spdm_response = (void *)response;</a>
-<a name="1635"><span class="lineNum">    1635 </span>                :            :     assert_int_equal(spdm_response-&gt;header.request_response_code,</a>
-<a name="1636"><span class="lineNum">    1636 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1637"><span class="lineNum">    1637 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param1,</a>
-<a name="1638"><span class="lineNum">    1638 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
-<a name="1639"><span class="lineNum">    1639 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param2, 0);</a>
-<a name="1640"><span class="lineNum">    1640 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
-<a name="1641"><span class="lineNum">    1641 </span>                :            :     /*clear cached req_info*/</a>
-<a name="1642"><span class="lineNum">    1642 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
-<a name="1643"><span class="lineNum">    1643 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
-<a name="1644"><span class="lineNum">    1644 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="1645"><span class="lineNum">    1645 </span>                :            : </a>
-<a name="1646"><span class="lineNum">    1646 </span>                :            : /**</a>
-<a name="1647"><span class="lineNum">    1647 </span>                :            :  * Test 15: receives a valid GET_CSR request message from Requester with need_reset for SPDM 1.3</a>
-<a name="1648"><span class="lineNum">    1648 </span>                :            :  * Expected Behavior: the first get_csr with csr_tracking_tag 0: responder return need reset and available csr_tracking_tag;</a>
-<a name="1649"><span class="lineNum">    1649 </span>                :            :  *                    Without reset, then send get_csr with unmatched csr_tracking_tag：responder return unexpected error;</a>
-<a name="1650"><span class="lineNum">    1650 </span>                :            :  *                    Without reset, then send get_csr with matched csr_tracking_tag：responder return busy error;</a>
-<a name="1651"><span class="lineNum">    1651 </span>                :            :  *                    Without reset, then send get_csr with non-0 csr_tracking_tag, and overwrite is set：responder return invalid error;</a>
-<a name="1652"><span class="lineNum">    1652 </span>                :            :  *                    After reset, then send get_csr with unmatched csr_tracking_tag：responder return unexpected error;</a>
-<a name="1653"><span class="lineNum">    1653 </span>                :            :  *                    After reset, then send get_csr with csr_tracking_tag 0, and overwrite is set：responder return need reset and available csr_tracking_tag;</a>
-<a name="1654"><span class="lineNum">    1654 </span>                :            :  **/</a>
-<a name="1655"><span class="lineNum">    1655 </span>                :<span class="lineCov">          1 : void libspdm_test_responder_csr_case15(void **state)</span></a>
-<a name="1656"><span class="lineNum">    1656 </span>                :            : {</a>
-<a name="1657"><span class="lineNum">    1657 </span>                :            :     libspdm_return_t status;</a>
-<a name="1658"><span class="lineNum">    1658 </span>                :            :     libspdm_test_context_t *spdm_test_context;</a>
-<a name="1659"><span class="lineNum">    1659 </span>                :            :     libspdm_context_t *spdm_context;</a>
-<a name="1660"><span class="lineNum">    1660 </span>                :            :     size_t response_size;</a>
-<a name="1661"><span class="lineNum">    1661 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
-<a name="1662"><span class="lineNum">    1662 </span>                :            :     spdm_csr_response_t *spdm_response;</a>
-<a name="1663"><span class="lineNum">    1663 </span>                :            :     spdm_get_csr_request_t *m_libspdm_get_csr_request;</a>
-<a name="1664"><span class="lineNum">    1664 </span>                :            :     uint8_t cached_csr[LIBSPDM_MAX_CSR_SIZE];</a>
-<a name="1665"><span class="lineNum">    1665 </span>                :<span class="lineCov">          1 :     libspdm_zero_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE);</span></a>
-<a name="1666"><span class="lineNum">    1666 </span>                :            : </a>
-<a name="1667"><span class="lineNum">    1667 </span>                :            :     uint8_t *csr_pointer;</a>
-<a name="1668"><span class="lineNum">    1668 </span>                :            :     size_t csr_len;</a>
-<a name="1669"><span class="lineNum">    1669 </span>                :            :     uint8_t csr_tracking_tag;</a>
-<a name="1670"><span class="lineNum">    1670 </span>                :            : </a>
-<a name="1671"><span class="lineNum">    1671 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
-<a name="1672"><span class="lineNum">    1672 </span>                :            : </a>
-<a name="1673"><span class="lineNum">    1673 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!libspdm_test_read_cached_csr(&amp;csr_pointer, &amp;csr_len)) {</span></a>
-<a name="1674"><span class="lineNum">    1674 </span>                :<span class="lineNoCov">          0 :         assert_false(true);</span></a>
-<a name="1675"><span class="lineNum">    1675 </span>                :            :     }</a>
-<a name="1676"><span class="lineNum">    1676 </span>                :            : </a>
-<a name="1677"><span class="lineNum">    1677 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE, csr_pointer, csr_len);</span></a>
-<a name="1678"><span class="lineNum">    1678 </span>                :<span class="lineCov">          1 :     free(csr_pointer);</span></a>
-<a name="1679"><span class="lineNum">    1679 </span>                :            : </a>
-<a name="1680"><span class="lineNum">    1680 </span>                :<span class="lineCov">          1 :     spdm_test_context = *state;</span></a>
-<a name="1681"><span class="lineNum">    1681 </span>                :<span class="lineCov">          1 :     spdm_context = spdm_test_context-&gt;spdm_context;</span></a>
-<a name="1682"><span class="lineNum">    1682 </span>                :<span class="lineCov">          1 :     spdm_test_context-&gt;case_id = 0xF;</span></a>
-<a name="1683"><span class="lineNum">    1683 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.version = SPDM_MESSAGE_VERSION_13 &lt;&lt;</span></a>
-<a name="1684"><span class="lineNum">    1684 </span>                :            :                                             SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
-<a name="1685"><span class="lineNum">    1685 </span>                :            : </a>
-<a name="1686"><span class="lineNum">    1686 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.connection_state =</span></a>
-<a name="1687"><span class="lineNum">    1687 </span>                :            :         LIBSPDM_CONNECTION_STATE_NEGOTIATED;</a>
-<a name="1688"><span class="lineNum">    1688 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
-<a name="1689"><span class="lineNum">    1689 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CSR_CAP;</a>
+<a name="1617"><span class="lineNum">    1617 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1618"><span class="lineNum">    1618 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1619"><span class="lineNum">    1619 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1620"><span class="lineNum">    1620 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1621"><span class="lineNum">    1621 </span>                :            : </a>
+<a name="1622"><span class="lineNum">    1622 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1623"><span class="lineNum">    1623 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1624"><span class="lineNum">    1624 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1625"><span class="lineNum">    1625 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1626"><span class="lineNum">    1626 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1627"><span class="lineNum">    1627 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
+<a name="1628"><span class="lineNum">    1628 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1629"><span class="lineNum">    1629 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1630"><span class="lineNum">    1630 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1631"><span class="lineNum">    1631 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1632"><span class="lineNum">    1632 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1633"><span class="lineNum">    1633 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1634"><span class="lineNum">    1634 </span>                :            :                      SPDM_ERROR_CODE_BUSY);</a>
+<a name="1635"><span class="lineNum">    1635 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
+<a name="1636"><span class="lineNum">    1636 </span>                :            : #else</a>
+<a name="1637"><span class="lineNum">    1637 </span>                :            :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</a>
+<a name="1638"><span class="lineNum">    1638 </span>                :            :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</a>
+<a name="1639"><span class="lineNum">    1639 </span>                :            :     spdm_response = (void *)response;</a>
+<a name="1640"><span class="lineNum">    1640 </span>                :            :     assert_int_equal(spdm_response-&gt;header.request_response_code,</a>
+<a name="1641"><span class="lineNum">    1641 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1642"><span class="lineNum">    1642 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param1,</a>
+<a name="1643"><span class="lineNum">    1643 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
+<a name="1644"><span class="lineNum">    1644 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param2, 0);</a>
+<a name="1645"><span class="lineNum">    1645 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
+<a name="1646"><span class="lineNum">    1646 </span>                :            :     /*clear cached req_info*/</a>
+<a name="1647"><span class="lineNum">    1647 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
+<a name="1648"><span class="lineNum">    1648 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
+<a name="1649"><span class="lineNum">    1649 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="1650"><span class="lineNum">    1650 </span>                :            : </a>
+<a name="1651"><span class="lineNum">    1651 </span>                :            : /**</a>
+<a name="1652"><span class="lineNum">    1652 </span>                :            :  * Test 15: receives a valid GET_CSR request message from Requester with need_reset for SPDM 1.3</a>
+<a name="1653"><span class="lineNum">    1653 </span>                :            :  * Expected Behavior: the first get_csr with csr_tracking_tag 0: responder return need reset and available csr_tracking_tag;</a>
+<a name="1654"><span class="lineNum">    1654 </span>                :            :  *                    Without reset, then send get_csr with unmatched csr_tracking_tag：responder return unexpected error;</a>
+<a name="1655"><span class="lineNum">    1655 </span>                :            :  *                    Without reset, then send get_csr with matched csr_tracking_tag：responder return busy error;</a>
+<a name="1656"><span class="lineNum">    1656 </span>                :            :  *                    Without reset, then send get_csr with non-0 csr_tracking_tag, and overwrite is set：responder return invalid error;</a>
+<a name="1657"><span class="lineNum">    1657 </span>                :            :  *                    After reset, then send get_csr with unmatched csr_tracking_tag：responder return unexpected error;</a>
+<a name="1658"><span class="lineNum">    1658 </span>                :            :  *                    After reset, then send get_csr with csr_tracking_tag 0, and overwrite is set：responder return need reset and available csr_tracking_tag;</a>
+<a name="1659"><span class="lineNum">    1659 </span>                :            :  **/</a>
+<a name="1660"><span class="lineNum">    1660 </span>                :<span class="lineCov">          1 : void libspdm_test_responder_csr_case15(void **state)</span></a>
+<a name="1661"><span class="lineNum">    1661 </span>                :            : {</a>
+<a name="1662"><span class="lineNum">    1662 </span>                :            :     libspdm_return_t status;</a>
+<a name="1663"><span class="lineNum">    1663 </span>                :            :     libspdm_test_context_t *spdm_test_context;</a>
+<a name="1664"><span class="lineNum">    1664 </span>                :            :     libspdm_context_t *spdm_context;</a>
+<a name="1665"><span class="lineNum">    1665 </span>                :            :     size_t response_size;</a>
+<a name="1666"><span class="lineNum">    1666 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
+<a name="1667"><span class="lineNum">    1667 </span>                :            :     spdm_csr_response_t *spdm_response;</a>
+<a name="1668"><span class="lineNum">    1668 </span>                :            :     spdm_get_csr_request_t *m_libspdm_get_csr_request;</a>
+<a name="1669"><span class="lineNum">    1669 </span>                :            :     uint8_t cached_csr[LIBSPDM_MAX_CSR_SIZE];</a>
+<a name="1670"><span class="lineNum">    1670 </span>                :<span class="lineCov">          1 :     libspdm_zero_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE);</span></a>
+<a name="1671"><span class="lineNum">    1671 </span>                :            : </a>
+<a name="1672"><span class="lineNum">    1672 </span>                :            :     uint8_t *csr_pointer;</a>
+<a name="1673"><span class="lineNum">    1673 </span>                :            :     size_t csr_len;</a>
+<a name="1674"><span class="lineNum">    1674 </span>                :            :     uint8_t csr_tracking_tag;</a>
+<a name="1675"><span class="lineNum">    1675 </span>                :            : </a>
+<a name="1676"><span class="lineNum">    1676 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
+<a name="1677"><span class="lineNum">    1677 </span>                :            : </a>
+<a name="1678"><span class="lineNum">    1678 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!libspdm_test_read_cached_csr(&amp;csr_pointer, &amp;csr_len)) {</span></a>
+<a name="1679"><span class="lineNum">    1679 </span>                :<span class="lineNoCov">          0 :         assert_false(true);</span></a>
+<a name="1680"><span class="lineNum">    1680 </span>                :            :     }</a>
+<a name="1681"><span class="lineNum">    1681 </span>                :            : </a>
+<a name="1682"><span class="lineNum">    1682 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE, csr_pointer, csr_len);</span></a>
+<a name="1683"><span class="lineNum">    1683 </span>                :<span class="lineCov">          1 :     free(csr_pointer);</span></a>
+<a name="1684"><span class="lineNum">    1684 </span>                :            : </a>
+<a name="1685"><span class="lineNum">    1685 </span>                :<span class="lineCov">          1 :     spdm_test_context = *state;</span></a>
+<a name="1686"><span class="lineNum">    1686 </span>                :<span class="lineCov">          1 :     spdm_context = spdm_test_context-&gt;spdm_context;</span></a>
+<a name="1687"><span class="lineNum">    1687 </span>                :<span class="lineCov">          1 :     spdm_test_context-&gt;case_id = 0xF;</span></a>
+<a name="1688"><span class="lineNum">    1688 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.version = SPDM_MESSAGE_VERSION_13 &lt;&lt;</span></a>
+<a name="1689"><span class="lineNum">    1689 </span>                :            :                                             SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
 <a name="1690"><span class="lineNum">    1690 </span>                :            : </a>
-<a name="1691"><span class="lineNum">    1691 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.multi_key_conn_rsp = true;</span></a>
-<a name="1692"><span class="lineNum">    1692 </span>                :            :     /*set responder need reset*/</a>
+<a name="1691"><span class="lineNum">    1691 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.connection_state =</span></a>
+<a name="1692"><span class="lineNum">    1692 </span>                :            :         LIBSPDM_CONNECTION_STATE_NEGOTIATED;</a>
 <a name="1693"><span class="lineNum">    1693 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
-<a name="1694"><span class="lineNum">    1694 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_INSTALL_RESET_CAP;</a>
+<a name="1694"><span class="lineNum">    1694 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CSR_CAP;</a>
 <a name="1695"><span class="lineNum">    1695 </span>                :            : </a>
-<a name="1696"><span class="lineNum">    1696 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_hash_algo =</span></a>
-<a name="1697"><span class="lineNum">    1697 </span>                :            :         m_libspdm_use_hash_algo;</a>
-<a name="1698"><span class="lineNum">    1698 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_asym_algo =</span></a>
-<a name="1699"><span class="lineNum">    1699 </span>                :            :         m_libspdm_use_asym_algo;</a>
+<a name="1696"><span class="lineNum">    1696 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.multi_key_conn_rsp = true;</span></a>
+<a name="1697"><span class="lineNum">    1697 </span>                :            :     /*set responder need reset*/</a>
+<a name="1698"><span class="lineNum">    1698 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags |=</span></a>
+<a name="1699"><span class="lineNum">    1699 </span>                :            :         SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CERT_INSTALL_RESET_CAP;</a>
 <a name="1700"><span class="lineNum">    1700 </span>                :            : </a>
-<a name="1701"><span class="lineNum">    1701 </span>                :            :     /*set csr before reset*/</a>
-<a name="1702"><span class="lineNum">    1702 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_before_reset());</span></a>
-<a name="1703"><span class="lineNum">    1703 </span>                :            : </a>
-<a name="1704"><span class="lineNum">    1704 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request = malloc(sizeof(spdm_get_csr_request_t) +</span></a>
-<a name="1705"><span class="lineNum">    1705 </span>                :            :                                        req_info_len);</a>
-<a name="1706"><span class="lineNum">    1706 </span>                :            : </a>
-<a name="1707"><span class="lineNum">    1707 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1708"><span class="lineNum">    1708 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1709"><span class="lineNum">    1709 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1710"><span class="lineNum">    1710 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1711"><span class="lineNum">    1711 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1712"><span class="lineNum">    1712 </span>                :            : </a>
-<a name="1713"><span class="lineNum">    1713 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1714"><span class="lineNum">    1714 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1715"><span class="lineNum">    1715 </span>                :            : </a>
-<a name="1716"><span class="lineNum">    1716 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1717"><span class="lineNum">    1717 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1701"><span class="lineNum">    1701 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_hash_algo =</span></a>
+<a name="1702"><span class="lineNum">    1702 </span>                :            :         m_libspdm_use_hash_algo;</a>
+<a name="1703"><span class="lineNum">    1703 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_asym_algo =</span></a>
+<a name="1704"><span class="lineNum">    1704 </span>                :            :         m_libspdm_use_asym_algo;</a>
+<a name="1705"><span class="lineNum">    1705 </span>                :            : </a>
+<a name="1706"><span class="lineNum">    1706 </span>                :            :     /*set csr before reset*/</a>
+<a name="1707"><span class="lineNum">    1707 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_before_reset());</span></a>
+<a name="1708"><span class="lineNum">    1708 </span>                :            : </a>
+<a name="1709"><span class="lineNum">    1709 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request = malloc(sizeof(spdm_get_csr_request_t) +</span></a>
+<a name="1710"><span class="lineNum">    1710 </span>                :            :                                        req_info_len);</a>
+<a name="1711"><span class="lineNum">    1711 </span>                :            : </a>
+<a name="1712"><span class="lineNum">    1712 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1713"><span class="lineNum">    1713 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1714"><span class="lineNum">    1714 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1715"><span class="lineNum">    1715 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1716"><span class="lineNum">    1716 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1717"><span class="lineNum">    1717 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
 <a name="1718"><span class="lineNum">    1718 </span>                :            : </a>
-<a name="1719"><span class="lineNum">    1719 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) +</span></a>
-<a name="1720"><span class="lineNum">    1720 </span>                :            :                                             req_info_len;</a>
+<a name="1719"><span class="lineNum">    1719 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1720"><span class="lineNum">    1720 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
 <a name="1721"><span class="lineNum">    1721 </span>                :            : </a>
-<a name="1722"><span class="lineNum">    1722 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1723"><span class="lineNum">    1723 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1724"><span class="lineNum">    1724 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1725"><span class="lineNum">    1725 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1726"><span class="lineNum">    1726 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1727"><span class="lineNum">    1727 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
-<a name="1728"><span class="lineNum">    1728 </span>                :            :     /*first get_csr: the responder need reset*/</a>
-<a name="1729"><span class="lineNum">    1729 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1730"><span class="lineNum">    1730 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1731"><span class="lineNum">    1731 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1732"><span class="lineNum">    1732 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1733"><span class="lineNum">    1733 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1734"><span class="lineNum">    1734 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1735"><span class="lineNum">    1735 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
-<a name="1736"><span class="lineNum">    1736 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
-<a name="1737"><span class="lineNum">    1737 </span>                :            : </a>
-<a name="1738"><span class="lineNum">    1738 </span>                :            :     /*unmatched csr_tracking_tag*/</a>
-<a name="1739"><span class="lineNum">    1739 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 3;</span></a>
-<a name="1740"><span class="lineNum">    1740 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1741"><span class="lineNum">    1741 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1742"><span class="lineNum">    1742 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1743"><span class="lineNum">    1743 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1744"><span class="lineNum">    1744 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1745"><span class="lineNum">    1745 </span>                :            : </a>
-<a name="1746"><span class="lineNum">    1746 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1747"><span class="lineNum">    1747 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1748"><span class="lineNum">    1748 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1749"><span class="lineNum">    1749 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1750"><span class="lineNum">    1750 </span>                :            : </a>
-<a name="1751"><span class="lineNum">    1751 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1752"><span class="lineNum">    1752 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1753"><span class="lineNum">    1753 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1754"><span class="lineNum">    1754 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1755"><span class="lineNum">    1755 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1756"><span class="lineNum">    1756 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
-<a name="1757"><span class="lineNum">    1757 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1758"><span class="lineNum">    1758 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1760"><span class="lineNum">    1760 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1761"><span class="lineNum">    1761 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1762"><span class="lineNum">    1762 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1763"><span class="lineNum">    1763 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
-<a name="1764"><span class="lineNum">    1764 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
-<a name="1765"><span class="lineNum">    1765 </span>                :            : </a>
-<a name="1766"><span class="lineNum">    1766 </span>                :            :     /*matched csr_tracking_tag without overwrite*/</a>
-<a name="1767"><span class="lineNum">    1767 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 1;</span></a>
-<a name="1768"><span class="lineNum">    1768 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1769"><span class="lineNum">    1769 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1770"><span class="lineNum">    1770 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1771"><span class="lineNum">    1771 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1772"><span class="lineNum">    1772 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
-<a name="1773"><span class="lineNum">    1773 </span>                :            : </a>
-<a name="1774"><span class="lineNum">    1774 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1775"><span class="lineNum">    1775 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1776"><span class="lineNum">    1776 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1777"><span class="lineNum">    1777 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1778"><span class="lineNum">    1778 </span>                :            : </a>
-<a name="1779"><span class="lineNum">    1779 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1780"><span class="lineNum">    1780 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1781"><span class="lineNum">    1781 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1782"><span class="lineNum">    1782 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1783"><span class="lineNum">    1783 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1784"><span class="lineNum">    1784 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
-<a name="1785"><span class="lineNum">    1785 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1786"><span class="lineNum">    1786 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1787"><span class="lineNum">    1787 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1788"><span class="lineNum">    1788 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1789"><span class="lineNum">    1789 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1790"><span class="lineNum">    1790 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1791"><span class="lineNum">    1791 </span>                :            :                      SPDM_ERROR_CODE_BUSY);</a>
-<a name="1792"><span class="lineNum">    1792 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
-<a name="1793"><span class="lineNum">    1793 </span>                :            : </a>
-<a name="1794"><span class="lineNum">    1794 </span>                :            : </a>
-<a name="1795"><span class="lineNum">    1795 </span>                :            :     /*matched csr_tracking_tag with overwrite*/</a>
-<a name="1796"><span class="lineNum">    1796 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 1;</span></a>
-<a name="1797"><span class="lineNum">    1797 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1798"><span class="lineNum">    1798 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1799"><span class="lineNum">    1799 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1800"><span class="lineNum">    1800 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1801"><span class="lineNum">    1801 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET) |</span></a>
-<a name="1802"><span class="lineNum">    1802 </span>                :            :         SPDM_GET_CSR_REQUEST_ATTRIBUTES_OVERWRITE;</a>
-<a name="1803"><span class="lineNum">    1803 </span>                :            : </a>
-<a name="1804"><span class="lineNum">    1804 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1805"><span class="lineNum">    1805 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1806"><span class="lineNum">    1806 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1807"><span class="lineNum">    1807 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1808"><span class="lineNum">    1808 </span>                :            : </a>
-<a name="1809"><span class="lineNum">    1809 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1810"><span class="lineNum">    1810 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1811"><span class="lineNum">    1811 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1812"><span class="lineNum">    1812 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1813"><span class="lineNum">    1813 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1814"><span class="lineNum">    1814 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
-<a name="1815"><span class="lineNum">    1815 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1816"><span class="lineNum">    1816 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1817"><span class="lineNum">    1817 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1818"><span class="lineNum">    1818 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1819"><span class="lineNum">    1819 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1820"><span class="lineNum">    1820 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1821"><span class="lineNum">    1821 </span>                :            :                      SPDM_ERROR_CODE_INVALID_REQUEST);</a>
-<a name="1822"><span class="lineNum">    1822 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
-<a name="1823"><span class="lineNum">    1823 </span>                :            : </a>
-<a name="1824"><span class="lineNum">    1824 </span>                :            :     /*set csr after reset*/</a>
-<a name="1825"><span class="lineNum">    1825 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_after_reset());</span></a>
-<a name="1826"><span class="lineNum">    1826 </span>                :            : </a>
-<a name="1827"><span class="lineNum">    1827 </span>                :            :     /*unmatched csr_tracking_tag*/</a>
-<a name="1828"><span class="lineNum">    1828 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 3;</span></a>
-<a name="1829"><span class="lineNum">    1829 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1830"><span class="lineNum">    1830 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1831"><span class="lineNum">    1831 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1832"><span class="lineNum">    1832 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1833"><span class="lineNum">    1833 </span>                :<span class="lineCov">          1 :         csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET;</span></a>
+<a name="1722"><span class="lineNum">    1722 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1723"><span class="lineNum">    1723 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1724"><span class="lineNum">    1724 </span>                :            : </a>
+<a name="1725"><span class="lineNum">    1725 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) +</span></a>
+<a name="1726"><span class="lineNum">    1726 </span>                :            :                                             req_info_len;</a>
+<a name="1727"><span class="lineNum">    1727 </span>                :            : </a>
+<a name="1728"><span class="lineNum">    1728 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1729"><span class="lineNum">    1729 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1730"><span class="lineNum">    1730 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1731"><span class="lineNum">    1731 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1732"><span class="lineNum">    1732 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1733"><span class="lineNum">    1733 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
+<a name="1734"><span class="lineNum">    1734 </span>                :            :     /*first get_csr: the responder need reset*/</a>
+<a name="1735"><span class="lineNum">    1735 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1736"><span class="lineNum">    1736 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1737"><span class="lineNum">    1737 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1738"><span class="lineNum">    1738 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1739"><span class="lineNum">    1739 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1740"><span class="lineNum">    1740 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1741"><span class="lineNum">    1741 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
+<a name="1742"><span class="lineNum">    1742 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
+<a name="1743"><span class="lineNum">    1743 </span>                :            : </a>
+<a name="1744"><span class="lineNum">    1744 </span>                :            :     /*unmatched csr_tracking_tag*/</a>
+<a name="1745"><span class="lineNum">    1745 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 3;</span></a>
+<a name="1746"><span class="lineNum">    1746 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1747"><span class="lineNum">    1747 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1748"><span class="lineNum">    1748 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1749"><span class="lineNum">    1749 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1750"><span class="lineNum">    1750 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1751"><span class="lineNum">    1751 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
+<a name="1752"><span class="lineNum">    1752 </span>                :            : </a>
+<a name="1753"><span class="lineNum">    1753 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1754"><span class="lineNum">    1754 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1755"><span class="lineNum">    1755 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1756"><span class="lineNum">    1756 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1757"><span class="lineNum">    1757 </span>                :            : </a>
+<a name="1758"><span class="lineNum">    1758 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1759"><span class="lineNum">    1759 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1760"><span class="lineNum">    1760 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1761"><span class="lineNum">    1761 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1762"><span class="lineNum">    1762 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1763"><span class="lineNum">    1763 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
+<a name="1764"><span class="lineNum">    1764 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1765"><span class="lineNum">    1765 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1766"><span class="lineNum">    1766 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1767"><span class="lineNum">    1767 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1768"><span class="lineNum">    1768 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1769"><span class="lineNum">    1769 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1770"><span class="lineNum">    1770 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
+<a name="1771"><span class="lineNum">    1771 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
+<a name="1772"><span class="lineNum">    1772 </span>                :            : </a>
+<a name="1773"><span class="lineNum">    1773 </span>                :            :     /*matched csr_tracking_tag without overwrite*/</a>
+<a name="1774"><span class="lineNum">    1774 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 1;</span></a>
+<a name="1775"><span class="lineNum">    1775 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1776"><span class="lineNum">    1776 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1777"><span class="lineNum">    1777 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1778"><span class="lineNum">    1778 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1779"><span class="lineNum">    1779 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1780"><span class="lineNum">    1780 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
+<a name="1781"><span class="lineNum">    1781 </span>                :            : </a>
+<a name="1782"><span class="lineNum">    1782 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1783"><span class="lineNum">    1783 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1784"><span class="lineNum">    1784 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1785"><span class="lineNum">    1785 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1786"><span class="lineNum">    1786 </span>                :            : </a>
+<a name="1787"><span class="lineNum">    1787 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1788"><span class="lineNum">    1788 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1789"><span class="lineNum">    1789 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1790"><span class="lineNum">    1790 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1791"><span class="lineNum">    1791 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1792"><span class="lineNum">    1792 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
+<a name="1793"><span class="lineNum">    1793 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1794"><span class="lineNum">    1794 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1795"><span class="lineNum">    1795 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1796"><span class="lineNum">    1796 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1797"><span class="lineNum">    1797 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1798"><span class="lineNum">    1798 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1799"><span class="lineNum">    1799 </span>                :            :                      SPDM_ERROR_CODE_BUSY);</a>
+<a name="1800"><span class="lineNum">    1800 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
+<a name="1801"><span class="lineNum">    1801 </span>                :            : </a>
+<a name="1802"><span class="lineNum">    1802 </span>                :            : </a>
+<a name="1803"><span class="lineNum">    1803 </span>                :            :     /*matched csr_tracking_tag with overwrite*/</a>
+<a name="1804"><span class="lineNum">    1804 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 1;</span></a>
+<a name="1805"><span class="lineNum">    1805 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1806"><span class="lineNum">    1806 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1807"><span class="lineNum">    1807 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1808"><span class="lineNum">    1808 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1809"><span class="lineNum">    1809 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET) |</span></a>
+<a name="1810"><span class="lineNum">    1810 </span>                :            :         SPDM_GET_CSR_REQUEST_ATTRIBUTES_OVERWRITE;</a>
+<a name="1811"><span class="lineNum">    1811 </span>                :            : </a>
+<a name="1812"><span class="lineNum">    1812 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1813"><span class="lineNum">    1813 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1814"><span class="lineNum">    1814 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1815"><span class="lineNum">    1815 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1816"><span class="lineNum">    1816 </span>                :            : </a>
+<a name="1817"><span class="lineNum">    1817 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1818"><span class="lineNum">    1818 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1819"><span class="lineNum">    1819 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1820"><span class="lineNum">    1820 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1821"><span class="lineNum">    1821 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1822"><span class="lineNum">    1822 </span>                :            :     /*second get_csr after device reset: get the responder cached csr*/</a>
+<a name="1823"><span class="lineNum">    1823 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1824"><span class="lineNum">    1824 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1825"><span class="lineNum">    1825 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1826"><span class="lineNum">    1826 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1827"><span class="lineNum">    1827 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1828"><span class="lineNum">    1828 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1829"><span class="lineNum">    1829 </span>                :            :                      SPDM_ERROR_CODE_INVALID_REQUEST);</a>
+<a name="1830"><span class="lineNum">    1830 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
+<a name="1831"><span class="lineNum">    1831 </span>                :            : </a>
+<a name="1832"><span class="lineNum">    1832 </span>                :            :     /*set csr after reset*/</a>
+<a name="1833"><span class="lineNum">    1833 </span>                :<span class="lineCov">          1 :     assert_true(libspdm_set_csr_after_reset());</span></a>
 <a name="1834"><span class="lineNum">    1834 </span>                :            : </a>
-<a name="1835"><span class="lineNum">    1835 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1836"><span class="lineNum">    1836 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1837"><span class="lineNum">    1837 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1838"><span class="lineNum">    1838 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1839"><span class="lineNum">    1839 </span>                :            : </a>
-<a name="1840"><span class="lineNum">    1840 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1841"><span class="lineNum">    1841 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1842"><span class="lineNum">    1842 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1843"><span class="lineNum">    1843 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1844"><span class="lineNum">    1844 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1845"><span class="lineNum">    1845 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1846"><span class="lineNum">    1846 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1847"><span class="lineNum">    1847 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1848"><span class="lineNum">    1848 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1849"><span class="lineNum">    1849 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1850"><span class="lineNum">    1850 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1851"><span class="lineNum">    1851 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
-<a name="1852"><span class="lineNum">    1852 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
-<a name="1853"><span class="lineNum">    1853 </span>                :            : </a>
-<a name="1854"><span class="lineNum">    1854 </span>                :            :     /*csr_tracking_tag 0 and overwrite*/</a>
-<a name="1855"><span class="lineNum">    1855 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
-<a name="1856"><span class="lineNum">    1856 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
-<a name="1857"><span class="lineNum">    1857 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
-<a name="1858"><span class="lineNum">    1858 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
-<a name="1859"><span class="lineNum">    1859 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
-<a name="1860"><span class="lineNum">    1860 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET) |</span></a>
-<a name="1861"><span class="lineNum">    1861 </span>                :            :         SPDM_GET_CSR_REQUEST_ATTRIBUTES_OVERWRITE;</a>
+<a name="1835"><span class="lineNum">    1835 </span>                :            :     /*unmatched csr_tracking_tag*/</a>
+<a name="1836"><span class="lineNum">    1836 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 3;</span></a>
+<a name="1837"><span class="lineNum">    1837 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1838"><span class="lineNum">    1838 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1839"><span class="lineNum">    1839 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1840"><span class="lineNum">    1840 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1841"><span class="lineNum">    1841 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</span></a>
+<a name="1842"><span class="lineNum">    1842 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</span></a>
+<a name="1843"><span class="lineNum">    1843 </span>                :            : </a>
+<a name="1844"><span class="lineNum">    1844 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1845"><span class="lineNum">    1845 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1846"><span class="lineNum">    1846 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1847"><span class="lineNum">    1847 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1848"><span class="lineNum">    1848 </span>                :            : </a>
+<a name="1849"><span class="lineNum">    1849 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1850"><span class="lineNum">    1850 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1851"><span class="lineNum">    1851 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1852"><span class="lineNum">    1852 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1853"><span class="lineNum">    1853 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1854"><span class="lineNum">    1854 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1855"><span class="lineNum">    1855 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1856"><span class="lineNum">    1856 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1857"><span class="lineNum">    1857 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
+<a name="1858"><span class="lineNum">    1858 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1859"><span class="lineNum">    1859 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1860"><span class="lineNum">    1860 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
+<a name="1861"><span class="lineNum">    1861 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
 <a name="1862"><span class="lineNum">    1862 </span>                :            : </a>
-<a name="1863"><span class="lineNum">    1863 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
-<a name="1864"><span class="lineNum">    1864 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
-<a name="1865"><span class="lineNum">    1865 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
-<a name="1866"><span class="lineNum">    1866 </span>                :            :                      right_req_info, req_info_len);</a>
-<a name="1867"><span class="lineNum">    1867 </span>                :            : </a>
-<a name="1868"><span class="lineNum">    1868 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
-<a name="1869"><span class="lineNum">    1869 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
-<a name="1870"><span class="lineNum">    1870 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
-<a name="1871"><span class="lineNum">    1871 </span>                :            :                                       m_libspdm_get_csr_request,</a>
-<a name="1872"><span class="lineNum">    1872 </span>                :            :                                       &amp;response_size, response);</a>
-<a name="1873"><span class="lineNum">    1873 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
-<a name="1874"><span class="lineNum">    1874 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
-<a name="1875"><span class="lineNum">    1875 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
-<a name="1876"><span class="lineNum">    1876 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
-<a name="1877"><span class="lineNum">    1877 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1878"><span class="lineNum">    1878 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
-<a name="1879"><span class="lineNum">    1879 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
-<a name="1880"><span class="lineNum">    1880 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
-<a name="1881"><span class="lineNum">    1881 </span>                :            : </a>
-<a name="1882"><span class="lineNum">    1882 </span>                :            : #else</a>
-<a name="1883"><span class="lineNum">    1883 </span>                :            :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</a>
-<a name="1884"><span class="lineNum">    1884 </span>                :            :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</a>
-<a name="1885"><span class="lineNum">    1885 </span>                :            :     spdm_response = (void *)response;</a>
-<a name="1886"><span class="lineNum">    1886 </span>                :            :     assert_int_equal(spdm_response-&gt;header.request_response_code,</a>
+<a name="1863"><span class="lineNum">    1863 </span>                :            :     /*csr_tracking_tag 0 and overwrite*/</a>
+<a name="1864"><span class="lineNum">    1864 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
+<a name="1865"><span class="lineNum">    1865 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1866"><span class="lineNum">    1866 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1867"><span class="lineNum">    1867 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1868"><span class="lineNum">    1868 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1869"><span class="lineNum">    1869 </span>                :            :         SPDM_CERTIFICATE_INFO_CERT_MODEL_DEVICE_CERT |</a>
+<a name="1870"><span class="lineNum">    1870 </span>                :<span class="lineCov">          1 :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET) |</span></a>
+<a name="1871"><span class="lineNum">    1871 </span>                :            :         SPDM_GET_CSR_REQUEST_ATTRIBUTES_OVERWRITE;</a>
+<a name="1872"><span class="lineNum">    1872 </span>                :            : </a>
+<a name="1873"><span class="lineNum">    1873 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1874"><span class="lineNum">    1874 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1875"><span class="lineNum">    1875 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len,</span></a>
+<a name="1876"><span class="lineNum">    1876 </span>                :            :                      right_req_info, req_info_len);</a>
+<a name="1877"><span class="lineNum">    1877 </span>                :            : </a>
+<a name="1878"><span class="lineNum">    1878 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1879"><span class="lineNum">    1879 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1880"><span class="lineNum">    1880 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1881"><span class="lineNum">    1881 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1882"><span class="lineNum">    1882 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1883"><span class="lineNum">    1883 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1884"><span class="lineNum">    1884 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1885"><span class="lineNum">    1885 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1886"><span class="lineNum">    1886 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code,</span></a>
 <a name="1887"><span class="lineNum">    1887 </span>                :            :                      SPDM_ERROR);</a>
-<a name="1888"><span class="lineNum">    1888 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param1,</a>
-<a name="1889"><span class="lineNum">    1889 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
-<a name="1890"><span class="lineNum">    1890 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param2, 0);</a>
-<a name="1891"><span class="lineNum">    1891 </span>                :            :     /*set csr after reset*/</a>
-<a name="1892"><span class="lineNum">    1892 </span>                :            :     assert_true(libspdm_set_csr_after_reset());</a>
-<a name="1893"><span class="lineNum">    1893 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
-<a name="1894"><span class="lineNum">    1894 </span>                :            :     /*clear cached req_info*/</a>
-<a name="1895"><span class="lineNum">    1895 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
-<a name="1896"><span class="lineNum">    1896 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
-<a name="1897"><span class="lineNum">    1897 </span>                :<span class="lineCov">          1 : }</span></a>
-<a name="1898"><span class="lineNum">    1898 </span>                :            : </a>
-<a name="1899"><span class="lineNum">    1899 </span>                :            : libspdm_test_context_t m_libspdm_responder_csr_test_context = {</a>
-<a name="1900"><span class="lineNum">    1900 </span>                :            :     LIBSPDM_TEST_CONTEXT_VERSION,</a>
-<a name="1901"><span class="lineNum">    1901 </span>                :            :     false,</a>
-<a name="1902"><span class="lineNum">    1902 </span>                :            : };</a>
-<a name="1903"><span class="lineNum">    1903 </span>                :            : </a>
-<a name="1904"><span class="lineNum">    1904 </span>                :<span class="lineCov">          1 : int libspdm_responder_csr_test_main(void)</span></a>
-<a name="1905"><span class="lineNum">    1905 </span>                :            : {</a>
-<a name="1906"><span class="lineNum">    1906 </span>                :<span class="lineCov">          1 :     const struct CMUnitTest spdm_responder_csr_tests[] = {</span></a>
-<a name="1907"><span class="lineNum">    1907 </span>                :            :         /* Success Case for csr response with device_cert mode */</a>
-<a name="1908"><span class="lineNum">    1908 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case1),</a>
-<a name="1909"><span class="lineNum">    1909 </span>                :            :         /* Bad request size*/</a>
-<a name="1910"><span class="lineNum">    1910 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case2),</a>
-<a name="1911"><span class="lineNum">    1911 </span>                :            :         /* Success Case for csr response with non-null right req_info */</a>
-<a name="1912"><span class="lineNum">    1912 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case3),</a>
-<a name="1913"><span class="lineNum">    1913 </span>                :            :         /* Success Case for csr response with non-null opaque_data */</a>
-<a name="1914"><span class="lineNum">    1914 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case4),</a>
-<a name="1915"><span class="lineNum">    1915 </span>                :            :         /* Failed Case for csr response with non-null wrong req_info */</a>
-<a name="1916"><span class="lineNum">    1916 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case5),</a>
-<a name="1917"><span class="lineNum">    1917 </span>                :            :         /* Responder need reset to gen csr, the second send after device reset*/</a>
-<a name="1918"><span class="lineNum">    1918 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case6),</a>
-<a name="1919"><span class="lineNum">    1919 </span>                :            :         /* Success Case for csr response with non-null right req_info and opaque_data */</a>
-<a name="1920"><span class="lineNum">    1920 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case7),</a>
-<a name="1921"><span class="lineNum">    1921 </span>                :            :         /* Failed Case for csr response  With chaotic req_info and opaque_data */</a>
-<a name="1922"><span class="lineNum">    1922 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case8),</a>
-<a name="1923"><span class="lineNum">    1923 </span>                :            :         /* the OpaqueDataFmt1 bit is selected in OtherParamsSelection of ALGORITHMS*/</a>
-<a name="1924"><span class="lineNum">    1924 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case9),</a>
-<a name="1925"><span class="lineNum">    1925 </span>                :            :         /* Failed Case  OpaqueDataFmt1, When AlignPadding is not zero*/</a>
-<a name="1926"><span class="lineNum">    1926 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case10),</a>
-<a name="1927"><span class="lineNum">    1927 </span>                :            :         /* Success Case for csr response with alias_cert mode */</a>
-<a name="1928"><span class="lineNum">    1928 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case11),</a>
-<a name="1929"><span class="lineNum">    1929 </span>                :            :         /* Responder need reset to gen csr, the second send without device reset*/</a>
-<a name="1930"><span class="lineNum">    1930 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case12),</a>
-<a name="1931"><span class="lineNum">    1931 </span>                :            :         /* Success Case: Responder need reset to gen csr for SPDM1.3, the second send with matched csr_tracking_tag after device reset*/</a>
-<a name="1932"><span class="lineNum">    1932 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case13),</a>
-<a name="1933"><span class="lineNum">    1933 </span>                :            :         /* Failed Case: Responder need reset to gen csr for SPDM1.3, test for busy error*/</a>
-<a name="1934"><span class="lineNum">    1934 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case14),</a>
-<a name="1935"><span class="lineNum">    1935 </span>                :            :         /* Failed Case: Responder need reset to gen csr for SPDM1.3, test for unmatched csr_tracking_tag and overwrite*/</a>
-<a name="1936"><span class="lineNum">    1936 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case15),</a>
-<a name="1937"><span class="lineNum">    1937 </span>                :            :     };</a>
+<a name="1888"><span class="lineNum">    1888 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1,</span></a>
+<a name="1889"><span class="lineNum">    1889 </span>                :            :                      SPDM_ERROR_CODE_RESET_REQUIRED);</a>
+<a name="1890"><span class="lineNum">    1890 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 1);</span></a>
+<a name="1891"><span class="lineNum">    1891 </span>                :            : </a>
+<a name="1892"><span class="lineNum">    1892 </span>                :            : #else</a>
+<a name="1893"><span class="lineNum">    1893 </span>                :            :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</a>
+<a name="1894"><span class="lineNum">    1894 </span>                :            :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</a>
+<a name="1895"><span class="lineNum">    1895 </span>                :            :     spdm_response = (void *)response;</a>
+<a name="1896"><span class="lineNum">    1896 </span>                :            :     assert_int_equal(spdm_response-&gt;header.request_response_code,</a>
+<a name="1897"><span class="lineNum">    1897 </span>                :            :                      SPDM_ERROR);</a>
+<a name="1898"><span class="lineNum">    1898 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param1,</a>
+<a name="1899"><span class="lineNum">    1899 </span>                :            :                      SPDM_ERROR_CODE_UNEXPECTED_REQUEST);</a>
+<a name="1900"><span class="lineNum">    1900 </span>                :            :     assert_int_equal(spdm_response-&gt;header.param2, 0);</a>
+<a name="1901"><span class="lineNum">    1901 </span>                :            :     /*set csr after reset*/</a>
+<a name="1902"><span class="lineNum">    1902 </span>                :            :     assert_true(libspdm_set_csr_after_reset());</a>
+<a name="1903"><span class="lineNum">    1903 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX*/</a>
+<a name="1904"><span class="lineNum">    1904 </span>                :            :     /*clear cached req_info*/</a>
+<a name="1905"><span class="lineNum">    1905 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
+<a name="1906"><span class="lineNum">    1906 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
+<a name="1907"><span class="lineNum">    1907 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="1908"><span class="lineNum">    1908 </span>                :            : </a>
+<a name="1909"><span class="lineNum">    1909 </span>                :            : /**</a>
+<a name="1910"><span class="lineNum">    1910 </span>                :            :  * Test 16: Illegal combination of MULTI_KEY_CONN_RSP = true and CSRCertModel = 0.</a>
+<a name="1911"><span class="lineNum">    1911 </span>                :            :  * Expected Behavior: produces SPDM_ERROR_CODE_INVALID_REQUEST message.</a>
+<a name="1912"><span class="lineNum">    1912 </span>                :            :  **/</a>
+<a name="1913"><span class="lineNum">    1913 </span>                :<span class="lineCov">          1 : void libspdm_test_responder_csr_case16(void **state)</span></a>
+<a name="1914"><span class="lineNum">    1914 </span>                :            : {</a>
+<a name="1915"><span class="lineNum">    1915 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX</a>
+<a name="1916"><span class="lineNum">    1916 </span>                :            :     libspdm_return_t status;</a>
+<a name="1917"><span class="lineNum">    1917 </span>                :            :     libspdm_test_context_t *spdm_test_context;</a>
+<a name="1918"><span class="lineNum">    1918 </span>                :            :     libspdm_context_t *spdm_context;</a>
+<a name="1919"><span class="lineNum">    1919 </span>                :            :     size_t response_size;</a>
+<a name="1920"><span class="lineNum">    1920 </span>                :            :     uint8_t response[LIBSPDM_MAX_SPDM_MSG_SIZE];</a>
+<a name="1921"><span class="lineNum">    1921 </span>                :            :     spdm_csr_response_t *spdm_response;</a>
+<a name="1922"><span class="lineNum">    1922 </span>                :            :     spdm_get_csr_request_t *m_libspdm_get_csr_request;</a>
+<a name="1923"><span class="lineNum">    1923 </span>                :            :     uint8_t cached_csr[LIBSPDM_MAX_CSR_SIZE];</a>
+<a name="1924"><span class="lineNum">    1924 </span>                :<span class="lineCov">          1 :     libspdm_zero_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE);</span></a>
+<a name="1925"><span class="lineNum">    1925 </span>                :            : </a>
+<a name="1926"><span class="lineNum">    1926 </span>                :            :     uint8_t *csr_pointer;</a>
+<a name="1927"><span class="lineNum">    1927 </span>                :            :     size_t csr_len;</a>
+<a name="1928"><span class="lineNum">    1928 </span>                :            :     uint8_t csr_tracking_tag;</a>
+<a name="1929"><span class="lineNum">    1929 </span>                :            : </a>
+<a name="1930"><span class="lineNum">    1930 </span>                :<span class="lineCov">          1 :     csr_tracking_tag = 0;</span></a>
+<a name="1931"><span class="lineNum">    1931 </span>                :            : </a>
+<a name="1932"><span class="lineNum">    1932 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">          1 :     if (!libspdm_test_read_cached_csr(&amp;csr_pointer, &amp;csr_len)) {</span></a>
+<a name="1933"><span class="lineNum">    1933 </span>                :<span class="lineNoCov">          0 :         assert_false(true);</span></a>
+<a name="1934"><span class="lineNum">    1934 </span>                :            :     }</a>
+<a name="1935"><span class="lineNum">    1935 </span>                :            : </a>
+<a name="1936"><span class="lineNum">    1936 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(cached_csr, LIBSPDM_MAX_CSR_SIZE, csr_pointer, csr_len);</span></a>
+<a name="1937"><span class="lineNum">    1937 </span>                :<span class="lineCov">          1 :     free(csr_pointer);</span></a>
 <a name="1938"><span class="lineNum">    1938 </span>                :            : </a>
-<a name="1939"><span class="lineNum">    1939 </span>                :<span class="lineCov">          1 :     libspdm_setup_test_context(&amp;m_libspdm_responder_csr_test_context);</span></a>
-<a name="1940"><span class="lineNum">    1940 </span>                :            : </a>
-<a name="1941"><span class="lineNum">    1941 </span>                :            :     /*ensure that cached.csr exists in test_csr at the beginning*/</a>
-<a name="1942"><span class="lineNum">    1942 </span>                :<span class="lineCov">          1 :     libspdm_clear_cached_csr();</span></a>
-<a name="1943"><span class="lineNum">    1943 </span>                :            : </a>
-<a name="1944"><span class="lineNum">    1944 </span>                :<span class="lineCov">          1 :     return cmocka_run_group_tests(spdm_responder_csr_tests,</span></a>
-<a name="1945"><span class="lineNum">    1945 </span>                :            :                                   libspdm_unit_test_group_setup,</a>
-<a name="1946"><span class="lineNum">    1946 </span>                :            :                                   libspdm_unit_test_group_teardown);</a>
-<a name="1947"><span class="lineNum">    1947 </span>                :            : }</a>
-<a name="1948"><span class="lineNum">    1948 </span>                :            : </a>
-<a name="1949"><span class="lineNum">    1949 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP*/</a>
+<a name="1939"><span class="lineNum">    1939 </span>                :<span class="lineCov">          1 :     spdm_test_context = *state;</span></a>
+<a name="1940"><span class="lineNum">    1940 </span>                :<span class="lineCov">          1 :     spdm_context = spdm_test_context-&gt;spdm_context;</span></a>
+<a name="1941"><span class="lineNum">    1941 </span>                :<span class="lineCov">          1 :     spdm_test_context-&gt;case_id = 0x10;</span></a>
+<a name="1942"><span class="lineNum">    1942 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.version = SPDM_MESSAGE_VERSION_13 &lt;&lt;</span></a>
+<a name="1943"><span class="lineNum">    1943 </span>                :            :                                             SPDM_VERSION_NUMBER_SHIFT_BIT;</a>
+<a name="1944"><span class="lineNum">    1944 </span>                :            : </a>
+<a name="1945"><span class="lineNum">    1945 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.connection_state = LIBSPDM_CONNECTION_STATE_NEGOTIATED;</span></a>
+<a name="1946"><span class="lineNum">    1946 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags = SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_CSR_CAP;</span></a>
+<a name="1947"><span class="lineNum">    1947 </span>                :            : </a>
+<a name="1948"><span class="lineNum">    1948 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.multi_key_conn_rsp = true;</span></a>
+<a name="1949"><span class="lineNum">    1949 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_hash_algo = m_libspdm_use_hash_algo;</span></a>
+<a name="1950"><span class="lineNum">    1950 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.algorithm.base_asym_algo = m_libspdm_use_asym_algo;</span></a>
+<a name="1951"><span class="lineNum">    1951 </span>                :            : </a>
+<a name="1952"><span class="lineNum">    1952 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request = malloc(sizeof(spdm_get_csr_request_t) + req_info_len);</span></a>
+<a name="1953"><span class="lineNum">    1953 </span>                :            : </a>
+<a name="1954"><span class="lineNum">    1954 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.spdm_version = SPDM_MESSAGE_VERSION_13;</span></a>
+<a name="1955"><span class="lineNum">    1955 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.request_response_code = SPDM_GET_CSR;</span></a>
+<a name="1956"><span class="lineNum">    1956 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param1 = 1;</span></a>
+<a name="1957"><span class="lineNum">    1957 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;header.param2 =</span></a>
+<a name="1958"><span class="lineNum">    1958 </span>                :<span class="lineCov">          1 :         SPDM_CERTIFICATE_INFO_CERT_MODEL_NONE |</span></a>
+<a name="1959"><span class="lineNum">    1959 </span>                :            :         (csr_tracking_tag &lt;&lt; SPDM_GET_CSR_REQUEST_ATTRIBUTES_CSR_TRACKING_TAG_OFFSET);</a>
+<a name="1960"><span class="lineNum">    1960 </span>                :            : </a>
+<a name="1961"><span class="lineNum">    1961 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;opaque_data_length = 0;</span></a>
+<a name="1962"><span class="lineNum">    1962 </span>                :<span class="lineCov">          1 :     m_libspdm_get_csr_request-&gt;requester_info_length = req_info_len;</span></a>
+<a name="1963"><span class="lineNum">    1963 </span>                :            : </a>
+<a name="1964"><span class="lineNum">    1964 </span>                :<span class="lineCov">          1 :     libspdm_copy_mem(m_libspdm_get_csr_request + 1, req_info_len, right_req_info, req_info_len);</span></a>
+<a name="1965"><span class="lineNum">    1965 </span>                :            : </a>
+<a name="1966"><span class="lineNum">    1966 </span>                :<span class="lineCov">          1 :     size_t m_libspdm_get_csr_request_size = sizeof(spdm_get_csr_request_t) + req_info_len;</span></a>
+<a name="1967"><span class="lineNum">    1967 </span>                :            : </a>
+<a name="1968"><span class="lineNum">    1968 </span>                :<span class="lineCov">          1 :     response_size = sizeof(response);</span></a>
+<a name="1969"><span class="lineNum">    1969 </span>                :<span class="lineCov">          1 :     status = libspdm_get_response_csr(spdm_context,</span></a>
+<a name="1970"><span class="lineNum">    1970 </span>                :            :                                       m_libspdm_get_csr_request_size,</a>
+<a name="1971"><span class="lineNum">    1971 </span>                :            :                                       m_libspdm_get_csr_request,</a>
+<a name="1972"><span class="lineNum">    1972 </span>                :            :                                       &amp;response_size, response);</a>
+<a name="1973"><span class="lineNum">    1973 </span>                :            : </a>
+<a name="1974"><span class="lineNum">    1974 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
+<a name="1975"><span class="lineNum">    1975 </span>                :<span class="lineCov">          1 :     assert_int_equal(response_size, sizeof(spdm_error_response_t));</span></a>
+<a name="1976"><span class="lineNum">    1976 </span>                :<span class="lineCov">          1 :     spdm_response = (void *)response;</span></a>
+<a name="1977"><span class="lineNum">    1977 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.request_response_code, SPDM_ERROR);</span></a>
+<a name="1978"><span class="lineNum">    1978 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param1, SPDM_ERROR_CODE_INVALID_REQUEST);</span></a>
+<a name="1979"><span class="lineNum">    1979 </span>                :<span class="lineCov">          1 :     assert_int_equal(spdm_response-&gt;header.param2, 0);</span></a>
+<a name="1980"><span class="lineNum">    1980 </span>                :            : </a>
+<a name="1981"><span class="lineNum">    1981 </span>                :            :     /*clear cached req_info*/</a>
+<a name="1982"><span class="lineNum">    1982 </span>                :<span class="lineCov">          1 :     libspdm_test_clear_cached_last_request();</span></a>
+<a name="1983"><span class="lineNum">    1983 </span>                :<span class="lineCov">          1 :     free(m_libspdm_get_csr_request);</span></a>
+<a name="1984"><span class="lineNum">    1984 </span>                :            : #endif /* LIBSPDM_ENABLE_CAPABILITY_CSR_CAP_EX */</a>
+<a name="1985"><span class="lineNum">    1985 </span>                :<span class="lineCov">          1 : }</span></a>
+<a name="1986"><span class="lineNum">    1986 </span>                :            : </a>
+<a name="1987"><span class="lineNum">    1987 </span>                :            : libspdm_test_context_t m_libspdm_responder_csr_test_context = {</a>
+<a name="1988"><span class="lineNum">    1988 </span>                :            :     LIBSPDM_TEST_CONTEXT_VERSION,</a>
+<a name="1989"><span class="lineNum">    1989 </span>                :            :     false,</a>
+<a name="1990"><span class="lineNum">    1990 </span>                :            : };</a>
+<a name="1991"><span class="lineNum">    1991 </span>                :            : </a>
+<a name="1992"><span class="lineNum">    1992 </span>                :<span class="lineCov">          1 : int libspdm_responder_csr_test_main(void)</span></a>
+<a name="1993"><span class="lineNum">    1993 </span>                :            : {</a>
+<a name="1994"><span class="lineNum">    1994 </span>                :<span class="lineCov">          1 :     const struct CMUnitTest spdm_responder_csr_tests[] = {</span></a>
+<a name="1995"><span class="lineNum">    1995 </span>                :            :         /* Success Case for csr response with device_cert mode */</a>
+<a name="1996"><span class="lineNum">    1996 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case1),</a>
+<a name="1997"><span class="lineNum">    1997 </span>                :            :         /* Bad request size*/</a>
+<a name="1998"><span class="lineNum">    1998 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case2),</a>
+<a name="1999"><span class="lineNum">    1999 </span>                :            :         /* Success Case for csr response with non-null right req_info */</a>
+<a name="2000"><span class="lineNum">    2000 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case3),</a>
+<a name="2001"><span class="lineNum">    2001 </span>                :            :         /* Success Case for csr response with non-null opaque_data */</a>
+<a name="2002"><span class="lineNum">    2002 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case4),</a>
+<a name="2003"><span class="lineNum">    2003 </span>                :            :         /* Failed Case for csr response with non-null wrong req_info */</a>
+<a name="2004"><span class="lineNum">    2004 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case5),</a>
+<a name="2005"><span class="lineNum">    2005 </span>                :            :         /* Responder need reset to gen csr, the second send after device reset*/</a>
+<a name="2006"><span class="lineNum">    2006 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case6),</a>
+<a name="2007"><span class="lineNum">    2007 </span>                :            :         /* Success Case for csr response with non-null right req_info and opaque_data */</a>
+<a name="2008"><span class="lineNum">    2008 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case7),</a>
+<a name="2009"><span class="lineNum">    2009 </span>                :            :         /* Failed Case for csr response  With chaotic req_info and opaque_data */</a>
+<a name="2010"><span class="lineNum">    2010 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case8),</a>
+<a name="2011"><span class="lineNum">    2011 </span>                :            :         /* the OpaqueDataFmt1 bit is selected in OtherParamsSelection of ALGORITHMS*/</a>
+<a name="2012"><span class="lineNum">    2012 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case9),</a>
+<a name="2013"><span class="lineNum">    2013 </span>                :            :         /* Failed Case  OpaqueDataFmt1, When AlignPadding is not zero*/</a>
+<a name="2014"><span class="lineNum">    2014 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case10),</a>
+<a name="2015"><span class="lineNum">    2015 </span>                :            :         /* Success Case for csr response with alias_cert mode */</a>
+<a name="2016"><span class="lineNum">    2016 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case11),</a>
+<a name="2017"><span class="lineNum">    2017 </span>                :            :         /* Responder need reset to gen csr, the second send without device reset*/</a>
+<a name="2018"><span class="lineNum">    2018 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case12),</a>
+<a name="2019"><span class="lineNum">    2019 </span>                :            :         /* Success Case: Responder need reset to gen csr for SPDM1.3, the second send with matched csr_tracking_tag after device reset*/</a>
+<a name="2020"><span class="lineNum">    2020 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case13),</a>
+<a name="2021"><span class="lineNum">    2021 </span>                :            :         /* Failed Case: Responder need reset to gen csr for SPDM1.3, test for busy error*/</a>
+<a name="2022"><span class="lineNum">    2022 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case14),</a>
+<a name="2023"><span class="lineNum">    2023 </span>                :            :         /* Failed Case: Responder need reset to gen csr for SPDM1.3, test for unmatched csr_tracking_tag and overwrite*/</a>
+<a name="2024"><span class="lineNum">    2024 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case15),</a>
+<a name="2025"><span class="lineNum">    2025 </span>                :            :         cmocka_unit_test(libspdm_test_responder_csr_case16),</a>
+<a name="2026"><span class="lineNum">    2026 </span>                :            :     };</a>
+<a name="2027"><span class="lineNum">    2027 </span>                :            : </a>
+<a name="2028"><span class="lineNum">    2028 </span>                :<span class="lineCov">          1 :     libspdm_setup_test_context(&amp;m_libspdm_responder_csr_test_context);</span></a>
+<a name="2029"><span class="lineNum">    2029 </span>                :            : </a>
+<a name="2030"><span class="lineNum">    2030 </span>                :            :     /*ensure that cached.csr exists in test_csr at the beginning*/</a>
+<a name="2031"><span class="lineNum">    2031 </span>                :<span class="lineCov">          1 :     libspdm_clear_cached_csr();</span></a>
+<a name="2032"><span class="lineNum">    2032 </span>                :            : </a>
+<a name="2033"><span class="lineNum">    2033 </span>                :<span class="lineCov">          1 :     return cmocka_run_group_tests(spdm_responder_csr_tests,</span></a>
+<a name="2034"><span class="lineNum">    2034 </span>                :            :                                   libspdm_unit_test_group_setup,</a>
+<a name="2035"><span class="lineNum">    2035 </span>                :            :                                   libspdm_unit_test_group_teardown);</a>
+<a name="2036"><span class="lineNum">    2036 </span>                :            : }</a>
+<a name="2037"><span class="lineNum">    2037 </span>                :            : </a>
+<a name="2038"><span class="lineNum">    2038 </span>                :            : #endif /*LIBSPDM_ENABLE_CAPABILITY_CSR_CAP*/</a>
 </pre>
       </td>
     </tr>
