@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-07 08:03:54</td>
+            <td class="headerValue">2024-07-08 08:04:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -104,14 +104,14 @@
 <a name="33"><span class="lineNum">      33 </span>                :<span class="lineNoCov">          0 :     return ret;</span></a>
 <a name="34"><span class="lineNum">      34 </span>                :            : }</a>
 <a name="35"><span class="lineNum">      35 </span>                :            : </a>
-<a name="36"><span class="lineNum">      36 </span>                :<span class="lineCov">        186 : int mbedtls_hkdf_extract(const mbedtls_md_info_t *md,</span></a>
+<a name="36"><span class="lineNum">      36 </span>                :<span class="lineCov">        187 : int mbedtls_hkdf_extract(const mbedtls_md_info_t *md,</span></a>
 <a name="37"><span class="lineNum">      37 </span>                :            :                          const unsigned char *salt, size_t salt_len,</a>
 <a name="38"><span class="lineNum">      38 </span>                :            :                          const unsigned char *ikm, size_t ikm_len,</a>
 <a name="39"><span class="lineNum">      39 </span>                :            :                          unsigned char *prk)</a>
 <a name="40"><span class="lineNum">      40 </span>                :            : {</a>
-<a name="41"><span class="lineNum">      41 </span>                :<span class="lineCov">        186 :     unsigned char null_salt[MBEDTLS_MD_MAX_SIZE] = { '\0' };</span></a>
+<a name="41"><span class="lineNum">      41 </span>                :<span class="lineCov">        187 :     unsigned char null_salt[MBEDTLS_MD_MAX_SIZE] = { '\0' };</span></a>
 <a name="42"><span class="lineNum">      42 </span>                :            : </a>
-<a name="43"><span class="lineNum">      43 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 186 times"> + </span>]:<span class="lineCov">        186 :     if (salt == NULL) {</span></a>
+<a name="43"><span class="lineNum">      43 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 187 times"> + </span>]:<span class="lineCov">        187 :     if (salt == NULL) {</span></a>
 <a name="44"><span class="lineNum">      44 </span>                :            :         size_t hash_len;</a>
 <a name="45"><span class="lineNum">      45 </span>                :            : </a>
 <a name="46"><span class="lineNum">      46 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :         if (salt_len != 0) {</span></a>
@@ -128,105 +128,105 @@
 <a name="57"><span class="lineNum">      57 </span>                :<span class="lineNoCov">          0 :         salt_len = hash_len;</span></a>
 <a name="58"><span class="lineNum">      58 </span>                :            :     }</a>
 <a name="59"><span class="lineNum">      59 </span>                :            : </a>
-<a name="60"><span class="lineNum">      60 </span>                :<span class="lineCov">        186 :     return mbedtls_md_hmac(md, salt, salt_len, ikm, ikm_len, prk);</span></a>
+<a name="60"><span class="lineNum">      60 </span>                :<span class="lineCov">        187 :     return mbedtls_md_hmac(md, salt, salt_len, ikm, ikm_len, prk);</span></a>
 <a name="61"><span class="lineNum">      61 </span>                :            : }</a>
 <a name="62"><span class="lineNum">      62 </span>                :            : </a>
-<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">       1197 : int mbedtls_hkdf_expand(const mbedtls_md_info_t *md, const unsigned char *prk,</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">       1207 : int mbedtls_hkdf_expand(const mbedtls_md_info_t *md, const unsigned char *prk,</span></a>
 <a name="64"><span class="lineNum">      64 </span>                :            :                         size_t prk_len, const unsigned char *info,</a>
 <a name="65"><span class="lineNum">      65 </span>                :            :                         size_t info_len, unsigned char *okm, size_t okm_len)</a>
 <a name="66"><span class="lineNum">      66 </span>                :            : {</a>
 <a name="67"><span class="lineNum">      67 </span>                :            :     size_t hash_len;</a>
-<a name="68"><span class="lineNum">      68 </span>                :<span class="lineCov">       1197 :     size_t where = 0;</span></a>
+<a name="68"><span class="lineNum">      68 </span>                :<span class="lineCov">       1207 :     size_t where = 0;</span></a>
 <a name="69"><span class="lineNum">      69 </span>                :            :     size_t n;</a>
-<a name="70"><span class="lineNum">      70 </span>                :<span class="lineCov">       1197 :     size_t t_len = 0;</span></a>
+<a name="70"><span class="lineNum">      70 </span>                :<span class="lineCov">       1207 :     size_t t_len = 0;</span></a>
 <a name="71"><span class="lineNum">      71 </span>                :            :     size_t i;</a>
-<a name="72"><span class="lineNum">      72 </span>                :<span class="lineCov">       1197 :     int ret = 0;</span></a>
+<a name="72"><span class="lineNum">      72 </span>                :<span class="lineCov">       1207 :     int ret = 0;</span></a>
 <a name="73"><span class="lineNum">      73 </span>                :            :     mbedtls_md_context_t ctx;</a>
 <a name="74"><span class="lineNum">      74 </span>                :            :     unsigned char t[MBEDTLS_MD_MAX_SIZE];</a>
 <a name="75"><span class="lineNum">      75 </span>                :            : </a>
-<a name="76"><span class="lineNum">      76 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1197 times"> + </span>]:<span class="lineCov">       1197 :     if (okm == NULL) {</span></a>
+<a name="76"><span class="lineNum">      76 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1207 times"> + </span>]:<span class="lineCov">       1207 :     if (okm == NULL) {</span></a>
 <a name="77"><span class="lineNum">      77 </span>                :<span class="lineNoCov">          0 :         return MBEDTLS_ERR_HKDF_BAD_INPUT_DATA;</span></a>
 <a name="78"><span class="lineNum">      78 </span>                :            :     }</a>
 <a name="79"><span class="lineNum">      79 </span>                :            : </a>
-<a name="80"><span class="lineNum">      80 </span>                :<span class="lineCov">       1197 :     hash_len = mbedtls_md_get_size(md);</span></a>
+<a name="80"><span class="lineNum">      80 </span>                :<span class="lineCov">       1207 :     hash_len = mbedtls_md_get_size(md);</span></a>
 <a name="81"><span class="lineNum">      81 </span>                :            : </a>
-<a name="82"><span class="lineNum">      82 </span>  [<span class="branchCov" title="Branch 0 was taken 1197 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1197 times"> + </span>]:<span class="lineCov">       1197 :     if (prk_len &lt; hash_len || hash_len == 0) {</span></a>
+<a name="82"><span class="lineNum">      82 </span>  [<span class="branchCov" title="Branch 0 was taken 1207 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 1207 times"> + </span>]:<span class="lineCov">       1207 :     if (prk_len &lt; hash_len || hash_len == 0) {</span></a>
 <a name="83"><span class="lineNum">      83 </span>                :<span class="lineNoCov">          0 :         return MBEDTLS_ERR_HKDF_BAD_INPUT_DATA;</span></a>
 <a name="84"><span class="lineNum">      84 </span>                :            :     }</a>
 <a name="85"><span class="lineNum">      85 </span>                :            : </a>
-<a name="86"><span class="lineNum">      86 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1197 times"> + </span>]:<span class="lineCov">       1197 :     if (info == NULL) {</span></a>
+<a name="86"><span class="lineNum">      86 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1207 times"> + </span>]:<span class="lineCov">       1207 :     if (info == NULL) {</span></a>
 <a name="87"><span class="lineNum">      87 </span>                :<span class="lineNoCov">          0 :         info = (const unsigned char *) &quot;&quot;;</span></a>
 <a name="88"><span class="lineNum">      88 </span>                :<span class="lineNoCov">          0 :         info_len = 0;</span></a>
 <a name="89"><span class="lineNum">      89 </span>                :            :     }</a>
 <a name="90"><span class="lineNum">      90 </span>                :            : </a>
-<a name="91"><span class="lineNum">      91 </span>                :<span class="lineCov">       1197 :     n = okm_len / hash_len;</span></a>
+<a name="91"><span class="lineNum">      91 </span>                :<span class="lineCov">       1207 :     n = okm_len / hash_len;</span></a>
 <a name="92"><span class="lineNum">      92 </span>                :            : </a>
-<a name="93"><span class="lineNum">      93 </span>        [<span class="branchCov" title="Branch 0 was taken 273 times"> + </span><span class="branchCov" title="Branch 1 was taken 924 times"> + </span>]:<span class="lineCov">       1197 :     if (okm_len % hash_len != 0) {</span></a>
-<a name="94"><span class="lineNum">      94 </span>                :<span class="lineCov">        273 :         n++;</span></a>
+<a name="93"><span class="lineNum">      93 </span>        [<span class="branchCov" title="Branch 0 was taken 275 times"> + </span><span class="branchCov" title="Branch 1 was taken 932 times"> + </span>]:<span class="lineCov">       1207 :     if (okm_len % hash_len != 0) {</span></a>
+<a name="94"><span class="lineNum">      94 </span>                :<span class="lineCov">        275 :         n++;</span></a>
 <a name="95"><span class="lineNum">      95 </span>                :            :     }</a>
 <a name="96"><span class="lineNum">      96 </span>                :            : </a>
 <a name="97"><span class="lineNum">      97 </span>                :            :     /*</a>
 <a name="98"><span class="lineNum">      98 </span>                :            :      * Per RFC 5869 Section 2.3, okm_len must not exceed</a>
 <a name="99"><span class="lineNum">      99 </span>                :            :      * 255 times the hash length</a>
 <a name="100"><span class="lineNum">     100 </span>                :            :      */</a>
-<a name="101"><span class="lineNum">     101 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1197 times"> + </span>]:<span class="lineCov">       1197 :     if (n &gt; 255) {</span></a>
+<a name="101"><span class="lineNum">     101 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1207 times"> + </span>]:<span class="lineCov">       1207 :     if (n &gt; 255) {</span></a>
 <a name="102"><span class="lineNum">     102 </span>                :<span class="lineNoCov">          0 :         return MBEDTLS_ERR_HKDF_BAD_INPUT_DATA;</span></a>
 <a name="103"><span class="lineNum">     103 </span>                :            :     }</a>
 <a name="104"><span class="lineNum">     104 </span>                :            : </a>
-<a name="105"><span class="lineNum">     105 </span>                :<span class="lineCov">       1197 :     mbedtls_md_init(&amp;ctx);</span></a>
+<a name="105"><span class="lineNum">     105 </span>                :<span class="lineCov">       1207 :     mbedtls_md_init(&amp;ctx);</span></a>
 <a name="106"><span class="lineNum">     106 </span>                :            : </a>
-<a name="107"><span class="lineNum">     107 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1197 times"> + </span>]:<span class="lineCov">       1197 :     if ((ret = mbedtls_md_setup(&amp;ctx, md, 1)) != 0) {</span></a>
+<a name="107"><span class="lineNum">     107 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1207 times"> + </span>]:<span class="lineCov">       1207 :     if ((ret = mbedtls_md_setup(&amp;ctx, md, 1)) != 0) {</span></a>
 <a name="108"><span class="lineNum">     108 </span>                :<span class="lineNoCov">          0 :         goto exit;</span></a>
 <a name="109"><span class="lineNum">     109 </span>                :            :     }</a>
 <a name="110"><span class="lineNum">     110 </span>                :            : </a>
-<a name="111"><span class="lineNum">     111 </span>                :<span class="lineCov">       1197 :     memset(t, 0, hash_len);</span></a>
+<a name="111"><span class="lineNum">     111 </span>                :<span class="lineCov">       1207 :     memset(t, 0, hash_len);</span></a>
 <a name="112"><span class="lineNum">     112 </span>                :            : </a>
 <a name="113"><span class="lineNum">     113 </span>                :            :     /*</a>
 <a name="114"><span class="lineNum">     114 </span>                :            :      * Compute T = T(1) | T(2) | T(3) | ... | T(N)</a>
 <a name="115"><span class="lineNum">     115 </span>                :            :      * Where T(N) is defined in RFC 5869 Section 2.3</a>
 <a name="116"><span class="lineNum">     116 </span>                :            :      */</a>
-<a name="117"><span class="lineNum">     117 </span>        [<span class="branchCov" title="Branch 0 was taken 1233 times"> + </span><span class="branchCov" title="Branch 1 was taken 1197 times"> + </span>]:<span class="lineCov">       2430 :     for (i = 1; i &lt;= n; i++) {</span></a>
+<a name="117"><span class="lineNum">     117 </span>        [<span class="branchCov" title="Branch 0 was taken 1243 times"> + </span><span class="branchCov" title="Branch 1 was taken 1207 times"> + </span>]:<span class="lineCov">       2450 :     for (i = 1; i &lt;= n; i++) {</span></a>
 <a name="118"><span class="lineNum">     118 </span>                :            :         size_t num_to_copy;</a>
-<a name="119"><span class="lineNum">     119 </span>                :<span class="lineCov">       1233 :         unsigned char c = i &amp; 0xff;</span></a>
+<a name="119"><span class="lineNum">     119 </span>                :<span class="lineCov">       1243 :         unsigned char c = i &amp; 0xff;</span></a>
 <a name="120"><span class="lineNum">     120 </span>                :            : </a>
-<a name="121"><span class="lineNum">     121 </span>                :<span class="lineCov">       1233 :         ret = mbedtls_md_hmac_starts(&amp;ctx, prk, prk_len);</span></a>
-<a name="122"><span class="lineNum">     122 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1233 times"> + </span>]:<span class="lineCov">       1233 :         if (ret != 0) {</span></a>
+<a name="121"><span class="lineNum">     121 </span>                :<span class="lineCov">       1243 :         ret = mbedtls_md_hmac_starts(&amp;ctx, prk, prk_len);</span></a>
+<a name="122"><span class="lineNum">     122 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1243 times"> + </span>]:<span class="lineCov">       1243 :         if (ret != 0) {</span></a>
 <a name="123"><span class="lineNum">     123 </span>                :<span class="lineNoCov">          0 :             goto exit;</span></a>
 <a name="124"><span class="lineNum">     124 </span>                :            :         }</a>
 <a name="125"><span class="lineNum">     125 </span>                :            : </a>
-<a name="126"><span class="lineNum">     126 </span>                :<span class="lineCov">       1233 :         ret = mbedtls_md_hmac_update(&amp;ctx, t, t_len);</span></a>
-<a name="127"><span class="lineNum">     127 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1233 times"> + </span>]:<span class="lineCov">       1233 :         if (ret != 0) {</span></a>
+<a name="126"><span class="lineNum">     126 </span>                :<span class="lineCov">       1243 :         ret = mbedtls_md_hmac_update(&amp;ctx, t, t_len);</span></a>
+<a name="127"><span class="lineNum">     127 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1243 times"> + </span>]:<span class="lineCov">       1243 :         if (ret != 0) {</span></a>
 <a name="128"><span class="lineNum">     128 </span>                :<span class="lineNoCov">          0 :             goto exit;</span></a>
 <a name="129"><span class="lineNum">     129 </span>                :            :         }</a>
 <a name="130"><span class="lineNum">     130 </span>                :            : </a>
-<a name="131"><span class="lineNum">     131 </span>                :<span class="lineCov">       1233 :         ret = mbedtls_md_hmac_update(&amp;ctx, info, info_len);</span></a>
-<a name="132"><span class="lineNum">     132 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1233 times"> + </span>]:<span class="lineCov">       1233 :         if (ret != 0) {</span></a>
+<a name="131"><span class="lineNum">     131 </span>                :<span class="lineCov">       1243 :         ret = mbedtls_md_hmac_update(&amp;ctx, info, info_len);</span></a>
+<a name="132"><span class="lineNum">     132 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1243 times"> + </span>]:<span class="lineCov">       1243 :         if (ret != 0) {</span></a>
 <a name="133"><span class="lineNum">     133 </span>                :<span class="lineNoCov">          0 :             goto exit;</span></a>
 <a name="134"><span class="lineNum">     134 </span>                :            :         }</a>
 <a name="135"><span class="lineNum">     135 </span>                :            : </a>
 <a name="136"><span class="lineNum">     136 </span>                :            :         /* The constant concatenated to the end of each T(n) is a single octet.</a>
 <a name="137"><span class="lineNum">     137 </span>                :            :          * */</a>
-<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">       1233 :         ret = mbedtls_md_hmac_update(&amp;ctx, &amp;c, 1);</span></a>
-<a name="139"><span class="lineNum">     139 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1233 times"> + </span>]:<span class="lineCov">       1233 :         if (ret != 0) {</span></a>
+<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">       1243 :         ret = mbedtls_md_hmac_update(&amp;ctx, &amp;c, 1);</span></a>
+<a name="139"><span class="lineNum">     139 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1243 times"> + </span>]:<span class="lineCov">       1243 :         if (ret != 0) {</span></a>
 <a name="140"><span class="lineNum">     140 </span>                :<span class="lineNoCov">          0 :             goto exit;</span></a>
 <a name="141"><span class="lineNum">     141 </span>                :            :         }</a>
 <a name="142"><span class="lineNum">     142 </span>                :            : </a>
-<a name="143"><span class="lineNum">     143 </span>                :<span class="lineCov">       1233 :         ret = mbedtls_md_hmac_finish(&amp;ctx, t);</span></a>
-<a name="144"><span class="lineNum">     144 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1233 times"> + </span>]:<span class="lineCov">       1233 :         if (ret != 0) {</span></a>
+<a name="143"><span class="lineNum">     143 </span>                :<span class="lineCov">       1243 :         ret = mbedtls_md_hmac_finish(&amp;ctx, t);</span></a>
+<a name="144"><span class="lineNum">     144 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1243 times"> + </span>]:<span class="lineCov">       1243 :         if (ret != 0) {</span></a>
 <a name="145"><span class="lineNum">     145 </span>                :<span class="lineNoCov">          0 :             goto exit;</span></a>
 <a name="146"><span class="lineNum">     146 </span>                :            :         }</a>
 <a name="147"><span class="lineNum">     147 </span>                :            : </a>
-<a name="148"><span class="lineNum">     148 </span>        [<span class="branchCov" title="Branch 0 was taken 1197 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">       1233 :         num_to_copy = i != n ? hash_len : okm_len - where;</span></a>
-<a name="149"><span class="lineNum">     149 </span>                :<span class="lineCov">       1233 :         memcpy(okm + where, t, num_to_copy);</span></a>
-<a name="150"><span class="lineNum">     150 </span>                :<span class="lineCov">       1233 :         where += hash_len;</span></a>
-<a name="151"><span class="lineNum">     151 </span>                :<span class="lineCov">       1233 :         t_len = hash_len;</span></a>
+<a name="148"><span class="lineNum">     148 </span>        [<span class="branchCov" title="Branch 0 was taken 1207 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">       1243 :         num_to_copy = i != n ? hash_len : okm_len - where;</span></a>
+<a name="149"><span class="lineNum">     149 </span>                :<span class="lineCov">       1243 :         memcpy(okm + where, t, num_to_copy);</span></a>
+<a name="150"><span class="lineNum">     150 </span>                :<span class="lineCov">       1243 :         where += hash_len;</span></a>
+<a name="151"><span class="lineNum">     151 </span>                :<span class="lineCov">       1243 :         t_len = hash_len;</span></a>
 <a name="152"><span class="lineNum">     152 </span>                :            :     }</a>
 <a name="153"><span class="lineNum">     153 </span>                :            : </a>
-<a name="154"><span class="lineNum">     154 </span>                :<span class="lineCov">       1197 : exit:</span></a>
-<a name="155"><span class="lineNum">     155 </span>                :<span class="lineCov">       1197 :     mbedtls_md_free(&amp;ctx);</span></a>
-<a name="156"><span class="lineNum">     156 </span>                :<span class="lineCov">       1197 :     mbedtls_platform_zeroize(t, sizeof(t));</span></a>
+<a name="154"><span class="lineNum">     154 </span>                :<span class="lineCov">       1207 : exit:</span></a>
+<a name="155"><span class="lineNum">     155 </span>                :<span class="lineCov">       1207 :     mbedtls_md_free(&amp;ctx);</span></a>
+<a name="156"><span class="lineNum">     156 </span>                :<span class="lineCov">       1207 :     mbedtls_platform_zeroize(t, sizeof(t));</span></a>
 <a name="157"><span class="lineNum">     157 </span>                :            : </a>
-<a name="158"><span class="lineNum">     158 </span>                :<span class="lineCov">       1197 :     return ret;</span></a>
+<a name="158"><span class="lineNum">     158 </span>                :<span class="lineCov">       1207 :     return ret;</span></a>
 <a name="159"><span class="lineNum">     159 </span>                :            : }</a>
 <a name="160"><span class="lineNum">     160 </span>                :            : </a>
 <a name="161"><span class="lineNum">     161 </span>                :            : #endif /* MBEDTLS_HKDF_C */</a>

@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">182</td>
+            <td class="headerCovTableEntry">184</td>
             <td class="headerCovTableEntry">328</td>
-            <td class="headerCovTableEntryLo">55.5 %</td>
+            <td class="headerCovTableEntryLo">56.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-07 08:03:54</td>
+            <td class="headerValue">2024-07-08 08:04:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -49,9 +49,9 @@
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">67</td>
+            <td class="headerCovTableEntry">68</td>
             <td class="headerCovTableEntry">158</td>
-            <td class="headerCovTableEntryLo">42.4 %</td>
+            <td class="headerCovTableEntryLo">43.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -77,25 +77,25 @@
 <a name="6"><span class="lineNum">       6 </span>                :            : </a>
 <a name="7"><span class="lineNum">       7 </span>                :            : #include &quot;internal/libspdm_secured_message_lib.h&quot;</a>
 <a name="8"><span class="lineNum">       8 </span>                :            : </a>
-<a name="9"><span class="lineNum">       9 </span>                :<span class="lineCov">        774 : static void generate_iv(uint64_t sequence_number, uint8_t *iv, const uint8_t *salt,</span></a>
+<a name="9"><span class="lineNum">       9 </span>                :<span class="lineCov">        775 : static void generate_iv(uint64_t sequence_number, uint8_t *iv, const uint8_t *salt,</span></a>
 <a name="10"><span class="lineNum">      10 </span>                :            :                         size_t aead_iv_size, uint8_t endian)</a>
 <a name="11"><span class="lineNum">      11 </span>                :            : {</a>
 <a name="12"><span class="lineNum">      12 </span>                :            :     uint8_t iv_temp[LIBSPDM_MAX_AEAD_IV_SIZE];</a>
 <a name="13"><span class="lineNum">      13 </span>                :            :     size_t index;</a>
 <a name="14"><span class="lineNum">      14 </span>                :            : </a>
 <a name="15"><span class="lineNum">      15 </span>                :            :     /* Form the AEAD IV from the salt and the sequence number. */</a>
-<a name="16"><span class="lineNum">      16 </span>                :<span class="lineCov">        774 :     libspdm_copy_mem(iv, LIBSPDM_MAX_AEAD_IV_SIZE, salt, aead_iv_size);</span></a>
+<a name="16"><span class="lineNum">      16 </span>                :<span class="lineCov">        775 :     libspdm_copy_mem(iv, LIBSPDM_MAX_AEAD_IV_SIZE, salt, aead_iv_size);</span></a>
 <a name="17"><span class="lineNum">      17 </span>                :            : </a>
-<a name="18"><span class="lineNum">      18 </span>     [<span class="branchCov" title="Branch 0 was taken 774 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        774 :     switch (endian) {</span></a>
-<a name="19"><span class="lineNum">      19 </span>                :<span class="lineCov">        774 :     case LIBSPDM_DATA_SESSION_SEQ_NUM_ENC_LITTLE_DEC_LITTLE:</span></a>
+<a name="18"><span class="lineNum">      18 </span>     [<span class="branchCov" title="Branch 0 was taken 775 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        775 :     switch (endian) {</span></a>
+<a name="19"><span class="lineNum">      19 </span>                :<span class="lineCov">        775 :     case LIBSPDM_DATA_SESSION_SEQ_NUM_ENC_LITTLE_DEC_LITTLE:</span></a>
 <a name="20"><span class="lineNum">      20 </span>                :            :     case LIBSPDM_DATA_SESSION_SEQ_NUM_ENC_LITTLE_DEC_BOTH:</a>
 <a name="21"><span class="lineNum">      21 </span>                :            :         /* If little-endian then the sequence number is zero-extended to the higher indices.</a>
 <a name="22"><span class="lineNum">      22 </span>                :            :          * The sequence number begins at the lowest index (0). */</a>
-<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">        774 :         libspdm_copy_mem(iv_temp, sizeof(iv_temp), &amp;sequence_number, sizeof(sequence_number));</span></a>
-<a name="24"><span class="lineNum">      24 </span>        [<span class="branchCov" title="Branch 0 was taken 6192 times"> + </span><span class="branchCov" title="Branch 1 was taken 774 times"> + </span>]:<span class="lineCov">       6966 :         for (index = 0; index &lt; sizeof(sequence_number); index++) {</span></a>
-<a name="25"><span class="lineNum">      25 </span>                :<span class="lineCov">       6192 :             iv[index] = iv[index] ^ iv_temp[index];</span></a>
+<a name="23"><span class="lineNum">      23 </span>                :<span class="lineCov">        775 :         libspdm_copy_mem(iv_temp, sizeof(iv_temp), &amp;sequence_number, sizeof(sequence_number));</span></a>
+<a name="24"><span class="lineNum">      24 </span>        [<span class="branchCov" title="Branch 0 was taken 6200 times"> + </span><span class="branchCov" title="Branch 1 was taken 775 times"> + </span>]:<span class="lineCov">       6975 :         for (index = 0; index &lt; sizeof(sequence_number); index++) {</span></a>
+<a name="25"><span class="lineNum">      25 </span>                :<span class="lineCov">       6200 :             iv[index] = iv[index] ^ iv_temp[index];</span></a>
 <a name="26"><span class="lineNum">      26 </span>                :            :         }</a>
-<a name="27"><span class="lineNum">      27 </span>                :<span class="lineCov">        774 :         break;</span></a>
+<a name="27"><span class="lineNum">      27 </span>                :<span class="lineCov">        775 :         break;</span></a>
 <a name="28"><span class="lineNum">      28 </span>                :<span class="lineNoCov">          0 :     case LIBSPDM_DATA_SESSION_SEQ_NUM_ENC_BIG_DEC_BIG:</span></a>
 <a name="29"><span class="lineNum">      29 </span>                :            :     case LIBSPDM_DATA_SESSION_SEQ_NUM_ENC_BIG_DEC_BOTH:</a>
 <a name="30"><span class="lineNum">      30 </span>                :            :         /* If big-endian then the sequence number is zero-extended to the lower indices.</a>
@@ -110,7 +110,7 @@
 <a name="39"><span class="lineNum">      39 </span>                :            :         }</a>
 <a name="40"><span class="lineNum">      40 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
 <a name="41"><span class="lineNum">      41 </span>                :            :     }</a>
-<a name="42"><span class="lineNum">      42 </span>                :<span class="lineCov">        774 : }</span></a>
+<a name="42"><span class="lineNum">      42 </span>                :<span class="lineCov">        775 : }</span></a>
 <a name="43"><span class="lineNum">      43 </span>                :            : </a>
 <a name="44"><span class="lineNum">      44 </span>                :<span class="lineNoCov">          0 : static uint8_t swap_endian(uint8_t endian)</span></a>
 <a name="45"><span class="lineNum">      45 </span>                :            : {</a>
@@ -407,7 +407,7 @@
 <a name="336"><span class="lineNum">     336 </span>                :            :  * @retval RETURN_INVALID_PARAMETER     The message is NULL or the message_size is zero.</a>
 <a name="337"><span class="lineNum">     337 </span>                :            :  * @retval RETURN_UNSUPPORTED           The secured_message is unsupported.</a>
 <a name="338"><span class="lineNum">     338 </span>                :            :  **/</a>
-<a name="339"><span class="lineNum">     339 </span>                :<span class="lineCov">        318 : libspdm_return_t libspdm_decode_secured_message(</span></a>
+<a name="339"><span class="lineNum">     339 </span>                :<span class="lineCov">        319 : libspdm_return_t libspdm_decode_secured_message(</span></a>
 <a name="340"><span class="lineNum">     340 </span>                :            :     void *spdm_secured_message_context, uint32_t session_id,</a>
 <a name="341"><span class="lineNum">     341 </span>                :            :     bool is_request_message, size_t secured_message_size,</a>
 <a name="342"><span class="lineNum">     342 </span>                :            :     void *secured_message, size_t *app_message_size,</a>
@@ -441,33 +441,33 @@
 <a name="370"><span class="lineNum">     370 </span>                :            :     spdm_version_number_t secured_spdm_version;</a>
 <a name="371"><span class="lineNum">     371 </span>                :            :     uint8_t version;</a>
 <a name="372"><span class="lineNum">     372 </span>                :            : </a>
-<a name="373"><span class="lineNum">     373 </span>                :<span class="lineCov">        318 :     spdm_error.error_code = 0;</span></a>
-<a name="374"><span class="lineNum">     374 </span>                :<span class="lineCov">        318 :     spdm_error.session_id = 0;</span></a>
-<a name="375"><span class="lineNum">     375 </span>                :<span class="lineCov">        318 :     libspdm_secured_message_set_last_spdm_error_struct(spdm_secured_message_context, &amp;spdm_error);</span></a>
+<a name="373"><span class="lineNum">     373 </span>                :<span class="lineCov">        319 :     spdm_error.error_code = 0;</span></a>
+<a name="374"><span class="lineNum">     374 </span>                :<span class="lineCov">        319 :     spdm_error.session_id = 0;</span></a>
+<a name="375"><span class="lineNum">     375 </span>                :<span class="lineCov">        319 :     libspdm_secured_message_set_last_spdm_error_struct(spdm_secured_message_context, &amp;spdm_error);</span></a>
 <a name="376"><span class="lineNum">     376 </span>                :            : </a>
-<a name="377"><span class="lineNum">     377 </span>                :<span class="lineCov">        318 :     spdm_error.error_code = SPDM_ERROR_CODE_DECRYPT_ERROR;</span></a>
-<a name="378"><span class="lineNum">     378 </span>                :<span class="lineCov">        318 :     spdm_error.session_id = session_id;</span></a>
+<a name="377"><span class="lineNum">     377 </span>                :<span class="lineCov">        319 :     spdm_error.error_code = SPDM_ERROR_CODE_DECRYPT_ERROR;</span></a>
+<a name="378"><span class="lineNum">     378 </span>                :<span class="lineCov">        319 :     spdm_error.session_id = session_id;</span></a>
 <a name="379"><span class="lineNum">     379 </span>                :            : </a>
-<a name="380"><span class="lineNum">     380 </span>                :<span class="lineCov">        318 :     secured_message_context = spdm_secured_message_context;</span></a>
-<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">        318 :     secured_spdm_version = spdm_secured_message_callbacks-&gt;get_secured_spdm_version(</span></a>
-<a name="382"><span class="lineNum">     382 </span>                :<span class="lineCov">        318 :         secured_message_context-&gt;secured_message_version);</span></a>
-<a name="383"><span class="lineNum">     383 </span>                :<span class="lineCov">        318 :     version = (uint8_t)(secured_spdm_version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
-<a name="384"><span class="lineNum">     384 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :     if (version &gt; SECURED_SPDM_VERSION_12) {</span></a>
+<a name="380"><span class="lineNum">     380 </span>                :<span class="lineCov">        319 :     secured_message_context = spdm_secured_message_context;</span></a>
+<a name="381"><span class="lineNum">     381 </span>                :<span class="lineCov">        319 :     secured_spdm_version = spdm_secured_message_callbacks-&gt;get_secured_spdm_version(</span></a>
+<a name="382"><span class="lineNum">     382 </span>                :<span class="lineCov">        319 :         secured_message_context-&gt;secured_message_version);</span></a>
+<a name="383"><span class="lineNum">     383 </span>                :<span class="lineCov">        319 :     version = (uint8_t)(secured_spdm_version &gt;&gt; SPDM_VERSION_NUMBER_SHIFT_BIT);</span></a>
+<a name="384"><span class="lineNum">     384 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">        319 :     if (version &gt; SECURED_SPDM_VERSION_12) {</span></a>
 <a name="385"><span class="lineNum">     385 </span>                :<span class="lineNoCov">          0 :         return LIBSPDM_STATUS_UNSUPPORTED_CAP;</span></a>
 <a name="386"><span class="lineNum">     386 </span>                :            :     }</a>
 <a name="387"><span class="lineNum">     387 </span>                :            : </a>
-<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">        318 :     session_type = secured_message_context-&gt;session_type;</span></a>
-<a name="389"><span class="lineNum">     389 </span>  [<span class="branchCov" title="Branch 0 was taken 318 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 318 times"> + </span>]:<span class="lineCov">        318 :     LIBSPDM_ASSERT((session_type == LIBSPDM_SESSION_TYPE_MAC_ONLY) ||</span></a>
+<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">        319 :     session_type = secured_message_context-&gt;session_type;</span></a>
+<a name="389"><span class="lineNum">     389 </span>  [<span class="branchCov" title="Branch 0 was taken 319 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 319 times"> + </span>]:<span class="lineCov">        319 :     LIBSPDM_ASSERT((session_type == LIBSPDM_SESSION_TYPE_MAC_ONLY) ||</span></a>
 <a name="390"><span class="lineNum">     390 </span>                :            :                    (session_type == LIBSPDM_SESSION_TYPE_ENC_MAC));</a>
-<a name="391"><span class="lineNum">     391 </span>                :<span class="lineCov">        318 :     session_state = secured_message_context-&gt;session_state;</span></a>
-<a name="392"><span class="lineNum">     392 </span>  [<span class="branchCov" title="Branch 0 was taken 285 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 285 times"> + </span>]:<span class="lineCov">        318 :     LIBSPDM_ASSERT((session_state == LIBSPDM_SESSION_STATE_HANDSHAKING) ||</span></a>
+<a name="391"><span class="lineNum">     391 </span>                :<span class="lineCov">        319 :     session_state = secured_message_context-&gt;session_state;</span></a>
+<a name="392"><span class="lineNum">     392 </span>  [<span class="branchCov" title="Branch 0 was taken 286 times"> + </span><span class="branchCov" title="Branch 1 was taken 33 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 286 times"> + </span>]:<span class="lineCov">        319 :     LIBSPDM_ASSERT((session_state == LIBSPDM_SESSION_STATE_HANDSHAKING) ||</span></a>
 <a name="393"><span class="lineNum">     393 </span>                :            :                    (session_state == LIBSPDM_SESSION_STATE_ESTABLISHED));</a>
 <a name="394"><span class="lineNum">     394 </span>                :            : </a>
-<a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">        318 :     aead_tag_size = secured_message_context-&gt;aead_tag_size;</span></a>
-<a name="396"><span class="lineNum">     396 </span>                :<span class="lineCov">        318 :     aead_key_size = secured_message_context-&gt;aead_key_size;</span></a>
-<a name="397"><span class="lineNum">     397 </span>                :<span class="lineCov">        318 :     aead_iv_size = secured_message_context-&gt;aead_iv_size;</span></a>
+<a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">        319 :     aead_tag_size = secured_message_context-&gt;aead_tag_size;</span></a>
+<a name="396"><span class="lineNum">     396 </span>                :<span class="lineCov">        319 :     aead_key_size = secured_message_context-&gt;aead_key_size;</span></a>
+<a name="397"><span class="lineNum">     397 </span>                :<span class="lineCov">        319 :     aead_iv_size = secured_message_context-&gt;aead_iv_size;</span></a>
 <a name="398"><span class="lineNum">     398 </span>                :            : </a>
-<a name="399"><span class="lineNum">     399 </span>     [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 285 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        318 :     switch (session_state) {</span></a>
+<a name="399"><span class="lineNum">     399 </span>     [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 286 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        319 :     switch (session_state) {</span></a>
 <a name="400"><span class="lineNum">     400 </span>                :<span class="lineCov">         33 :     case LIBSPDM_SESSION_STATE_HANDSHAKING:</span></a>
 <a name="401"><span class="lineNum">     401 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 32 times"> + </span>]:<span class="lineCov">         33 :         if (is_request_message) {</span></a>
 <a name="402"><span class="lineNum">     402 </span>                :<span class="lineCov">          1 :             key = (const uint8_t *)secured_message_context-&gt;handshake_secret.</span></a>
@@ -485,13 +485,13 @@
 <a name="414"><span class="lineNum">     414 </span>                :            :                 secured_message_context-&gt;handshake_secret.response_handshake_sequence_number;</a>
 <a name="415"><span class="lineNum">     415 </span>                :            :         }</a>
 <a name="416"><span class="lineNum">     416 </span>                :<span class="lineCov">         33 :         break;</span></a>
-<a name="417"><span class="lineNum">     417 </span>                :<span class="lineCov">        285 :     case LIBSPDM_SESSION_STATE_ESTABLISHED:</span></a>
-<a name="418"><span class="lineNum">     418 </span>        [<span class="branchCov" title="Branch 0 was taken 62 times"> + </span><span class="branchCov" title="Branch 1 was taken 223 times"> + </span>]:<span class="lineCov">        285 :         if (is_request_message) {</span></a>
-<a name="419"><span class="lineNum">     419 </span>                :<span class="lineCov">         62 :             key = (const uint8_t *)secured_message_context-&gt;application_secret.</span></a>
+<a name="417"><span class="lineNum">     417 </span>                :<span class="lineCov">        286 :     case LIBSPDM_SESSION_STATE_ESTABLISHED:</span></a>
+<a name="418"><span class="lineNum">     418 </span>        [<span class="branchCov" title="Branch 0 was taken 63 times"> + </span><span class="branchCov" title="Branch 1 was taken 223 times"> + </span>]:<span class="lineCov">        286 :         if (is_request_message) {</span></a>
+<a name="419"><span class="lineNum">     419 </span>                :<span class="lineCov">         63 :             key = (const uint8_t *)secured_message_context-&gt;application_secret.</span></a>
 <a name="420"><span class="lineNum">     420 </span>                :            :                   request_data_encryption_key;</a>
-<a name="421"><span class="lineNum">     421 </span>                :<span class="lineCov">         62 :             salt = (uint8_t *)secured_message_context-&gt;application_secret.</span></a>
+<a name="421"><span class="lineNum">     421 </span>                :<span class="lineCov">         63 :             salt = (uint8_t *)secured_message_context-&gt;application_secret.</span></a>
 <a name="422"><span class="lineNum">     422 </span>                :            :                    request_data_salt;</a>
-<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">         62 :             sequence_number =</span></a>
+<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">         63 :             sequence_number =</span></a>
 <a name="424"><span class="lineNum">     424 </span>                :            :                 secured_message_context-&gt;application_secret.request_data_sequence_number;</a>
 <a name="425"><span class="lineNum">     425 </span>                :            :         } else {</a>
 <a name="426"><span class="lineNum">     426 </span>                :<span class="lineCov">        223 :             key = (const uint8_t *)secured_message_context-&gt;application_secret.</span></a>
@@ -501,67 +501,67 @@
 <a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">        223 :             sequence_number =</span></a>
 <a name="431"><span class="lineNum">     431 </span>                :            :                 secured_message_context-&gt;application_secret.response_data_sequence_number;</a>
 <a name="432"><span class="lineNum">     432 </span>                :            :         }</a>
-<a name="433"><span class="lineNum">     433 </span>                :<span class="lineCov">        285 :         break;</span></a>
+<a name="433"><span class="lineNum">     433 </span>                :<span class="lineCov">        286 :         break;</span></a>
 <a name="434"><span class="lineNum">     434 </span>                :<span class="lineNoCov">          0 :     default:</span></a>
 <a name="435"><span class="lineNum">     435 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(false);</span></a>
 <a name="436"><span class="lineNum">     436 </span>                :<span class="lineNoCov">          0 :         return LIBSPDM_STATUS_INVALID_STATE_LOCAL;</span></a>
 <a name="437"><span class="lineNum">     437 </span>                :            :     }</a>
 <a name="438"><span class="lineNum">     438 </span>                :            : </a>
-<a name="439"><span class="lineNum">     439 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :     if (sequence_number &gt;= secured_message_context-&gt;max_spdm_session_sequence_number) {</span></a>
+<a name="439"><span class="lineNum">     439 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">        319 :     if (sequence_number &gt;= secured_message_context-&gt;max_spdm_session_sequence_number) {</span></a>
 <a name="440"><span class="lineNum">     440 </span>                :<span class="lineNoCov">          0 :         libspdm_secured_message_set_last_spdm_error_struct(</span></a>
 <a name="441"><span class="lineNum">     441 </span>                :            :             spdm_secured_message_context, &amp;spdm_error);</a>
 <a name="442"><span class="lineNum">     442 </span>                :<span class="lineNoCov">          0 :         return LIBSPDM_STATUS_SEQUENCE_NUMBER_OVERFLOW;</span></a>
 <a name="443"><span class="lineNum">     443 </span>                :            :     }</a>
 <a name="444"><span class="lineNum">     444 </span>                :            : </a>
-<a name="445"><span class="lineNum">     445 </span>                :<span class="lineCov">        318 :     generate_iv(sequence_number, iv, salt, aead_iv_size,</span></a>
-<a name="446"><span class="lineNum">     446 </span>                :<span class="lineCov">        318 :                 secured_message_context-&gt;sequence_number_endian);</span></a>
+<a name="445"><span class="lineNum">     445 </span>                :<span class="lineCov">        319 :     generate_iv(sequence_number, iv, salt, aead_iv_size,</span></a>
+<a name="446"><span class="lineNum">     446 </span>                :<span class="lineCov">        319 :                 secured_message_context-&gt;sequence_number_endian);</span></a>
 <a name="447"><span class="lineNum">     447 </span>                :            : </a>
-<a name="448"><span class="lineNum">     448 </span>                :<span class="lineCov">        318 :     sequence_num_in_header = 0;</span></a>
+<a name="448"><span class="lineNum">     448 </span>                :<span class="lineCov">        319 :     sequence_num_in_header = 0;</span></a>
 <a name="449"><span class="lineNum">     449 </span>                :            :     sequence_num_in_header_size =</a>
-<a name="450"><span class="lineNum">     450 </span>                :<span class="lineCov">        318 :         spdm_secured_message_callbacks-&gt;get_sequence_number(</span></a>
+<a name="450"><span class="lineNum">     450 </span>                :<span class="lineCov">        319 :         spdm_secured_message_callbacks-&gt;get_sequence_number(</span></a>
 <a name="451"><span class="lineNum">     451 </span>                :            :             sequence_number, (uint8_t *)&amp;sequence_num_in_header);</a>
-<a name="452"><span class="lineNum">     452 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :     LIBSPDM_ASSERT(sequence_num_in_header_size &lt;= sizeof(sequence_num_in_header));</span></a>
+<a name="452"><span class="lineNum">     452 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">        319 :     LIBSPDM_ASSERT(sequence_num_in_header_size &lt;= sizeof(sequence_num_in_header));</span></a>
 <a name="453"><span class="lineNum">     453 </span>                :            : </a>
-<a name="454"><span class="lineNum">     454 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 285 times"> + </span>]:<span class="lineCov">        318 :     if (session_state == LIBSPDM_SESSION_STATE_HANDSHAKING) {</span></a>
+<a name="454"><span class="lineNum">     454 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchCov" title="Branch 1 was taken 286 times"> + </span>]:<span class="lineCov">        319 :     if (session_state == LIBSPDM_SESSION_STATE_HANDSHAKING) {</span></a>
 <a name="455"><span class="lineNum">     455 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 32 times"> + </span>]:<span class="lineCov">         33 :         if (is_request_message) {</span></a>
 <a name="456"><span class="lineNum">     456 </span>                :<span class="lineCov">          1 :             secured_message_context-&gt;handshake_secret.request_handshake_sequence_number++;</span></a>
 <a name="457"><span class="lineNum">     457 </span>                :            :         } else {</a>
 <a name="458"><span class="lineNum">     458 </span>                :<span class="lineCov">         32 :             secured_message_context-&gt;handshake_secret.response_handshake_sequence_number++;</span></a>
 <a name="459"><span class="lineNum">     459 </span>                :            :         }</a>
 <a name="460"><span class="lineNum">     460 </span>                :            :     } else {</a>
-<a name="461"><span class="lineNum">     461 </span>        [<span class="branchCov" title="Branch 0 was taken 62 times"> + </span><span class="branchCov" title="Branch 1 was taken 223 times"> + </span>]:<span class="lineCov">        285 :         if (is_request_message) {</span></a>
-<a name="462"><span class="lineNum">     462 </span>                :<span class="lineCov">         62 :             secured_message_context-&gt;application_secret.request_data_sequence_number++;</span></a>
+<a name="461"><span class="lineNum">     461 </span>        [<span class="branchCov" title="Branch 0 was taken 63 times"> + </span><span class="branchCov" title="Branch 1 was taken 223 times"> + </span>]:<span class="lineCov">        286 :         if (is_request_message) {</span></a>
+<a name="462"><span class="lineNum">     462 </span>                :<span class="lineCov">         63 :             secured_message_context-&gt;application_secret.request_data_sequence_number++;</span></a>
 <a name="463"><span class="lineNum">     463 </span>                :            :         } else {</a>
 <a name="464"><span class="lineNum">     464 </span>                :<span class="lineCov">        223 :             secured_message_context-&gt;application_secret.response_data_sequence_number++;</span></a>
 <a name="465"><span class="lineNum">     465 </span>                :            :         }</a>
 <a name="466"><span class="lineNum">     466 </span>                :            :     }</a>
 <a name="467"><span class="lineNum">     467 </span>                :            : </a>
-<a name="468"><span class="lineNum">     468 </span>                :<span class="lineCov">        318 :     record_header_size = sizeof(spdm_secured_message_a_data_header1_t) +</span></a>
-<a name="469"><span class="lineNum">     469 </span>                :<span class="lineCov">        318 :                          sequence_num_in_header_size +</span></a>
+<a name="468"><span class="lineNum">     468 </span>                :<span class="lineCov">        319 :     record_header_size = sizeof(spdm_secured_message_a_data_header1_t) +</span></a>
+<a name="469"><span class="lineNum">     469 </span>                :<span class="lineCov">        319 :                          sequence_num_in_header_size +</span></a>
 <a name="470"><span class="lineNum">     470 </span>                :            :                          sizeof(spdm_secured_message_a_data_header2_t);</a>
 <a name="471"><span class="lineNum">     471 </span>                :            : </a>
-<a name="472"><span class="lineNum">     472 </span>     [<span class="branchCov" title="Branch 0 was taken 318 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        318 :     switch (session_type) {</span></a>
-<a name="473"><span class="lineNum">     473 </span>                :<span class="lineCov">        318 :     case LIBSPDM_SESSION_TYPE_ENC_MAC:</span></a>
-<a name="474"><span class="lineNum">     474 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :         if (secured_message_size &lt; record_header_size + aead_tag_size) {</span></a>
+<a name="472"><span class="lineNum">     472 </span>     [<span class="branchCov" title="Branch 0 was taken 319 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span>]:<span class="lineCov">        319 :     switch (session_type) {</span></a>
+<a name="473"><span class="lineNum">     473 </span>                :<span class="lineCov">        319 :     case LIBSPDM_SESSION_TYPE_ENC_MAC:</span></a>
+<a name="474"><span class="lineNum">     474 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">        319 :         if (secured_message_size &lt; record_header_size + aead_tag_size) {</span></a>
 <a name="475"><span class="lineNum">     475 </span>                :<span class="lineNoCov">          0 :             libspdm_secured_message_set_last_spdm_error_struct(</span></a>
 <a name="476"><span class="lineNum">     476 </span>                :            :                 spdm_secured_message_context, &amp;spdm_error);</a>
 <a name="477"><span class="lineNum">     477 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_MSG_SIZE;</span></a>
 <a name="478"><span class="lineNum">     478 </span>                :            :         }</a>
-<a name="479"><span class="lineNum">     479 </span>                :<span class="lineCov">        318 :         record_header1 = secured_message;</span></a>
-<a name="480"><span class="lineNum">     480 </span>                :<span class="lineCov">        318 :         record_header2 =</span></a>
+<a name="479"><span class="lineNum">     479 </span>                :<span class="lineCov">        319 :         record_header1 = secured_message;</span></a>
+<a name="480"><span class="lineNum">     480 </span>                :<span class="lineCov">        319 :         record_header2 =</span></a>
 <a name="481"><span class="lineNum">     481 </span>                :            :             (void *)((uint8_t *)record_header1 +</a>
-<a name="482"><span class="lineNum">     482 </span>                :<span class="lineCov">        318 :                      sizeof(spdm_secured_message_a_data_header1_t) +</span></a>
+<a name="482"><span class="lineNum">     482 </span>                :<span class="lineCov">        319 :                      sizeof(spdm_secured_message_a_data_header1_t) +</span></a>
 <a name="483"><span class="lineNum">     483 </span>                :            :                      sequence_num_in_header_size);</a>
-<a name="484"><span class="lineNum">     484 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :         if (record_header1-&gt;session_id != session_id) {</span></a>
+<a name="484"><span class="lineNum">     484 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 319 times"> + </span>]:<span class="lineCov">        319 :         if (record_header1-&gt;session_id != session_id) {</span></a>
 <a name="485"><span class="lineNum">     485 </span>                :<span class="lineNoCov">          0 :             libspdm_secured_message_set_last_spdm_error_struct(</span></a>
 <a name="486"><span class="lineNum">     486 </span>                :            :                 spdm_secured_message_context, &amp;spdm_error);</a>
 <a name="487"><span class="lineNum">     487 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
 <a name="488"><span class="lineNum">     488 </span>                :            :         }</a>
-<a name="489"><span class="lineNum">     489 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :         if (!libspdm_consttime_is_mem_equal(record_header1 + 1, &amp;sequence_num_in_header,</span></a>
+<a name="489"><span class="lineNum">     489 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        319 :         if (!libspdm_consttime_is_mem_equal(record_header1 + 1, &amp;sequence_num_in_header,</span></a>
 <a name="490"><span class="lineNum">     490 </span>                :            :                                             sequence_num_in_header_size)) {</a>
-<a name="491"><span class="lineNum">     491 </span>                :<span class="lineNoCov">          0 :             libspdm_secured_message_set_last_spdm_error_struct(</span></a>
+<a name="491"><span class="lineNum">     491 </span>                :<span class="lineCov">          1 :             libspdm_secured_message_set_last_spdm_error_struct(</span></a>
 <a name="492"><span class="lineNum">     492 </span>                :            :                 spdm_secured_message_context, &amp;spdm_error);</a>
-<a name="493"><span class="lineNum">     493 </span>                :<span class="lineNoCov">          0 :             return LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
+<a name="493"><span class="lineNum">     493 </span>                :<span class="lineCov">          1 :             return LIBSPDM_STATUS_INVALID_MSG_FIELD;</span></a>
 <a name="494"><span class="lineNum">     494 </span>                :            :         }</a>
 <a name="495"><span class="lineNum">     495 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 318 times"> + </span>]:<span class="lineCov">        318 :         if (record_header2-&gt;length &gt; secured_message_size - record_header_size) {</span></a>
 <a name="496"><span class="lineNum">     496 </span>                :<span class="lineNoCov">          0 :             libspdm_secured_message_set_last_spdm_error_struct(</span></a>

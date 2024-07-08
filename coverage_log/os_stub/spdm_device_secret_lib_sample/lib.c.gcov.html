@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-07 08:03:54</td>
+            <td class="headerValue">2024-07-08 08:04:25</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">31</td>
@@ -458,13 +458,13 @@
 <a name="385"><span class="lineNum">     385 </span>                :            : }</a>
 <a name="386"><span class="lineNum">     386 </span>                :            : </a>
 <a name="387"><span class="lineNum">     387 </span>                :            : #if !LIBSPDM_PRIVATE_KEY_MODE_RAW_KEY_ONLY</a>
-<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">        124 : bool libspdm_read_responder_private_key(uint32_t base_asym_algo,</span></a>
+<a name="388"><span class="lineNum">     388 </span>                :<span class="lineCov">        125 : bool libspdm_read_responder_private_key(uint32_t base_asym_algo,</span></a>
 <a name="389"><span class="lineNum">     389 </span>                :            :                                         void **data, size_t *size)</a>
 <a name="390"><span class="lineNum">     390 </span>                :            : {</a>
 <a name="391"><span class="lineNum">     391 </span>                :            :     bool res;</a>
 <a name="392"><span class="lineNum">     392 </span>                :            :     char *file;</a>
 <a name="393"><span class="lineNum">     393 </span>                :            : </a>
-<a name="394"><span class="lineNum">     394 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 124 times"> + </span> :<span class="lineCov">        124 :     switch (base_asym_algo) {</span></a>
+<a name="394"><span class="lineNum">     394 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 125 times"> + </span> :<span class="lineCov">        125 :     switch (base_asym_algo) {</span></a>
 <span class="lineNum">         </span><span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchNoCov" title="Branch 5 was not taken"> - </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span><span class="branchNoCov" title="Branch 8 was not taken"> - </span> 
 <span class="lineNum">         </span>            <span class="branchNoCov" title="Branch 9 was not taken"> - </span>]
 <a name="395"><span class="lineNum">     395 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSASSA_2048:</span></a>
@@ -479,9 +479,9 @@
 <a name="404"><span class="lineNum">     404 </span>                :            :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_RSAPSS_4096:</a>
 <a name="405"><span class="lineNum">     405 </span>                :<span class="lineNoCov">          0 :         file = &quot;rsa4096/end_responder.key&quot;;</span></a>
 <a name="406"><span class="lineNum">     406 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
-<a name="407"><span class="lineNum">     407 </span>                :<span class="lineCov">        124 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P256:</span></a>
-<a name="408"><span class="lineNum">     408 </span>                :<span class="lineCov">        124 :         file = &quot;ecp256/end_responder.key&quot;;</span></a>
-<a name="409"><span class="lineNum">     409 </span>                :<span class="lineCov">        124 :         break;</span></a>
+<a name="407"><span class="lineNum">     407 </span>                :<span class="lineCov">        125 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P256:</span></a>
+<a name="408"><span class="lineNum">     408 </span>                :<span class="lineCov">        125 :         file = &quot;ecp256/end_responder.key&quot;;</span></a>
+<a name="409"><span class="lineNum">     409 </span>                :<span class="lineCov">        125 :         break;</span></a>
 <a name="410"><span class="lineNum">     410 </span>                :<span class="lineNoCov">          0 :     case SPDM_ALGORITHMS_BASE_ASYM_ALGO_TPM_ALG_ECDSA_ECC_NIST_P384:</span></a>
 <a name="411"><span class="lineNum">     411 </span>                :<span class="lineNoCov">          0 :         file = &quot;ecp384/end_responder.key&quot;;</span></a>
 <a name="412"><span class="lineNum">     412 </span>                :<span class="lineNoCov">          0 :         break;</span></a>
@@ -501,8 +501,8 @@
 <a name="426"><span class="lineNum">     426 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(false);</span></a>
 <a name="427"><span class="lineNum">     427 </span>                :<span class="lineNoCov">          0 :         return false;</span></a>
 <a name="428"><span class="lineNum">     428 </span>                :            :     }</a>
-<a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">        124 :     res = libspdm_read_input_file(file, data, size);</span></a>
-<a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">        124 :     return res;</span></a>
+<a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">        125 :     res = libspdm_read_input_file(file, data, size);</span></a>
+<a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">        125 :     return res;</span></a>
 <a name="431"><span class="lineNum">     431 </span>                :            : }</a>
 <a name="432"><span class="lineNum">     432 </span>                :            : #endif</a>
 <a name="433"><span class="lineNum">     433 </span>                :            : </a>
@@ -2007,7 +2007,7 @@
 <a name="1924"><span class="lineNum">    1924 </span>                :            : }</a>
 <a name="1925"><span class="lineNum">    1925 </span>                :            : #endif /* LIBSPDM_ENABLE_CAPABILITY_MUT_AUTH_CAP */</a>
 <a name="1926"><span class="lineNum">    1926 </span>                :            : </a>
-<a name="1927"><span class="lineNum">    1927 </span>                :<span class="lineCov">        118 : bool libspdm_responder_data_sign(</span></a>
+<a name="1927"><span class="lineNum">    1927 </span>                :<span class="lineCov">        119 : bool libspdm_responder_data_sign(</span></a>
 <a name="1928"><span class="lineNum">    1928 </span>                :            : #if LIBSPDM_HAL_PASS_SPDM_CONTEXT</a>
 <a name="1929"><span class="lineNum">    1929 </span>                :            :     void *spdm_context,</a>
 <a name="1930"><span class="lineNum">    1930 </span>                :            : #endif</a>
@@ -2020,37 +2020,37 @@
 <a name="1937"><span class="lineNum">    1937 </span>                :            :     void *context;</a>
 <a name="1938"><span class="lineNum">    1938 </span>                :            :     bool result;</a>
 <a name="1939"><span class="lineNum">    1939 </span>                :            : #if !LIBSPDM_PRIVATE_KEY_MODE_RAW_KEY_ONLY</a>
-<a name="1940"><span class="lineNum">    1940 </span>        [<span class="branchCov" title="Branch 0 was taken 118 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        118 :     if (g_private_key_mode) {</span></a>
+<a name="1940"><span class="lineNum">    1940 </span>        [<span class="branchCov" title="Branch 0 was taken 119 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        119 :     if (g_private_key_mode) {</span></a>
 <a name="1941"><span class="lineNum">    1941 </span>                :            :         void *private_pem;</a>
 <a name="1942"><span class="lineNum">    1942 </span>                :            :         size_t private_pem_size;</a>
 <a name="1943"><span class="lineNum">    1943 </span>                :            : </a>
-<a name="1944"><span class="lineNum">    1944 </span>                :<span class="lineCov">        118 :         result = libspdm_read_responder_private_key(</span></a>
+<a name="1944"><span class="lineNum">    1944 </span>                :<span class="lineCov">        119 :         result = libspdm_read_responder_private_key(</span></a>
 <a name="1945"><span class="lineNum">    1945 </span>                :            :             base_asym_algo, &amp;private_pem, &amp;private_pem_size);</a>
-<a name="1946"><span class="lineNum">    1946 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 118 times"> + </span>]:<span class="lineCov">        118 :         if (!result) {</span></a>
+<a name="1946"><span class="lineNum">    1946 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 119 times"> + </span>]:<span class="lineCov">        119 :         if (!result) {</span></a>
 <a name="1947"><span class="lineNum">    1947 </span>                :<span class="lineNoCov">          0 :             return false;</span></a>
 <a name="1948"><span class="lineNum">    1948 </span>                :            :         }</a>
 <a name="1949"><span class="lineNum">    1949 </span>                :            : </a>
-<a name="1950"><span class="lineNum">    1950 </span>                :<span class="lineCov">        118 :         result = libspdm_asym_get_private_key_from_pem(</span></a>
+<a name="1950"><span class="lineNum">    1950 </span>                :<span class="lineCov">        119 :         result = libspdm_asym_get_private_key_from_pem(</span></a>
 <a name="1951"><span class="lineNum">    1951 </span>                :            :             base_asym_algo, private_pem, private_pem_size, NULL, &amp;context);</a>
-<a name="1952"><span class="lineNum">    1952 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 118 times"> + </span>]:<span class="lineCov">        118 :         if (!result) {</span></a>
+<a name="1952"><span class="lineNum">    1952 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 119 times"> + </span>]:<span class="lineCov">        119 :         if (!result) {</span></a>
 <a name="1953"><span class="lineNum">    1953 </span>                :<span class="lineNoCov">          0 :             libspdm_zero_mem(private_pem, private_pem_size);</span></a>
 <a name="1954"><span class="lineNum">    1954 </span>                :<span class="lineNoCov">          0 :             free(private_pem);</span></a>
 <a name="1955"><span class="lineNum">    1955 </span>                :<span class="lineNoCov">          0 :             return false;</span></a>
 <a name="1956"><span class="lineNum">    1956 </span>                :            :         }</a>
 <a name="1957"><span class="lineNum">    1957 </span>                :            : </a>
-<a name="1958"><span class="lineNum">    1958 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchCov" title="Branch 1 was taken 83 times"> + </span>]:<span class="lineCov">        118 :         if (is_data_hash) {</span></a>
+<a name="1958"><span class="lineNum">    1958 </span>        [<span class="branchCov" title="Branch 0 was taken 35 times"> + </span><span class="branchCov" title="Branch 1 was taken 84 times"> + </span>]:<span class="lineCov">        119 :         if (is_data_hash) {</span></a>
 <a name="1959"><span class="lineNum">    1959 </span>                :<span class="lineCov">         35 :             result = libspdm_asym_sign_hash(spdm_version, op_code, base_asym_algo, base_hash_algo,</span></a>
 <a name="1960"><span class="lineNum">    1960 </span>                :            :                                             context,</a>
 <a name="1961"><span class="lineNum">    1961 </span>                :            :                                             message, message_size, signature, sig_size);</a>
 <a name="1962"><span class="lineNum">    1962 </span>                :            :         } else {</a>
-<a name="1963"><span class="lineNum">    1963 </span>                :<span class="lineCov">         83 :             result = libspdm_asym_sign(spdm_version, op_code, base_asym_algo,</span></a>
+<a name="1963"><span class="lineNum">    1963 </span>                :<span class="lineCov">         84 :             result = libspdm_asym_sign(spdm_version, op_code, base_asym_algo,</span></a>
 <a name="1964"><span class="lineNum">    1964 </span>                :            :                                        base_hash_algo, context,</a>
 <a name="1965"><span class="lineNum">    1965 </span>                :            :                                        message, message_size,</a>
 <a name="1966"><span class="lineNum">    1966 </span>                :            :                                        signature, sig_size);</a>
 <a name="1967"><span class="lineNum">    1967 </span>                :            :         }</a>
-<a name="1968"><span class="lineNum">    1968 </span>                :<span class="lineCov">        118 :         libspdm_asym_free(base_asym_algo, context);</span></a>
-<a name="1969"><span class="lineNum">    1969 </span>                :<span class="lineCov">        118 :         libspdm_zero_mem(private_pem, private_pem_size);</span></a>
-<a name="1970"><span class="lineNum">    1970 </span>                :<span class="lineCov">        118 :         free(private_pem);</span></a>
+<a name="1968"><span class="lineNum">    1968 </span>                :<span class="lineCov">        119 :         libspdm_asym_free(base_asym_algo, context);</span></a>
+<a name="1969"><span class="lineNum">    1969 </span>                :<span class="lineCov">        119 :         libspdm_zero_mem(private_pem, private_pem_size);</span></a>
+<a name="1970"><span class="lineNum">    1970 </span>                :<span class="lineCov">        119 :         free(private_pem);</span></a>
 <a name="1971"><span class="lineNum">    1971 </span>                :            :     } else {</a>
 <a name="1972"><span class="lineNum">    1972 </span>                :            : #endif</a>
 <a name="1973"><span class="lineNum">    1973 </span>                :<span class="lineNoCov">          0 :     result = libspdm_get_responder_private_key_from_raw_data(base_asym_algo, &amp;context);</span></a>
@@ -2082,7 +2082,7 @@
 <a name="1999"><span class="lineNum">    1999 </span>                :            :     }</a>
 <a name="2000"><span class="lineNum">    2000 </span>                :            : #endif</a>
 <a name="2001"><span class="lineNum">    2001 </span>                :            : </a>
-<a name="2002"><span class="lineNum">    2002 </span>                :<span class="lineCov">        118 :     return result;</span></a>
+<a name="2002"><span class="lineNum">    2002 </span>                :<span class="lineCov">        119 :     return result;</span></a>
 <a name="2003"><span class="lineNum">    2003 </span>                :            : }</a>
 <a name="2004"><span class="lineNum">    2004 </span>                :            : </a>
 <a name="2005"><span class="lineNum">    2005 </span>                :            : #if LIBSPDM_ENABLE_CAPABILITY_PSK_CAP</a>
