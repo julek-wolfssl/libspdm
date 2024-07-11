@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-10 08:04:05</td>
+            <td class="headerValue">2024-07-11 08:04:05</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -5005,17 +5005,17 @@
 <a name="4932"><span class="lineNum">    4932 </span>                :            : /*</a>
 <a name="4933"><span class="lineNum">    4933 </span>                :            :  * Helpers for addition and subtraction of chunks, with signed carry.</a>
 <a name="4934"><span class="lineNum">    4934 </span>                :            :  */</a>
-<a name="4935"><span class="lineNum">    4935 </span>                :<span class="lineCov">  216107840 : static inline void add32(uint32_t *dst, uint32_t src, signed char *carry)</span></a>
+<a name="4935"><span class="lineNum">    4935 </span>                :<span class="lineCov">  216107083 : static inline void add32(uint32_t *dst, uint32_t src, signed char *carry)</span></a>
 <a name="4936"><span class="lineNum">    4936 </span>                :            : {</a>
-<a name="4937"><span class="lineNum">    4937 </span>                :<span class="lineCov">  216107840 :     *dst += src;</span></a>
-<a name="4938"><span class="lineNum">    4938 </span>                :<span class="lineCov">  216107840 :     *carry += (*dst &lt; src);</span></a>
-<a name="4939"><span class="lineNum">    4939 </span>                :<span class="lineCov">  216107840 : }</span></a>
+<a name="4937"><span class="lineNum">    4937 </span>                :<span class="lineCov">  216107083 :     *dst += src;</span></a>
+<a name="4938"><span class="lineNum">    4938 </span>                :<span class="lineCov">  216107083 :     *carry += (*dst &lt; src);</span></a>
+<a name="4939"><span class="lineNum">    4939 </span>                :<span class="lineCov">  216107083 : }</span></a>
 <a name="4940"><span class="lineNum">    4940 </span>                :            : </a>
-<a name="4941"><span class="lineNum">    4941 </span>                :<span class="lineCov">  155065372 : static inline void sub32(uint32_t *dst, uint32_t src, signed char *carry)</span></a>
+<a name="4941"><span class="lineNum">    4941 </span>                :<span class="lineCov">  155066129 : static inline void sub32(uint32_t *dst, uint32_t src, signed char *carry)</span></a>
 <a name="4942"><span class="lineNum">    4942 </span>                :            : {</a>
-<a name="4943"><span class="lineNum">    4943 </span>                :<span class="lineCov">  155065372 :     *carry -= (*dst &lt; src);</span></a>
-<a name="4944"><span class="lineNum">    4944 </span>                :<span class="lineCov">  155065372 :     *dst -= src;</span></a>
-<a name="4945"><span class="lineNum">    4945 </span>                :<span class="lineCov">  155065372 : }</span></a>
+<a name="4943"><span class="lineNum">    4943 </span>                :<span class="lineCov">  155066129 :     *carry -= (*dst &lt; src);</span></a>
+<a name="4944"><span class="lineNum">    4944 </span>                :<span class="lineCov">  155066129 :     *dst -= src;</span></a>
+<a name="4945"><span class="lineNum">    4945 </span>                :<span class="lineCov">  155066129 : }</span></a>
 <a name="4946"><span class="lineNum">    4946 </span>                :            : </a>
 <a name="4947"><span class="lineNum">    4947 </span>                :            : #define ADD(j)    add32(&amp;cur, A(j), &amp;c);</a>
 <a name="4948"><span class="lineNum">    4948 </span>                :            : #define SUB(j)    sub32(&amp;cur, A(j), &amp;c);</a>
@@ -5051,35 +5051,35 @@
 <a name="4978"><span class="lineNum">    4978 </span>                :            :  * If the result is negative, we get it in the form</a>
 <a name="4979"><span class="lineNum">    4979 </span>                :            :  * c * 2^bits + N, with c negative and N positive shorter than 'bits'</a>
 <a name="4980"><span class="lineNum">    4980 </span>                :            :  */</a>
-<a name="4981"><span class="lineNum">    4981 </span>                :<span class="lineCov">    3442492 : static void mbedtls_ecp_fix_negative(mbedtls_mpi *N, signed char c, size_t bits)</span></a>
+<a name="4981"><span class="lineNum">    4981 </span>                :<span class="lineCov">    3443064 : static void mbedtls_ecp_fix_negative(mbedtls_mpi *N, signed char c, size_t bits)</span></a>
 <a name="4982"><span class="lineNum">    4982 </span>                :            : {</a>
 <a name="4983"><span class="lineNum">    4983 </span>                :            :     size_t i;</a>
 <a name="4984"><span class="lineNum">    4984 </span>                :            : </a>
 <a name="4985"><span class="lineNum">    4985 </span>                :            :     /* Set N := 2^bits - 1 - N. We know that 0 &lt;= N &lt; 2^bits, so</a>
 <a name="4986"><span class="lineNum">    4986 </span>                :            :      * set the absolute value to 0xfff...fff - N. There is no carry</a>
 <a name="4987"><span class="lineNum">    4987 </span>                :            :      * since we're subtracting from all-bits-one.  */</a>
-<a name="4988"><span class="lineNum">    4988 </span>        [<span class="branchCov" title="Branch 0 was taken 17212460 times"> + </span><span class="branchCov" title="Branch 1 was taken 3442492 times"> + </span>]:<span class="lineCov">   20654952 :     for (i = 0; i &lt;= bits / 8 / sizeof(mbedtls_mpi_uint); i++) {</span></a>
-<a name="4989"><span class="lineNum">    4989 </span>                :<span class="lineCov">   17212460 :         N-&gt;p[i] = ~(mbedtls_mpi_uint) 0 - N-&gt;p[i];</span></a>
+<a name="4988"><span class="lineNum">    4988 </span>        [<span class="branchCov" title="Branch 0 was taken 17215320 times"> + </span><span class="branchCov" title="Branch 1 was taken 3443064 times"> + </span>]:<span class="lineCov">   20658384 :     for (i = 0; i &lt;= bits / 8 / sizeof(mbedtls_mpi_uint); i++) {</span></a>
+<a name="4989"><span class="lineNum">    4989 </span>                :<span class="lineCov">   17215320 :         N-&gt;p[i] = ~(mbedtls_mpi_uint) 0 - N-&gt;p[i];</span></a>
 <a name="4990"><span class="lineNum">    4990 </span>                :            :     }</a>
 <a name="4991"><span class="lineNum">    4991 </span>                :            :     /* Add 1, taking care of the carry. */</a>
-<a name="4992"><span class="lineNum">    4992 </span>                :<span class="lineCov">    3442492 :     i = 0;</span></a>
+<a name="4992"><span class="lineNum">    4992 </span>                :<span class="lineCov">    3443064 :     i = 0;</span></a>
 <a name="4993"><span class="lineNum">    4993 </span>                :            :     do {</a>
-<a name="4994"><span class="lineNum">    4994 </span>                :<span class="lineCov">    3442492 :         ++N-&gt;p[i];</span></a>
-<a name="4995"><span class="lineNum">    4995 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3442492 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">    3442492 :     } while (N-&gt;p[i++] == 0 &amp;&amp; i &lt;= bits / 8 / sizeof(mbedtls_mpi_uint));</span></a>
+<a name="4994"><span class="lineNum">    4994 </span>                :<span class="lineCov">    3443064 :         ++N-&gt;p[i];</span></a>
+<a name="4995"><span class="lineNum">    4995 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3443064 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">    3443064 :     } while (N-&gt;p[i++] == 0 &amp;&amp; i &lt;= bits / 8 / sizeof(mbedtls_mpi_uint));</span></a>
 <a name="4996"><span class="lineNum">    4996 </span>                :            :     /* Invert the sign.</a>
 <a name="4997"><span class="lineNum">    4997 </span>                :            :      * Now N = N0 - 2^bits where N0 is the initial value of N. */</a>
-<a name="4998"><span class="lineNum">    4998 </span>                :<span class="lineCov">    3442492 :     N-&gt;s = -1;</span></a>
+<a name="4998"><span class="lineNum">    4998 </span>                :<span class="lineCov">    3443064 :     N-&gt;s = -1;</span></a>
 <a name="4999"><span class="lineNum">    4999 </span>                :            : </a>
 <a name="5000"><span class="lineNum">    5000 </span>                :            :     /* Add |c| * 2^bits to the absolute value. Since c and N are</a>
 <a name="5001"><span class="lineNum">    5001 </span>                :            :      * negative, this adds c * 2^bits. */</a>
-<a name="5002"><span class="lineNum">    5002 </span>                :<span class="lineCov">    3442492 :     mbedtls_mpi_uint msw = (mbedtls_mpi_uint) -c;</span></a>
+<a name="5002"><span class="lineNum">    5002 </span>                :<span class="lineCov">    3443064 :     mbedtls_mpi_uint msw = (mbedtls_mpi_uint) -c;</span></a>
 <a name="5003"><span class="lineNum">    5003 </span>                :            : #if defined(MBEDTLS_HAVE_INT64)</a>
-<a name="5004"><span class="lineNum">    5004 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3442492 times"> + </span>]:<span class="lineCov">    3442492 :     if (bits == 224) {</span></a>
+<a name="5004"><span class="lineNum">    5004 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3443064 times"> + </span>]:<span class="lineCov">    3443064 :     if (bits == 224) {</span></a>
 <a name="5005"><span class="lineNum">    5005 </span>                :<span class="lineNoCov">          0 :         msw &lt;&lt;= 32;</span></a>
 <a name="5006"><span class="lineNum">    5006 </span>                :            :     }</a>
 <a name="5007"><span class="lineNum">    5007 </span>                :            : #endif</a>
-<a name="5008"><span class="lineNum">    5008 </span>                :<span class="lineCov">    3442492 :     N-&gt;p[bits / 8 / sizeof(mbedtls_mpi_uint)] += msw;</span></a>
-<a name="5009"><span class="lineNum">    5009 </span>                :<span class="lineCov">    3442492 : }</span></a>
+<a name="5008"><span class="lineNum">    5008 </span>                :<span class="lineCov">    3443064 :     N-&gt;p[bits / 8 / sizeof(mbedtls_mpi_uint)] += msw;</span></a>
+<a name="5009"><span class="lineNum">    5009 </span>                :<span class="lineCov">    3443064 : }</span></a>
 <a name="5010"><span class="lineNum">    5010 </span>                :            : </a>
 <a name="5011"><span class="lineNum">    5011 </span>                :            : #if defined(MBEDTLS_ECP_DP_SECP224R1_ENABLED)</a>
 <a name="5012"><span class="lineNum">    5012 </span>                :            : /*</a>
@@ -5120,38 +5120,38 @@
 <a name="5039"><span class="lineNum">    5039 </span>                :            : </a>
 <a name="5040"><span class="lineNum">    5040 </span>                :<span class="lineCov">    5986620 :     ADD(8); ADD(9);</span></a>
 <a name="5041"><span class="lineNum">    5041 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5986620 times"> + </span><span class="branchCov" title="Branch 2 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">    5986620 :     SUB(11); SUB(12); SUB(13); SUB(14);             NEXT;         // A0</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 4444831 times"> + </span><span class="branchCov" title="Branch 5 was taken 1541789 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 4445829 times"> + </span><span class="branchCov" title="Branch 5 was taken 1540791 times"> + </span>]
 <a name="5042"><span class="lineNum">    5042 </span>                :            : </a>
 <a name="5043"><span class="lineNum">    5043 </span>                :<span class="lineCov">    5986620 :     ADD(9); ADD(10);</span></a>
 <a name="5044"><span class="lineNum">    5044 </span>  [<span class="branchCov" title="Branch 0 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 5986620 times"> + </span> :<span class="lineCov">    5986620 :     SUB(12); SUB(13); SUB(14); SUB(15);             NEXT;         // A1</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 3825504 times"> + </span><span class="branchCov" title="Branch 5 was taken 2161116 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 3825857 times"> + </span><span class="branchCov" title="Branch 5 was taken 2160763 times"> + </span>]
 <a name="5045"><span class="lineNum">    5045 </span>                :            : </a>
 <a name="5046"><span class="lineNum">    5046 </span>                :<span class="lineCov">    5986620 :     ADD(10); ADD(11);</span></a>
 <a name="5047"><span class="lineNum">    5047 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5986620 times"> + </span><span class="branchCov" title="Branch 2 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">    5986620 :     SUB(13); SUB(14); SUB(15);                        NEXT;       // A2</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 2311192 times"> + </span><span class="branchCov" title="Branch 5 was taken 3675428 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 2310796 times"> + </span><span class="branchCov" title="Branch 5 was taken 3675824 times"> + </span>]
 <a name="5048"><span class="lineNum">    5048 </span>                :            : </a>
 <a name="5049"><span class="lineNum">    5049 </span>                :<span class="lineCov">    5986620 :     ADD(11); ADD(11); ADD(12); ADD(12); ADD(13);</span></a>
 <a name="5050"><span class="lineNum">    5050 </span>  [<span class="branchCov" title="Branch 0 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 5986620 times"> + </span> :<span class="lineCov">    5986620 :     SUB(15); SUB(8); SUB(9);                        NEXT;         // A3</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 296489 times"> + </span><span class="branchCov" title="Branch 5 was taken 5690131 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 296166 times"> + </span><span class="branchCov" title="Branch 5 was taken 5690454 times"> + </span>]
 <a name="5051"><span class="lineNum">    5051 </span>                :            : </a>
 <a name="5052"><span class="lineNum">    5052 </span>                :<span class="lineCov">    5986620 :     ADD(12); ADD(12); ADD(13); ADD(13); ADD(14);</span></a>
 <a name="5053"><span class="lineNum">    5053 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5986620 times"> + </span><span class="branchCov" title="Branch 2 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">    5986620 :     SUB(9); SUB(10);                                   NEXT;      // A4</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 122338 times"> + </span><span class="branchCov" title="Branch 5 was taken 5864282 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 122135 times"> + </span><span class="branchCov" title="Branch 5 was taken 5864485 times"> + </span>]
 <a name="5054"><span class="lineNum">    5054 </span>                :            : </a>
 <a name="5055"><span class="lineNum">    5055 </span>                :<span class="lineCov">    5986620 :     ADD(13); ADD(13); ADD(14); ADD(14); ADD(15);</span></a>
 <a name="5056"><span class="lineNum">    5056 </span>  [<span class="branchCov" title="Branch 0 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 5986620 times"> + </span> :<span class="lineCov">    5986620 :     SUB(10); SUB(11);                                   NEXT;     // A5</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 206035 times"> + </span><span class="branchCov" title="Branch 5 was taken 5780585 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 206191 times"> + </span><span class="branchCov" title="Branch 5 was taken 5780429 times"> + </span>]
 <a name="5057"><span class="lineNum">    5057 </span>                :            : </a>
 <a name="5058"><span class="lineNum">    5058 </span>                :<span class="lineCov">    5986620 :     ADD(14); ADD(14); ADD(15); ADD(15); ADD(14); ADD(13);</span></a>
 <a name="5059"><span class="lineNum">    5059 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5986620 times"> + </span><span class="branchCov" title="Branch 2 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">    5986620 :     SUB(8); SUB(9);                                   NEXT;       // A6</span></a>
-<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 179419 times"> + </span><span class="branchCov" title="Branch 5 was taken 5807201 times"> + </span>]
+<span class="lineNum">         </span>         <span class="branchCov" title="Branch 4 was taken 179591 times"> + </span><span class="branchCov" title="Branch 5 was taken 5807029 times"> + </span>]
 <a name="5060"><span class="lineNum">    5060 </span>                :            : </a>
 <a name="5061"><span class="lineNum">    5061 </span>                :<span class="lineCov">    5986620 :     ADD(15); ADD(15); ADD(15); ADD(8);</span></a>
 <a name="5062"><span class="lineNum">    5062 </span>  [<span class="branchCov" title="Branch 0 was taken 5986620 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 5986620 times"> + </span> :<span class="lineCov">   59866200 :     SUB(10); SUB(11); SUB(12); SUB(13);             LAST;         // A7</span></a>
-<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 29933100 times"> + </span><span class="branchCov" title="Branch 5 was taken 23946480 times"> + </span><span class="branchCov" title="Branch 6 was taken 53879580 times"> + </span><span class="branchCov" title="Branch 7 was taken 5986620 times"> + </span><span class="branchCov" title="Branch 8 was taken 2544128 times"> + </span> 
-<span class="lineNum">         </span>            <span class="branchCov" title="Branch 9 was taken 3442492 times"> + </span>]
+<span class="lineNum">         </span><span class="branchCov" title="Branch 4 was taken 29933100 times"> + </span><span class="branchCov" title="Branch 5 was taken 23946480 times"> + </span><span class="branchCov" title="Branch 6 was taken 53879580 times"> + </span><span class="branchCov" title="Branch 7 was taken 5986620 times"> + </span><span class="branchCov" title="Branch 8 was taken 2543556 times"> + </span> 
+<span class="lineNum">         </span>            <span class="branchCov" title="Branch 9 was taken 3443064 times"> + </span>]
 <a name="5063"><span class="lineNum">    5063 </span>                :            : </a>
-<a name="5064"><span class="lineNum">    5064 </span>                :<span class="lineCov">    2544128 : cleanup:</span></a>
+<a name="5064"><span class="lineNum">    5064 </span>                :<span class="lineCov">    2543556 : cleanup:</span></a>
 <a name="5065"><span class="lineNum">    5065 </span>                :<span class="lineCov">    5986620 :     return ret;</span></a>
 <a name="5066"><span class="lineNum">    5066 </span>                :            : }</a>
 <a name="5067"><span class="lineNum">    5067 </span>                :            : #endif /* MBEDTLS_ECP_DP_SECP256R1_ENABLED */</a>
