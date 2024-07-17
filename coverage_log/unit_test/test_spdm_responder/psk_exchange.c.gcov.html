@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-16 08:05:05</td>
+            <td class="headerValue">2024-07-17 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -1354,7 +1354,7 @@
 <a name="1283"><span class="lineNum">    1283 </span>                :            :         LIBSPDM_CONNECTION_STATE_NEGOTIATED;</a>
 <a name="1284"><span class="lineNum">    1284 </span>                :            : </a>
 <a name="1285"><span class="lineNum">    1285 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="1286"><span class="lineNum">    1286 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP;</a>
+<a name="1286"><span class="lineNum">    1286 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP;</a>
 <a name="1287"><span class="lineNum">    1287 </span>                :            : </a>
 <a name="1288"><span class="lineNum">    1288 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags |=</span></a>
 <a name="1289"><span class="lineNum">    1289 </span>                :            :         SPDM_GET_CAPABILITIES_REQUEST_FLAGS_PSK_CAP;</a>

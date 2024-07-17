@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-16 08:05:05</td>
+            <td class="headerValue">2024-07-17 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">30</td>
@@ -4645,9 +4645,9 @@
 <a name="4564"><span class="lineNum">    4564 </span>                :            :         &amp;heartbeat_period, measurement_hash);</a>
 <a name="4565"><span class="lineNum">    4565 </span>                :            :     /* clear Heartbeat flags */</a>
 <a name="4566"><span class="lineNum">    4566 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="4567"><span class="lineNum">    4567 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HBEAT_CAP;</a>
+<a name="4567"><span class="lineNum">    4567 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HBEAT_CAP;</a>
 <a name="4568"><span class="lineNum">    4568 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="4569"><span class="lineNum">    4569 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HBEAT_CAP;</a>
+<a name="4569"><span class="lineNum">    4569 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HBEAT_CAP;</a>
 <a name="4570"><span class="lineNum">    4570 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
 <a name="4571"><span class="lineNum">    4571 </span>                :<span class="lineCov">          1 :     assert_int_equal(session_id, 0xFFFFFFFF);</span></a>
 <a name="4572"><span class="lineNum">    4572 </span>                :<span class="lineCov">          1 :     assert_int_equal(</span></a>
@@ -4738,9 +4738,9 @@
 <a name="4657"><span class="lineNum">    4657 </span>                :            : </a>
 <a name="4658"><span class="lineNum">    4658 </span>                :            :     /*clear Heartbeat flags*/</a>
 <a name="4659"><span class="lineNum">    4659 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="4660"><span class="lineNum">    4660 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HBEAT_CAP;</a>
+<a name="4660"><span class="lineNum">    4660 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_HBEAT_CAP;</a>
 <a name="4661"><span class="lineNum">    4661 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="4662"><span class="lineNum">    4662 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HBEAT_CAP;</a>
+<a name="4662"><span class="lineNum">    4662 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_HBEAT_CAP;</a>
 <a name="4663"><span class="lineNum">    4663 </span>                :            : </a>
 <a name="4664"><span class="lineNum">    4664 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_SUCCESS);</span></a>
 <a name="4665"><span class="lineNum">    4665 </span>                :<span class="lineCov">          1 :     assert_int_equal(session_id, 0xFFFFFFFF);</span></a>

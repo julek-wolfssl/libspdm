@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-16 08:05:05</td>
+            <td class="headerValue">2024-07-17 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">20</td>
@@ -1128,7 +1128,7 @@
 <a name="1057"><span class="lineNum">    1057 </span>                :            : </a>
 <a name="1058"><span class="lineNum">    1058 </span>                :            :     /* Clear capabilities flag */</a>
 <a name="1059"><span class="lineNum">    1059 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="1060"><span class="lineNum">    1060 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP;</a>
+<a name="1060"><span class="lineNum">    1060 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP;</a>
 <a name="1061"><span class="lineNum">    1061 </span>                :            : </a>
 <a name="1062"><span class="lineNum">    1062 </span>                :            :     /*set capabilities flags */</a>
 <a name="1063"><span class="lineNum">    1063 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags |=</span></a>

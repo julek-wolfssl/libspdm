@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-16 08:05:05</td>
+            <td class="headerValue">2024-07-17 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -1200,15 +1200,15 @@
 <a name="1129"><span class="lineNum">    1129 </span>                :            :                                           bool is_requester,</a>
 <a name="1130"><span class="lineNum">    1130 </span>                :            :                                           uint8_t measurement_summary_hash_type)</a>
 <a name="1131"><span class="lineNum">    1131 </span>                :            : {</a>
-<a name="1132"><span class="lineNum">    1132 </span>        [<span class="branchCov" title="Branch 0 was taken 64 times"> + </span><span class="branchCov" title="Branch 1 was taken 40 times"> + </span>]:<span class="lineCov">        104 :     if (!libspdm_is_capabilities_flag_supported(</span></a>
+<a name="1132"><span class="lineNum">    1132 </span>        [<span class="branchCov" title="Branch 0 was taken 53 times"> + </span><span class="branchCov" title="Branch 1 was taken 51 times"> + </span>]:<span class="lineCov">        104 :     if (!libspdm_is_capabilities_flag_supported(</span></a>
 <a name="1133"><span class="lineNum">    1133 </span>                :            :             spdm_context, is_requester, 0,</a>
 <a name="1134"><span class="lineNum">    1134 </span>                :            :             SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MEAS_CAP)) {</a>
-<a name="1135"><span class="lineNum">    1135 </span>                :<span class="lineCov">         64 :         return 0;</span></a>
+<a name="1135"><span class="lineNum">    1135 </span>                :<span class="lineCov">         53 :         return 0;</span></a>
 <a name="1136"><span class="lineNum">    1136 </span>                :            :     }</a>
 <a name="1137"><span class="lineNum">    1137 </span>                :            : </a>
-<a name="1138"><span class="lineNum">    1138 </span>     [<span class="branchCov" title="Branch 0 was taken 14 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span>]:<span class="lineCov">         40 :     switch (measurement_summary_hash_type) {</span></a>
-<a name="1139"><span class="lineNum">    1139 </span>                :<span class="lineCov">         14 :     case SPDM_REQUEST_NO_MEASUREMENT_SUMMARY_HASH:</span></a>
-<a name="1140"><span class="lineNum">    1140 </span>                :<span class="lineCov">         14 :         return 0;</span></a>
+<a name="1138"><span class="lineNum">    1138 </span>     [<span class="branchCov" title="Branch 0 was taken 25 times"> + </span><span class="branchCov" title="Branch 1 was taken 24 times"> + </span><span class="branchCov" title="Branch 2 was taken 2 times"> + </span>]:<span class="lineCov">         51 :     switch (measurement_summary_hash_type) {</span></a>
+<a name="1139"><span class="lineNum">    1139 </span>                :<span class="lineCov">         25 :     case SPDM_REQUEST_NO_MEASUREMENT_SUMMARY_HASH:</span></a>
+<a name="1140"><span class="lineNum">    1140 </span>                :<span class="lineCov">         25 :         return 0;</span></a>
 <a name="1141"><span class="lineNum">    1141 </span>                :            :         break;</a>
 <a name="1142"><span class="lineNum">    1142 </span>                :            : </a>
 <a name="1143"><span class="lineNum">    1143 </span>                :<span class="lineCov">         24 :     case SPDM_REQUEST_TCB_COMPONENT_MEASUREMENT_HASH:</span></a>

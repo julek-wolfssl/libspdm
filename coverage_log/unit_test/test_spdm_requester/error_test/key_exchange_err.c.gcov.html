@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-16 08:05:05</td>
+            <td class="headerValue">2024-07-17 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">35</td>
@@ -6034,9 +6034,9 @@
 <a name="5951"><span class="lineNum">    5951 </span>                :            :         measurement_hash);</a>
 <a name="5952"><span class="lineNum">    5952 </span>                :            :     /* Clear Mut_auth flags */</a>
 <a name="5953"><span class="lineNum">    5953 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="5954"><span class="lineNum">    5954 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
+<a name="5954"><span class="lineNum">    5954 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
 <a name="5955"><span class="lineNum">    5955 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="5956"><span class="lineNum">    5956 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
+<a name="5956"><span class="lineNum">    5956 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
 <a name="5957"><span class="lineNum">    5957 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
 <a name="5958"><span class="lineNum">    5958 </span>                :<span class="lineCov">          1 :     free(data);</span></a>
 <a name="5959"><span class="lineNum">    5959 </span>                :<span class="lineCov">          1 : }</span></a>
@@ -6124,9 +6124,9 @@
 <a name="6041"><span class="lineNum">    6041 </span>                :            :         measurement_hash);</a>
 <a name="6042"><span class="lineNum">    6042 </span>                :            :     /*Clear Mut_auth flags*/</a>
 <a name="6043"><span class="lineNum">    6043 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="6044"><span class="lineNum">    6044 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
+<a name="6044"><span class="lineNum">    6044 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
 <a name="6045"><span class="lineNum">    6045 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="6046"><span class="lineNum">    6046 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
+<a name="6046"><span class="lineNum">    6046 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
 <a name="6047"><span class="lineNum">    6047 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
 <a name="6048"><span class="lineNum">    6048 </span>                :<span class="lineCov">          1 :     free(data);</span></a>
 <a name="6049"><span class="lineNum">    6049 </span>                :<span class="lineCov">          1 : }</span></a>
@@ -6214,9 +6214,9 @@
 <a name="6131"><span class="lineNum">    6131 </span>                :            :         measurement_hash);</a>
 <a name="6132"><span class="lineNum">    6132 </span>                :            :     /* Clear Mut_auth flags */</a>
 <a name="6133"><span class="lineNum">    6133 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="6134"><span class="lineNum">    6134 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
+<a name="6134"><span class="lineNum">    6134 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
 <a name="6135"><span class="lineNum">    6135 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="6136"><span class="lineNum">    6136 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
+<a name="6136"><span class="lineNum">    6136 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
 <a name="6137"><span class="lineNum">    6137 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
 <a name="6138"><span class="lineNum">    6138 </span>                :<span class="lineCov">          1 :     free(data);</span></a>
 <a name="6139"><span class="lineNum">    6139 </span>                :<span class="lineCov">          1 : }</span></a>
@@ -6316,9 +6316,9 @@
 <a name="6233"><span class="lineNum">    6233 </span>                :            :         measurement_hash);</a>
 <a name="6234"><span class="lineNum">    6234 </span>                :            :     /* Clear Mut_auth flags */</a>
 <a name="6235"><span class="lineNum">    6235 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="6236"><span class="lineNum">    6236 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
+<a name="6236"><span class="lineNum">    6236 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_MUT_AUTH_CAP;</a>
 <a name="6237"><span class="lineNum">    6237 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="6238"><span class="lineNum">    6238 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
+<a name="6238"><span class="lineNum">    6238 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_MUT_AUTH_CAP;</a>
 <a name="6239"><span class="lineNum">    6239 </span>                :<span class="lineCov">          1 :     assert_int_equal(status, LIBSPDM_STATUS_INVALID_MSG_FIELD);</span></a>
 <a name="6240"><span class="lineNum">    6240 </span>                :<span class="lineCov">          1 :     free(data);</span></a>
 <a name="6241"><span class="lineNum">    6241 </span>                :<span class="lineCov">          1 : }</span></a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-16 08:05:05</td>
+            <td class="headerValue">2024-07-17 08:04:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">41</td>
@@ -4297,9 +4297,9 @@
 <a name="4215"><span class="lineNum">    4215 </span>                :            : </a>
 <a name="4216"><span class="lineNum">    4216 </span>                :            :     /*no capabilities*/</a>
 <a name="4217"><span class="lineNum">    4217 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;connection_info.capability.flags &amp;=</span></a>
-<a name="4218"><span class="lineNum">    4218 </span>                :            :         !SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_KEY_UPD_CAP;</a>
+<a name="4218"><span class="lineNum">    4218 </span>                :            :         ~SPDM_GET_CAPABILITIES_RESPONSE_FLAGS_KEY_UPD_CAP;</a>
 <a name="4219"><span class="lineNum">    4219 </span>                :<span class="lineCov">          1 :     spdm_context-&gt;local_context.capability.flags &amp;=</span></a>
-<a name="4220"><span class="lineNum">    4220 </span>                :            :         !SPDM_GET_CAPABILITIES_REQUEST_FLAGS_KEY_UPD_CAP;</a>
+<a name="4220"><span class="lineNum">    4220 </span>                :            :         ~SPDM_GET_CAPABILITIES_REQUEST_FLAGS_KEY_UPD_CAP;</a>
 <a name="4221"><span class="lineNum">    4221 </span>                :            : </a>
 <a name="4222"><span class="lineNum">    4222 </span>                :<span class="lineCov">          1 :     session_info = &amp;spdm_context-&gt;session_info[0];</span></a>
 <a name="4223"><span class="lineNum">    4223 </span>                :            : </a>
