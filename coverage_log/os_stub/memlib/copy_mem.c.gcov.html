@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-20 08:04:02</td>
+            <td class="headerValue">2024-07-21 08:04:14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -90,16 +90,16 @@
 <a name="19"><span class="lineNum">      19 </span>  [<span class="branchCov" title="Branch 0 was taken 46413 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 46413 times"> + </span>]:<span class="lineCov">      46413 :     if ((dst == NULL) || (src == NULL)) {</span></a>
 <a name="20"><span class="lineNum">      20 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(0);</span></a>
 <a name="21"><span class="lineNum">      21 </span>                :            :     }</a>
-<a name="22"><span class="lineNum">      22 </span>  [<span class="branchCov" title="Branch 0 was taken 27288 times"> + </span><span class="branchCov" title="Branch 1 was taken 19125 times"> + </span><span class="branchCov" title="Branch 2 was taken 27288 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">      46413 :     if (((src &lt; dst) &amp;&amp; ((src + src_len) &gt; dst)) || ((dst &lt; src) &amp;&amp; ((dst + src_len) &gt; src))) {</span></a>
-<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 19122 times"> + </span><span class="branchCov" title="Branch 5 was taken 27291 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 19122 times"> + </span>]
+<a name="22"><span class="lineNum">      22 </span>  [<span class="branchCov" title="Branch 0 was taken 27265 times"> + </span><span class="branchCov" title="Branch 1 was taken 19148 times"> + </span><span class="branchCov" title="Branch 2 was taken 27265 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">      46413 :     if (((src &lt; dst) &amp;&amp; ((src + src_len) &gt; dst)) || ((dst &lt; src) &amp;&amp; ((dst + src_len) &gt; src))) {</span></a>
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 19145 times"> + </span><span class="branchCov" title="Branch 5 was taken 27268 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchCov" title="Branch 7 was taken 19145 times"> + </span>]
 <a name="23"><span class="lineNum">      23 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(0);</span></a>
 <a name="24"><span class="lineNum">      24 </span>                :            :     }</a>
 <a name="25"><span class="lineNum">      25 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 46413 times"> + </span>]:<span class="lineCov">      46413 :     if (src_len &gt; dst_len) {</span></a>
 <a name="26"><span class="lineNum">      26 </span>                :<span class="lineNoCov">          0 :         LIBSPDM_ASSERT(0);</span></a>
 <a name="27"><span class="lineNum">      27 </span>                :            :     }</a>
 <a name="28"><span class="lineNum">      28 </span>                :            : </a>
-<a name="29"><span class="lineNum">      29 </span>        [<span class="branchCov" title="Branch 0 was taken 2057758 times"> + </span><span class="branchCov" title="Branch 1 was taken 46413 times"> + </span>]:<span class="lineCov">    2104171 :     while (src_len-- != 0) {</span></a>
-<a name="30"><span class="lineNum">      30 </span>                :<span class="lineCov">    2057758 :         *(dst++) = *(src++);</span></a>
+<a name="29"><span class="lineNum">      29 </span>        [<span class="branchCov" title="Branch 0 was taken 2057864 times"> + </span><span class="branchCov" title="Branch 1 was taken 46413 times"> + </span>]:<span class="lineCov">    2104277 :     while (src_len-- != 0) {</span></a>
+<a name="30"><span class="lineNum">      30 </span>                :<span class="lineCov">    2057864 :         *(dst++) = *(src++);</span></a>
 <a name="31"><span class="lineNum">      31 </span>                :            :     }</a>
 <a name="32"><span class="lineNum">      32 </span>                :<span class="lineCov">      46413 : }</span></a>
 </pre>
