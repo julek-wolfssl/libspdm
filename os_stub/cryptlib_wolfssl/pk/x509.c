@@ -1136,10 +1136,6 @@ bool libspdm_x509_get_validity(const uint8_t *cert, size_t cert_size,
     }
     if (from != NULL) {
         libspdm_copy_mem(from, *from_size, f_time, sizeof(ASN1_TIME));
-        ((ASN1_TIME *)from)->data = from + sizeof(ASN1_TIME);
-        libspdm_copy_mem(from + sizeof(ASN1_TIME),
-                         *from_size - sizeof(ASN1_TIME),
-                         f_time->data, f_time->length);
     }
     *from_size = f_size;
 
@@ -1151,10 +1147,6 @@ bool libspdm_x509_get_validity(const uint8_t *cert, size_t cert_size,
     }
     if (to != NULL) {
         libspdm_copy_mem(to, *to_size, t_time, sizeof(ASN1_TIME));
-        ((ASN1_TIME *)to)->data = to + sizeof(ASN1_TIME);
-        libspdm_copy_mem(to + sizeof(ASN1_TIME),
-                         *to_size - sizeof(ASN1_TIME),
-                         t_time->data, t_time->length);
     }
     *to_size = t_size;
 
@@ -1223,11 +1215,6 @@ bool libspdm_x509_set_date_time(const char *date_time_str, void *date_time, size
     }
     if (date_time != NULL) {
         libspdm_copy_mem(date_time, *date_time_size, dt, sizeof(ASN1_TIME));
-        ((ASN1_TIME *)date_time)->data =
-            (uint8_t *)date_time + sizeof(ASN1_TIME);
-        libspdm_copy_mem((uint8_t *)date_time + sizeof(ASN1_TIME),
-                         *date_time_size - sizeof(ASN1_TIME),
-                         dt->data, dt->length);
     }
     *date_time_size = d_size;
     status = true;
@@ -1365,7 +1352,7 @@ bool libspdm_x509_get_extension_data(const uint8_t *cert, size_t cert_size,
     /* Retrieve extensions from certificate object.*/
 
     extensions = X509_get0_extensions(x509_cert);
-    if (sk_X509_EXTENSION_num(extensions) <= 0) {
+    if (sk_X509_EXTENSION_num((WOLF_STACK_OF(WOLFSSL_X509_EXTENSION)*)extensions) <= 0) {
         *extension_data_size = 0;
         goto cleanup;
     }
@@ -1375,8 +1362,8 @@ bool libspdm_x509_get_extension_data(const uint8_t *cert, size_t cert_size,
     status = false;
     asn1_oct = NULL;
     oct_length = 0;
-    for (i = 0; i < sk_X509_EXTENSION_num(extensions); i++) {
-        ext = sk_X509_EXTENSION_value(extensions, (int)i);
+    for (i = 0; i < sk_X509_EXTENSION_num((WOLF_STACK_OF(WOLFSSL_X509_EXTENSION)*)extensions); i++) {
+        ext = sk_X509_EXTENSION_value((WOLF_STACK_OF(WOLFSSL_X509_EXTENSION)*)extensions, (int)i);
         if (ext == NULL) {
             continue;
         }
@@ -2634,9 +2621,11 @@ bool libspdm_gen_x509_csr(size_t hash_nid, size_t asym_nid,
     case LIBSPDM_CRYPTO_NID_SHA3_512:
         md = EVP_sha3_512();
         break;
+#ifdef WOLFSSL_SM3
     case LIBSPDM_CRYPTO_NID_SM3_256:
         md = EVP_sm3();
         break;
+#endif
     default:
         ret = 0;
         goto free_all;

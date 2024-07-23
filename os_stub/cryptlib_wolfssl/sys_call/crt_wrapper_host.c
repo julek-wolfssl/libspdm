@@ -12,6 +12,7 @@
 
 #include <base.h>
 #include "library/debuglib.h"
+#include "internal_crypt_lib.h"
 #include <openssl/bio.h>
 
 /* Convert character to lowercase */
