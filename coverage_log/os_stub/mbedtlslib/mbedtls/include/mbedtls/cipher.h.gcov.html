@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-07-24 08:04:05</td>
+            <td class="headerValue">2024-07-25 08:05:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -545,13 +545,13 @@
 <a name="474"><span class="lineNum">     474 </span>                :            :  *                      For DES, this includes the parity bits.</a>
 <a name="475"><span class="lineNum">     475 </span>                :            :  * \return              \c 0 if \p info is \c NULL.</a>
 <a name="476"><span class="lineNum">     476 </span>                :            :  */</a>
-<a name="477"><span class="lineNum">     477 </span>                :<span class="lineCov">       3100 : static inline size_t mbedtls_cipher_info_get_key_bitlen(</span></a>
+<a name="477"><span class="lineNum">     477 </span>                :<span class="lineCov">       3112 : static inline size_t mbedtls_cipher_info_get_key_bitlen(</span></a>
 <a name="478"><span class="lineNum">     478 </span>                :            :     const mbedtls_cipher_info_t *info)</a>
 <a name="479"><span class="lineNum">     479 </span>                :            : {</a>
-<a name="480"><span class="lineNum">     480 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3100 times"> + </span>]:<span class="lineCov">       3100 :     if (info == NULL) {</span></a>
+<a name="480"><span class="lineNum">     480 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3112 times"> + </span>]:<span class="lineCov">       3112 :     if (info == NULL) {</span></a>
 <a name="481"><span class="lineNum">     481 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
 <a name="482"><span class="lineNum">     482 </span>                :            :     } else {</a>
-<a name="483"><span class="lineNum">     483 </span>                :<span class="lineCov">       3100 :         return ((size_t) info-&gt;MBEDTLS_PRIVATE(key_bitlen)) &lt;&lt; MBEDTLS_KEY_BITLEN_SHIFT;</span></a>
+<a name="483"><span class="lineNum">     483 </span>                :<span class="lineCov">       3112 :         return ((size_t) info-&gt;MBEDTLS_PRIVATE(key_bitlen)) &lt;&lt; MBEDTLS_KEY_BITLEN_SHIFT;</span></a>
 <a name="484"><span class="lineNum">     484 </span>                :            :     }</a>
 <a name="485"><span class="lineNum">     485 </span>                :            : }</a>
 <a name="486"><span class="lineNum">     486 </span>                :            : </a>
@@ -606,14 +606,14 @@
 <a name="535"><span class="lineNum">     535 </span>                :            :  * \return       \c 1 if the cipher is a stream cipher.</a>
 <a name="536"><span class="lineNum">     536 </span>                :            :  * \return       \c 0 if \p info is \c NULL.</a>
 <a name="537"><span class="lineNum">     537 </span>                :            :  */</a>
-<a name="538"><span class="lineNum">     538 </span>                :<span class="lineCov">        776 : static inline size_t mbedtls_cipher_info_get_block_size(</span></a>
+<a name="538"><span class="lineNum">     538 </span>                :<span class="lineCov">        779 : static inline size_t mbedtls_cipher_info_get_block_size(</span></a>
 <a name="539"><span class="lineNum">     539 </span>                :            :     const mbedtls_cipher_info_t *info)</a>
 <a name="540"><span class="lineNum">     540 </span>                :            : {</a>
-<a name="541"><span class="lineNum">     541 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 776 times"> + </span>]:<span class="lineCov">        776 :     if (info == NULL) {</span></a>
+<a name="541"><span class="lineNum">     541 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 779 times"> + </span>]:<span class="lineCov">        779 :     if (info == NULL) {</span></a>
 <a name="542"><span class="lineNum">     542 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
 <a name="543"><span class="lineNum">     543 </span>                :            :     }</a>
 <a name="544"><span class="lineNum">     544 </span>                :            : </a>
-<a name="545"><span class="lineNum">     545 </span>                :<span class="lineCov">        776 :     return (size_t) (info-&gt;MBEDTLS_PRIVATE(block_size));</span></a>
+<a name="545"><span class="lineNum">     545 </span>                :<span class="lineCov">        779 :     return (size_t) (info-&gt;MBEDTLS_PRIVATE(block_size));</span></a>
 <a name="546"><span class="lineNum">     546 </span>                :            : }</a>
 <a name="547"><span class="lineNum">     547 </span>                :            : </a>
 <a name="548"><span class="lineNum">     548 </span>                :            : /**</a>
@@ -746,14 +746,14 @@
 <a name="675"><span class="lineNum">     675 </span>                :            :  * \return       \c 1 if the cipher is a stream cipher.</a>
 <a name="676"><span class="lineNum">     676 </span>                :            :  * \return       \c 0 if \p ctx has not been initialized.</a>
 <a name="677"><span class="lineNum">     677 </span>                :            :  */</a>
-<a name="678"><span class="lineNum">     678 </span>                :<span class="lineCov">       3551 : static inline unsigned int mbedtls_cipher_get_block_size(</span></a>
+<a name="678"><span class="lineNum">     678 </span>                :<span class="lineCov">       3549 : static inline unsigned int mbedtls_cipher_get_block_size(</span></a>
 <a name="679"><span class="lineNum">     679 </span>                :            :     const mbedtls_cipher_context_t *ctx)</a>
 <a name="680"><span class="lineNum">     680 </span>                :            : {</a>
-<a name="681"><span class="lineNum">     681 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3551 times"> + </span>]:<span class="lineCov">       3551 :     if (ctx-&gt;MBEDTLS_PRIVATE(cipher_info) == NULL) {</span></a>
+<a name="681"><span class="lineNum">     681 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3549 times"> + </span>]:<span class="lineCov">       3549 :     if (ctx-&gt;MBEDTLS_PRIVATE(cipher_info) == NULL) {</span></a>
 <a name="682"><span class="lineNum">     682 </span>                :<span class="lineNoCov">          0 :         return 0;</span></a>
 <a name="683"><span class="lineNum">     683 </span>                :            :     }</a>
 <a name="684"><span class="lineNum">     684 </span>                :            : </a>
-<a name="685"><span class="lineNum">     685 </span>                :<span class="lineCov">       3551 :     return (unsigned int) ctx-&gt;MBEDTLS_PRIVATE(cipher_info)-&gt;MBEDTLS_PRIVATE(block_size);</span></a>
+<a name="685"><span class="lineNum">     685 </span>                :<span class="lineCov">       3549 :     return (unsigned int) ctx-&gt;MBEDTLS_PRIVATE(cipher_info)-&gt;MBEDTLS_PRIVATE(block_size);</span></a>
 <a name="686"><span class="lineNum">     686 </span>                :            : }</a>
 <a name="687"><span class="lineNum">     687 </span>                :            : </a>
 <a name="688"><span class="lineNum">     688 </span>                :            : /**</a>
