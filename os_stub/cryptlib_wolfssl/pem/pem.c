@@ -210,6 +210,7 @@ done:
     return status;
 }
 
+#if (LIBSPDM_EDDSA_ED25519_SUPPORT) || (LIBSPDM_EDDSA_ED448_SUPPORT)
 /**
  * Retrieve the Ed Private key from the password-protected PEM key data.
  *
@@ -293,7 +294,9 @@ done:
 
     return status;
 }
+#endif /* LIBSPDM_EDDSA_ED25519_SUPPORT || LIBSPDM_EDDSA_ED448_SUPPORT */
 
+#if LIBSPDM_SM2_DSA_P256_SUPPORT
 /**
  * Retrieve the sm2 Private key from the password-protected PEM key data.
  *
@@ -373,3 +376,4 @@ done:
 
     return status;
 }
+#endif /* LIBSPDM_SM2_DSA_P256_SUPPORT */

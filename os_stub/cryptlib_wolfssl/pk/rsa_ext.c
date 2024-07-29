@@ -237,9 +237,6 @@ done:
  **/
 bool libspdm_rsa_check_key(void *rsa_context)
 {
-    size_t reason;
-
-
     /* Check input parameters.*/
 
     if (rsa_context == NULL) {
@@ -247,13 +244,7 @@ bool libspdm_rsa_check_key(void *rsa_context)
     }
 
     if (RSA_check_key((RSA *)rsa_context) != 1) {
-        reason = ERR_GET_REASON(ERR_peek_last_error());
-        if (reason == RSA_R_P_NOT_PRIME ||
-            reason == RSA_R_Q_NOT_PRIME ||
-            reason == RSA_R_N_DOES_NOT_EQUAL_P_Q ||
-            reason == RSA_R_D_E_NOT_CONGRUENT_TO_1) {
-            return false;
-        }
+        return false;
     }
 
     return true;

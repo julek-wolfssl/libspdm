@@ -1629,6 +1629,7 @@ done:
     return res;
 }
 
+#if (LIBSPDM_EDDSA_ED25519_SUPPORT) || (LIBSPDM_EDDSA_ED448_SUPPORT)
 /**
  * Retrieve the Ed public key from one DER-encoded X509 certificate.
  *
@@ -1699,7 +1700,9 @@ done:
 
     return res;
 }
+#endif /* LIBSPDM_EDDSA_ED25519_SUPPORT || LIBSPDM_EDDSA_ED448_SUPPORT */
 
+#if LIBSPDM_SM2_DSA_P256_SUPPORT
 /**
  * Retrieve the sm2 public key from one DER-encoded X509 certificate.
  *
@@ -1770,6 +1773,7 @@ done:
 
     return res;
 }
+#endif /* LIBSPDM_SM2_DSA_P256_SUPPORT */
 
 /**
  * Verify one X509 certificate was issued by the trusted CA.
