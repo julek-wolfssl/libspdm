@@ -886,11 +886,13 @@ static bool libspdm_verify_leaf_cert_spdm_eku(const uint8_t *cert, size_t cert_s
     req_auth_oid_find_success = false;
     rsp_auth_oid_find_success = false;
 
+#ifndef CRYPTO_IS_WOLFSSL /* wolfssl returns data without sequence tag */
     status = libspdm_asn1_get_tag(&ptr, eku + eku_size, &obj_len,
                                   LIBSPDM_CRYPTO_ASN1_SEQUENCE | LIBSPDM_CRYPTO_ASN1_CONSTRUCTED);
     if (!status) {
         return false;
     }
+#endif
 
     while(ptr < eku + eku_size) {
         status = libspdm_asn1_get_tag(&ptr, eku + eku_size, &obj_len, LIBSPDM_CRYPTO_ASN1_OID);

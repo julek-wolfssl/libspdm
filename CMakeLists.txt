@@ -171,6 +171,7 @@ elseif(CRYPTO STREQUAL "wolfssl")
     add_definitions(-DLIBSPDM_SM2_DSA_P256_SUPPORT=0)
     add_definitions(-DLIBSPDM_SM2_KEY_EXCHANGE_P256_SUPPORT=0)
     add_definitions(-DLIBSPDM_AEAD_SM4_128_GCM_SUPPORT=0)
+    add_definitions(-DCRYPTO_IS_WOLFSSL)
 
      if(NOT WOLFSSL_INCDIR)
      	 set(WOLFSSL_INCDIR "/usr/local/include/wolfssl")
